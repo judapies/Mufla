@@ -1,0 +1,8 @@
+D:\Laboratorio\Mufla\2020\Mufla 14L Psoc Avantika #0045884XX OP2020341\Firmware Psoc\LCD2\MuflaGLCD.cydsn\MuflaGLCD.cyprj|b359d7df-4f33-4767-a31d-79870c94632b
+C:\Users\USUARIO\Desktop\Psoc\LCD128x64.cylib\LCD128x64.cyprj|1a15f5a8-5541-4d3c-b379-062cb62201f7
+C:\Users\USUARIO\Documents\PSoC Creator\4.3\Downloads ( 4.3).cylib\Downloads ( 4.3).cyprj|cf65295d-aae2-4b8c-b20e-5e4bc243fec4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e5e6da97-72c5-43a3-a8a1-07599bdac1be
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|acb300d1-4ec3-4b42-96d5-416473215f7c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|29a3bc3c-583f-4556-8b11-76cbf9e8be6b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9ed01fd6-d7ee-4a79-8d06-5eabf74a6a01
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|57372ee8-a56f-4146-90ab-63f8f9a534ca

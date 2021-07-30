@@ -1,0 +1,6 @@
+D:\Laboratorio\Mufla\2020\Mufla 14L Touch Avantika #0045882XX OP202019\Mufla Doble Display\Firmware Psoc\LCD2\LCD.cydsn\LCD.cyprj|2b7e8bdf-a410-4f07-8654-3b662b894af1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|d4a35b97-69d6-4794-bf5c-1d79d984aa3f
+C:\Users\USUARIO\Documents\PSoC Creator\4.3\Downloads ( 4.3).cylib\Downloads ( 4.3).cyprj|37a96e8e-0369-4a2d-857f-038eace3e11c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d5f8031e-a33a-46e3-830e-66233f6374b9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|1e686255-5a7f-49d9-a778-879c02d81730
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|b4465309-2ec3-4406-be73-8737307e3e0c

@@ -1,0 +1,8 @@
+>>> Warning 202 "Mufla.c" Line 38(39,48): Variable never used:   Pausa_ant
+>>> Warning 202 "Mufla.c" Line 39(88,93): Variable never used:   b_int
+>>> Warning 202 "Mufla.c" Line 53(14,18): Variable never used:   Mess
+>>> Warning 202 "Mufla.c" Line 54(51,60): Variable never used:   SegundoTx
+>>> Warning 202 "Mufla.c" Line 54(71,78): Variable never used:   SetTime
+>>> Warning 202 "Mufla.c" Line 54(81,88): Variable never used:   Imprime
+      Memory usage:   ROM=71%      RAM=60% - 61%
+      0 Errors,  6 Warnings.

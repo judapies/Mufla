@@ -1,0 +1,10 @@
+P. 3
+I.1
+D.30
+Tciclo.10
+Media.20
+Coef.100
+Alarma. 0
+M mufla 60
+
+Se aterriza cable blindado en ambas puntas por oscilacion de temperatura

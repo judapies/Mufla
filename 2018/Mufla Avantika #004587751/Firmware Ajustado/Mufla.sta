@@ -1,0 +1,178 @@
+
+ROM used:   44360/98304 (45%)
+            44360/98304 (45%) including unused fragments
+
+            6.7 Average locations per line
+            16.7 Average locations per statement
+
+RAM used:   1931/3328 (58%) at main() level
+            1987/3328 (60%) worst case
+
+Stack used: 5 worst case (4 in main + 1 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+ 2574  2162  81  Mufla.c
+  846     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\18F4685.h
+  354    78   3  HDM64GS12.c
+  556   167   6  GRAPHICS.c
+   68     0   0  imagen.h
+ 2227   257  10  ..\..\..\..\Program Files (x86)\PICC\Drivers\MATH.h
+----- -----
+ 6625  2664 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     40   0    1             @delay_ms1
+0    168   0    1    580  3.2  glcd_init
+0    176   0    7    609  5.4  glcd_update
+0    188   0    9    466  7.8  glcd_pixel
+0     90   0   10    317  4.7  glcd_fillscreen
+0     54   0    2    257  2.8  glcd_writeByte
+0    276   0    0             @const654
+0    240   0    0             @const658
+0    310   0   17   1475  8.8  glcd_line
+0    194   0   11   1036  5.8  glcd_rect
+0     84   0    6             @MULS1616
+0    552   1   12   1822  8.6  glcd_circle
+0     78   0    2             @MUL88
+0    414   0   20   1550 11.2  glcd_text57
+0   1042   1    0             @const735
+0    122   0   10             @FLT
+0     60   0    4             @SFTOI
+0     54   0    2             @ITOF
+0    246   0   11             @MULFF
+0    632   1   16             @ADDFF
+0    350   0   14             @DIVFF
+0     80   0    2             @SITOF
+0    730   1    4    577  5.7  ActualizaRecta
+0     88   0    5    100  2.1  sensores
+0    552   1    5    483  7.1  Leer_Sensor
+0     34   0    5             @MUL1616
+0   2952   3    4   3943  8.5  Controla
+0     44   0    3             @DIV88
+0    120   0    6             @DIVS1616
+0    296   0    8   1050  5.1  displayMenu
+0    998   1   19   3268  5.5  displayTemps
+0     32   0    1             @SPRINTF
+0    200   0    9             @PRINTF_LU_1004
+0     22   0    0             @const1010
+0    456   1   16   1613  5.0  displayTiempo
+0    134   0    2             @PRINTF_U_1004
+0    442   0   17   1550  5.0  displayTemperatura
+0    168   0    6    483  7.8  glcd_imagen
+0    178   0    1    843  5.8  temp1s
+0    112   0   16    330  3.4  displayT
+0    182   0   15    603  4.5  displayContrasena
+0    190   0    6             @PRINTF_D_1004
+0   2870   3    7  10519  9.5  MuestraSegmento
+0     24   0    0             @const1081
+0     32   0    0             @const1082
+0     24   0    0             @const1083
+0     34   0    0             @const1084
+0     28   0    0             @const1085
+0     30   0    0             @const1086
+0  25418  29    6 126164 15.0  main
+0     32   0    0             @const1113
+0     32   0    0             @const1114
+0     32   0    0             @const1115
+0     30   0    0             @const1116
+0     26   0    0             @const1117
+0     30   0    0             @const1119
+0     32   0    0             @const1121
+0     26   0    0             @const1122
+0     38   0    0             @const1123
+0     36   0    0             @const1125
+0     36   0    0             @const1127
+0     28   0    0             @const1129
+0     34   0    0             @const1131
+0     32   0    0             @const1133
+0     30   0    0             @const1134
+0     32   0    0             @const1135
+0     32   0    0             @const1136
+0     32   0    0             @const1137
+0     32   0    0             @const1138
+0     32   0    0             @const1139
+0     32   0    0             @const1140
+0     32   0    0             @const1141
+0     32   0    0             @const1142
+0     28   0    0             @const1143
+0     30   0    0             @const1154
+0     30   0    0             @const1161
+0     30   0    0             @const1162
+0     32   0    0             @const1168
+0     42   0    0             @const1169
+0     40   0    0             @const1170
+0     36   0    0             @const1171
+0     36   0    0             @const1172
+0     38   0    0             @const1173
+0     38   0    0             @const1174
+0     36   0    0             @const1175
+0     42   0    0             @const1176
+0     36   0    0             @const1177
+0     24   0    0             @const1178
+0     24   0    0             @const1179
+0     24   0    0             @const1180
+0     26   0    0             @const1181
+0     24   0    0             @const1182
+0     24   0    0             @const1183
+0     24   0    0             @const1184
+0     24   0    0             @const1185
+0     24   0    0             @const1186
+0     24   0    0             @const1187
+0     24   0    0             @const1188
+0     24   0    0             @const1189
+0     24   0    0             @const1190
+0     24   0    0             @const1191
+0     26   0    0             @const1192
+0     26   0    0             @const1195
+0     28   0    0             @const1196
+0     22   0    0             @const1197
+0     26   0    0             @const1198
+0     22   0    0             @const1199
+0     26   0    0             @const1200
+0     26   0    0             @const1202
+0     40   0    0             @const1203
+0     38   0    0             @const1204
+0     34   0    0             @const1205
+0     30   0    0             @const1207
+0     32   0    0             @const1209
+0     28   0    0             @const1211
+0     30   0    0             @const1213
+0     30   0    0             @const1215
+0     32   0    0             @const1217
+0     32   0    0             @const1219
+0     34   0    0             @const1221
+0     34   0    0             @const1223
+0     22   0    0             @const1226
+0     22   0    0             @const1227
+0     22   0    0             @const1228
+0     28   0    0             @const1230
+0     28   0    0             @const1231
+0     26   0    0             @const1232
+0     28   0    0             @const1234
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               23
+    Statements              2664
+    Comments                1002
+    Volume (V)              190779
+    Difficulty (D)          147.2
+    Effort to implement (E) 28088999
+    Time to implement (T)   433 hours, 28 minutes
+    Est Delivered Bugs (B)  31
+    Cyclomatic Complexity   388
+    Maintainability (MI)    7
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-000BC   182  0  
+000BE-0FFFE  44174  21172  
+10000-17FFE     0  32768  
+
+
+

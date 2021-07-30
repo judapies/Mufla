@@ -1,0 +1,1223 @@
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"removeoffsetnoise.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.MeasureOffset,"ax",%progbits
+  20              		.align	2
+  21              		.global	MeasureOffset
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	MeasureOffset, %function
+  25              	MeasureOffset:
+  26              	.LFB64:
+  27              		.file 1 "removeoffsetnoise.c"
+   1:removeoffsetnoise.c **** /******************************************************************************
+   2:removeoffsetnoise.c **** * File Name: removeoffsetnoise.c
+   3:removeoffsetnoise.c **** *  Version 1.0
+   4:removeoffsetnoise.c **** *
+   5:removeoffsetnoise.c **** * Description:
+   6:removeoffsetnoise.c **** *  This file contains the code to cancel offset and filter noise
+   7:removeoffsetnoise.c **** *
+   8:removeoffsetnoise.c **** * Note:
+   9:removeoffsetnoise.c **** *
+  10:removeoffsetnoise.c **** ********************************************************************************
+  11:removeoffsetnoise.c **** * Copyright (2018), Cypress Semiconductor Corporation. All Rights Reserved.
+  12:removeoffsetnoise.c **** ********************************************************************************
+  13:removeoffsetnoise.c **** * This software is owned by Cypress Semiconductor Corporation (Cypress)
+  14:removeoffsetnoise.c **** * and is protected by and subject to worldwide patent protection (United
+  15:removeoffsetnoise.c **** * States and foreign), United States copyright laws and international treaty
+  16:removeoffsetnoise.c **** * provisions. Cypress hereby grants to licensee a personal, non-exclusive,
+  17:removeoffsetnoise.c **** * non-transferable license to copy, use, modify, create derivative works of,
+  18:removeoffsetnoise.c **** * and compile the Cypress Source Code and derivative works for the sole
+  19:removeoffsetnoise.c **** * purpose of creating custom software in support of licensee product to be
+  20:removeoffsetnoise.c **** * used only in conjunction with a Cypress integrated circuit as specified in
+  21:removeoffsetnoise.c **** * the applicable agreement. Any reproduction, modification, translation,
+  22:removeoffsetnoise.c **** * compilation, or representation of this software except as specified above 
+  23:removeoffsetnoise.c **** * is prohibited without the express written permission of Cypress.
+  24:removeoffsetnoise.c **** *
+  25:removeoffsetnoise.c **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH 
+  26:removeoffsetnoise.c **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  27:removeoffsetnoise.c **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  28:removeoffsetnoise.c **** * Cypress reserves the right to make changes without further notice to the 
+  29:removeoffsetnoise.c **** * materials described herein. Cypress does not assume any liability arising out 
+  30:removeoffsetnoise.c **** * of the application or use of any product or circuit described herein. Cypress 
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 2
+
+
+  31:removeoffsetnoise.c **** * does not authorize its products for use as critical components in life-support 
+  32:removeoffsetnoise.c **** * systems where a malfunction or failure may reasonably be expected to result in 
+  33:removeoffsetnoise.c **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  34:removeoffsetnoise.c **** * support systems application implies that the manufacturer assumes all risk of 
+  35:removeoffsetnoise.c **** * such use and in doing so indemnifies Cypress against all charges. 
+  36:removeoffsetnoise.c **** *
+  37:removeoffsetnoise.c **** * Use of this Software may be limited by and subject to the applicable Cypress
+  38:removeoffsetnoise.c **** * software license agreement. 
+  39:removeoffsetnoise.c **** *******************************************************************************/
+  40:removeoffsetnoise.c **** #include <main.h>
+  41:removeoffsetnoise.c **** 
+  42:removeoffsetnoise.c **** /*******************************************************************************
+  43:removeoffsetnoise.c **** *  Function Name: MeasureOffset
+  44:removeoffsetnoise.c **** ********************************************************************************
+  45:removeoffsetnoise.c **** * Summary:
+  46:removeoffsetnoise.c **** *  This function reads Vssa Ref value. 
+  47:removeoffsetnoise.c **** *
+  48:removeoffsetnoise.c **** * Parameters:
+  49:removeoffsetnoise.c **** * void:
+  50:removeoffsetnoise.c **** *
+  51:removeoffsetnoise.c **** * Return:
+  52:removeoffsetnoise.c **** * int32: Returns the Vssa ref value for CDS 
+  53:removeoffsetnoise.c **** *
+  54:removeoffsetnoise.c **** * Theory:
+  55:removeoffsetnoise.c **** *
+  56:removeoffsetnoise.c **** * Side Effects:
+  57:removeoffsetnoise.c **** * None
+  58:removeoffsetnoise.c **** *******************************************************************************/
+  59:removeoffsetnoise.c **** int32 MeasureOffset(void)
+  60:removeoffsetnoise.c **** {
+  28              		.loc 1 60 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  61:removeoffsetnoise.c ****     int32 result;
+  62:removeoffsetnoise.c ****      
+  63:removeoffsetnoise.c **** 	ADCMux_FastSelect(OFFSET_CHANNEL);
+  36              		.loc 1 63 0
+  37 0002 0120     		movs	r0, #1
+  38 0004 FFF7FEFF 		bl	ADCMux_FastSelect
+  39              	.LVL0:
+  64:removeoffsetnoise.c ****     /*No need to change ADC config, use same config as last measurement*/
+  65:removeoffsetnoise.c **** 	ADC_StartConvert();
+  40              		.loc 1 65 0
+  41 0008 FFF7FEFF 		bl	ADC_StartConvert
+  42              	.LVL1:
+  66:removeoffsetnoise.c **** 	ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+  43              		.loc 1 66 0
+  44 000c 0020     		movs	r0, #0
+  45 000e FFF7FEFF 		bl	ADC_IsEndConversion
+  46              	.LVL2:
+  67:removeoffsetnoise.c ****     result = ADC_GetResult32();
+  47              		.loc 1 67 0
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 3
+
+
+  48 0012 FFF7FEFF 		bl	ADC_GetResult32
+  49              	.LVL3:
+  50 0016 0446     		mov	r4, r0
+  51              	.LVL4:
+  68:removeoffsetnoise.c ****  
+  69:removeoffsetnoise.c ****     ADC_StopConvert();
+  52              		.loc 1 69 0
+  53 0018 FFF7FEFF 		bl	ADC_StopConvert
+  54              	.LVL5:
+  70:removeoffsetnoise.c ****      
+  71:removeoffsetnoise.c ****     return result;
+  72:removeoffsetnoise.c **** }
+  55              		.loc 1 72 0
+  56 001c 2046     		mov	r0, r4
+  57 001e 10BD     		pop	{r4, pc}
+  58              		.cfi_endproc
+  59              	.LFE64:
+  60              		.size	MeasureOffset, .-MeasureOffset
+  61              		.section	.text.FilterSignal,"ax",%progbits
+  62              		.align	2
+  63              		.global	FilterSignal
+  64              		.thumb
+  65              		.thumb_func
+  66              		.type	FilterSignal, %function
+  67              	FilterSignal:
+  68              	.LFB65:
+  73:removeoffsetnoise.c **** 
+  74:removeoffsetnoise.c **** /*******************************************************************************
+  75:removeoffsetnoise.c **** *  Function Name: FilterSignal
+  76:removeoffsetnoise.c **** ********************************************************************************
+  77:removeoffsetnoise.c **** * Summary:
+  78:removeoffsetnoise.c **** *  This is IIR filter to process the sampled ADC data. For first sample passed 
+  79:removeoffsetnoise.c **** *  the function simply returns the passed ADC sample. for second sample onwards,
+  80:removeoffsetnoise.c **** *  fraction of input signal based upon the filter coefficient, is calculated and 
+  81:removeoffsetnoise.c **** *  added to the previously stored filtered value.
+  82:removeoffsetnoise.c **** *
+  83:removeoffsetnoise.c **** * Parameters:
+  84:removeoffsetnoise.c **** * (int32)  ADCSample       - ADC sample read for given signal
+  85:removeoffsetnoise.c **** * (int32)  filteredValue   - stored filtered value for given sensor
+  86:removeoffsetnoise.c **** *
+  87:removeoffsetnoise.c **** * Return: 
+  88:removeoffsetnoise.c **** * (int32)filteredValue - filtered value passed is updated after applying 
+  89:removeoffsetnoise.c **** * IIR filter to the ADC sample.
+  90:removeoffsetnoise.c **** *
+  91:removeoffsetnoise.c **** * Theory:
+  92:removeoffsetnoise.c **** * For more information on the IIR filter please refer to Cypress application
+  93:removeoffsetnoise.c **** * note AN2099.
+  94:removeoffsetnoise.c **** *
+  95:removeoffsetnoise.c **** * Side Effects:
+  96:removeoffsetnoise.c **** * None
+  97:removeoffsetnoise.c **** *******************************************************************************/
+  98:removeoffsetnoise.c **** int32 FilterSignal(int32 ADCSample)
+  99:removeoffsetnoise.c **** {
+  69              		.loc 1 99 0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 4
+
+
+  73              		@ link register save eliminated.
+  74              	.LVL6:
+ 100:removeoffsetnoise.c **** 	/* Filtered value */
+ 101:removeoffsetnoise.c **** 	static int32 filteredValue = 0;
+ 102:removeoffsetnoise.c **** 	
+ 103:removeoffsetnoise.c **** 	/* Filtered value rounded-off to 20-bits */
+ 104:removeoffsetnoise.c **** 	int32 filValueRounded = 0;
+ 105:removeoffsetnoise.c **** 	
+ 106:removeoffsetnoise.c **** 	/* Left shift input by 8 to allow divisions up to 256 */
+ 107:removeoffsetnoise.c **** 	ADCSample <<= MAX_FILTER_COEFF_SHIFT;
+  75              		.loc 1 107 0
+  76 0000 0002     		lsls	r0, r0, #8
+  77              	.LVL7:
+ 108:removeoffsetnoise.c **** 	
+ 109:removeoffsetnoise.c **** 	/*feedforward term to help filter move with fast changes in input*/
+ 110:removeoffsetnoise.c ****     if ((ADCSample > (filteredValue + FILTER_FEEDFORWARD)) || 
+  78              		.loc 1 110 0
+  79 0002 0C4B     		ldr	r3, .L7
+  80 0004 1B68     		ldr	r3, [r3]
+  81 0006 03F5A022 		add	r2, r3, #327680
+  82 000a 9042     		cmp	r0, r2
+  83 000c 03DC     		bgt	.L4
+ 111:removeoffsetnoise.c ****         (ADCSample < (filteredValue - FILTER_FEEDFORWARD)))
+  84              		.loc 1 111 0 discriminator 1
+  85 000e A3F5A022 		sub	r2, r3, #327680
+ 110:removeoffsetnoise.c ****         (ADCSample < (filteredValue - FILTER_FEEDFORWARD)))
+  86              		.loc 1 110 0 discriminator 1
+  87 0012 9042     		cmp	r0, r2
+  88 0014 02DA     		bge	.L5
+  89              	.L4:
+ 112:removeoffsetnoise.c **** 	{
+ 113:removeoffsetnoise.c **** 		filteredValue = ADCSample;
+  90              		.loc 1 113 0
+  91 0016 074B     		ldr	r3, .L7
+  92 0018 1860     		str	r0, [r3]
+  93 001a 04E0     		b	.L6
+  94              	.L5:
+ 114:removeoffsetnoise.c **** 	}
+ 115:removeoffsetnoise.c **** 	else
+ 116:removeoffsetnoise.c **** 	{
+ 117:removeoffsetnoise.c **** 	    filteredValue = filteredValue + ((ADCSample - filteredValue) >> TC_FILTER_COEFF_SHIFT);
+  95              		.loc 1 117 0
+  96 001c C01A     		subs	r0, r0, r3
+  97              	.LVL8:
+  98 001e 03EB6010 		add	r0, r3, r0, asr #5
+  99 0022 044B     		ldr	r3, .L7
+ 100 0024 1860     		str	r0, [r3]
+ 101              	.L6:
+ 118:removeoffsetnoise.c **** 	}
+ 119:removeoffsetnoise.c **** 	
+ 120:removeoffsetnoise.c **** 	/* Compensate filter result for  left shift of 8 and round off */
+ 121:removeoffsetnoise.c **** 	filValueRounded = (filteredValue >> MAX_FILTER_COEFF_SHIFT) + 
+ 102              		.loc 1 121 0
+ 103 0026 034B     		ldr	r3, .L7
+ 104 0028 1B68     		ldr	r3, [r3]
+ 122:removeoffsetnoise.c ****     ((filteredValue & 0x00000080) >> (MAX_FILTER_COEFF_SHIFT - 1));
+ 105              		.loc 1 122 0
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 5
+
+
+ 106 002a C3F3C010 		ubfx	r0, r3, #7, #1
+ 107              	.LVL9:
+ 123:removeoffsetnoise.c **** 	
+ 124:removeoffsetnoise.c **** 	return filValueRounded;
+ 125:removeoffsetnoise.c **** }  
+ 108              		.loc 1 125 0
+ 109 002e 00EB2320 		add	r0, r0, r3, asr #8
+ 110              	.LVL10:
+ 111 0032 7047     		bx	lr
+ 112              	.L8:
+ 113              		.align	2
+ 114              	.L7:
+ 115 0034 00000000 		.word	.LANCHOR0
+ 116              		.cfi_endproc
+ 117              	.LFE65:
+ 118              		.size	FilterSignal, .-FilterSignal
+ 119              		.comm	Programas,800,4
+ 120              		.bss
+ 121              		.align	2
+ 122              		.set	.LANCHOR0,. + 0
+ 123              		.type	filteredValue.7313, %object
+ 124              		.size	filteredValue.7313, 4
+ 125              	filteredValue.7313:
+ 126 0000 00000000 		.space	4
+ 127              		.text
+ 128              	.Letext0:
+ 129              		.file 2 "c:\\program files\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm
+ 130              		.file 3 "c:\\program files\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm
+ 131              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 132              		.file 5 "./main.h"
+ 133              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 134              		.file 7 "Generated_Source\\PSoC5/ADC.h"
+ 135              		.section	.debug_info,"",%progbits
+ 136              	.Ldebug_info0:
+ 137 0000 8A020000 		.4byte	0x28a
+ 138 0004 0400     		.2byte	0x4
+ 139 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 140 000a 04       		.byte	0x4
+ 141 000b 01       		.uleb128 0x1
+ 142 000c 91000000 		.4byte	.LASF41
+ 143 0010 0C       		.byte	0xc
+ 144 0011 97010000 		.4byte	.LASF42
+ 145 0015 E8010000 		.4byte	.LASF43
+ 146 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 147 001d 00000000 		.4byte	0
+ 148 0021 00000000 		.4byte	.Ldebug_line0
+ 149 0025 02       		.uleb128 0x2
+ 150 0026 01       		.byte	0x1
+ 151 0027 06       		.byte	0x6
+ 152 0028 A0020000 		.4byte	.LASF0
+ 153 002c 02       		.uleb128 0x2
+ 154 002d 01       		.byte	0x1
+ 155 002e 08       		.byte	0x8
+ 156 002f 83000000 		.4byte	.LASF1
+ 157 0033 02       		.uleb128 0x2
+ 158 0034 02       		.byte	0x2
+ 159 0035 05       		.byte	0x5
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 6
+
+
+ 160 0036 4F020000 		.4byte	.LASF2
+ 161 003a 02       		.uleb128 0x2
+ 162 003b 02       		.byte	0x2
+ 163 003c 07       		.byte	0x7
+ 164 003d 16000000 		.4byte	.LASF3
+ 165 0041 03       		.uleb128 0x3
+ 166 0042 0C000000 		.4byte	.LASF9
+ 167 0046 02       		.byte	0x2
+ 168 0047 3F       		.byte	0x3f
+ 169 0048 4C000000 		.4byte	0x4c
+ 170 004c 02       		.uleb128 0x2
+ 171 004d 04       		.byte	0x4
+ 172 004e 05       		.byte	0x5
+ 173 004f 7E020000 		.4byte	.LASF4
+ 174 0053 02       		.uleb128 0x2
+ 175 0054 04       		.byte	0x4
+ 176 0055 07       		.byte	0x7
+ 177 0056 77010000 		.4byte	.LASF5
+ 178 005a 02       		.uleb128 0x2
+ 179 005b 08       		.byte	0x8
+ 180 005c 05       		.byte	0x5
+ 181 005d 2A020000 		.4byte	.LASF6
+ 182 0061 02       		.uleb128 0x2
+ 183 0062 08       		.byte	0x8
+ 184 0063 07       		.byte	0x7
+ 185 0064 C4010000 		.4byte	.LASF7
+ 186 0068 04       		.uleb128 0x4
+ 187 0069 04       		.byte	0x4
+ 188 006a 05       		.byte	0x5
+ 189 006b 696E7400 		.ascii	"int\000"
+ 190 006f 02       		.uleb128 0x2
+ 191 0070 04       		.byte	0x4
+ 192 0071 07       		.byte	0x7
+ 193 0072 B7010000 		.4byte	.LASF8
+ 194 0076 03       		.uleb128 0x3
+ 195 0077 4E000000 		.4byte	.LASF10
+ 196 007b 03       		.byte	0x3
+ 197 007c 2C       		.byte	0x2c
+ 198 007d 41000000 		.4byte	0x41
+ 199 0081 05       		.uleb128 0x5
+ 200 0082 6B000000 		.4byte	.LASF11
+ 201 0086 04       		.byte	0x4
+ 202 0087 9201     		.2byte	0x192
+ 203 0089 2C000000 		.4byte	0x2c
+ 204 008d 05       		.uleb128 0x5
+ 205 008e AB010000 		.4byte	.LASF12
+ 206 0092 04       		.byte	0x4
+ 207 0093 9301     		.2byte	0x193
+ 208 0095 3A000000 		.4byte	0x3a
+ 209 0099 05       		.uleb128 0x5
+ 210 009a B2010000 		.4byte	.LASF13
+ 211 009e 04       		.byte	0x4
+ 212 009f 9501     		.2byte	0x195
+ 213 00a1 25000000 		.4byte	0x25
+ 214 00a5 05       		.uleb128 0x5
+ 215 00a6 44010000 		.4byte	.LASF14
+ 216 00aa 04       		.byte	0x4
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 7
+
+
+ 217 00ab 9701     		.2byte	0x197
+ 218 00ad 4C000000 		.4byte	0x4c
+ 219 00b1 02       		.uleb128 0x2
+ 220 00b2 04       		.byte	0x4
+ 221 00b3 04       		.byte	0x4
+ 222 00b4 56000000 		.4byte	.LASF15
+ 223 00b8 02       		.uleb128 0x2
+ 224 00b9 08       		.byte	0x8
+ 225 00ba 04       		.byte	0x4
+ 226 00bb 37000000 		.4byte	.LASF16
+ 227 00bf 02       		.uleb128 0x2
+ 228 00c0 01       		.byte	0x1
+ 229 00c1 08       		.byte	0x8
+ 230 00c2 42020000 		.4byte	.LASF17
+ 231 00c6 02       		.uleb128 0x2
+ 232 00c7 08       		.byte	0x8
+ 233 00c8 04       		.byte	0x4
+ 234 00c9 15020000 		.4byte	.LASF18
+ 235 00cd 02       		.uleb128 0x2
+ 236 00ce 04       		.byte	0x4
+ 237 00cf 07       		.byte	0x7
+ 238 00d0 21020000 		.4byte	.LASF19
+ 239 00d4 06       		.uleb128 0x6
+ 240 00d5 08       		.byte	0x8
+ 241 00d6 05       		.byte	0x5
+ 242 00d7 4D       		.byte	0x4d
+ 243 00d8 25010000 		.4byte	0x125
+ 244 00dc 07       		.uleb128 0x7
+ 245 00dd 5C000000 		.4byte	.LASF20
+ 246 00e1 05       		.byte	0x5
+ 247 00e2 4E       		.byte	0x4e
+ 248 00e3 81000000 		.4byte	0x81
+ 249 00e7 00       		.byte	0
+ 250 00e8 07       		.uleb128 0x7
+ 251 00e9 87020000 		.4byte	.LASF21
+ 252 00ed 05       		.byte	0x5
+ 253 00ee 4F       		.byte	0x4f
+ 254 00ef 81000000 		.4byte	0x81
+ 255 00f3 01       		.byte	0x1
+ 256 00f4 07       		.uleb128 0x7
+ 257 00f5 3E000000 		.4byte	.LASF22
+ 258 00f9 05       		.byte	0x5
+ 259 00fa 50       		.byte	0x50
+ 260 00fb 99000000 		.4byte	0x99
+ 261 00ff 02       		.byte	0x2
+ 262 0100 07       		.uleb128 0x7
+ 263 0101 DB010000 		.4byte	.LASF23
+ 264 0105 05       		.byte	0x5
+ 265 0106 51       		.byte	0x51
+ 266 0107 81000000 		.4byte	0x81
+ 267 010b 03       		.byte	0x3
+ 268 010c 07       		.uleb128 0x7
+ 269 010d 46000000 		.4byte	.LASF24
+ 270 0111 05       		.byte	0x5
+ 271 0112 52       		.byte	0x52
+ 272 0113 81000000 		.4byte	0x81
+ 273 0117 04       		.byte	0x4
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 8
+
+
+ 274 0118 07       		.uleb128 0x7
+ 275 0119 00000000 		.4byte	.LASF25
+ 276 011d 05       		.byte	0x5
+ 277 011e 53       		.byte	0x53
+ 278 011f 8D000000 		.4byte	0x8d
+ 279 0123 06       		.byte	0x6
+ 280 0124 00       		.byte	0
+ 281 0125 03       		.uleb128 0x3
+ 282 0126 29000000 		.4byte	.LASF26
+ 283 012a 05       		.byte	0x5
+ 284 012b 54       		.byte	0x54
+ 285 012c D4000000 		.4byte	0xd4
+ 286 0130 06       		.uleb128 0x6
+ 287 0131 A0       		.byte	0xa0
+ 288 0132 05       		.byte	0x5
+ 289 0133 57       		.byte	0x57
+ 290 0134 45010000 		.4byte	0x145
+ 291 0138 07       		.uleb128 0x7
+ 292 0139 59020000 		.4byte	.LASF27
+ 293 013d 05       		.byte	0x5
+ 294 013e 58       		.byte	0x58
+ 295 013f 45010000 		.4byte	0x145
+ 296 0143 00       		.byte	0
+ 297 0144 00       		.byte	0
+ 298 0145 08       		.uleb128 0x8
+ 299 0146 25010000 		.4byte	0x125
+ 300 014a 55010000 		.4byte	0x155
+ 301 014e 09       		.uleb128 0x9
+ 302 014f CD000000 		.4byte	0xcd
+ 303 0153 13       		.byte	0x13
+ 304 0154 00       		.byte	0
+ 305 0155 03       		.uleb128 0x3
+ 306 0156 47020000 		.4byte	.LASF28
+ 307 015a 05       		.byte	0x5
+ 308 015b 59       		.byte	0x59
+ 309 015c 30010000 		.4byte	0x130
+ 310 0160 0A       		.uleb128 0xa
+ 311 0161 70020000 		.4byte	.LASF29
+ 312 0165 01       		.byte	0x1
+ 313 0166 3B       		.byte	0x3b
+ 314 0167 A5000000 		.4byte	0xa5
+ 315 016b 00000000 		.4byte	.LFB64
+ 316 016f 20000000 		.4byte	.LFE64-.LFB64
+ 317 0173 01       		.uleb128 0x1
+ 318 0174 9C       		.byte	0x9c
+ 319 0175 DB010000 		.4byte	0x1db
+ 320 0179 0B       		.uleb128 0xb
+ 321 017a E1010000 		.4byte	.LASF31
+ 322 017e 01       		.byte	0x1
+ 323 017f 3D       		.byte	0x3d
+ 324 0180 A5000000 		.4byte	0xa5
+ 325 0184 00000000 		.4byte	.LLST0
+ 326 0188 0C       		.uleb128 0xc
+ 327 0189 71000000 		.4byte	.LASF36
+ 328 018d 01       		.byte	0x1
+ 329 018e 3F       		.byte	0x3f
+ 330 018f 68000000 		.4byte	0x68
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 9
+
+
+ 331 0193 99010000 		.4byte	0x199
+ 332 0197 0D       		.uleb128 0xd
+ 333 0198 00       		.byte	0
+ 334 0199 0E       		.uleb128 0xe
+ 335 019a 08000000 		.4byte	.LVL0
+ 336 019e 56020000 		.4byte	0x256
+ 337 01a2 AC010000 		.4byte	0x1ac
+ 338 01a6 0F       		.uleb128 0xf
+ 339 01a7 01       		.uleb128 0x1
+ 340 01a8 50       		.byte	0x50
+ 341 01a9 01       		.uleb128 0x1
+ 342 01aa 31       		.byte	0x31
+ 343 01ab 00       		.byte	0
+ 344 01ac 10       		.uleb128 0x10
+ 345 01ad 0C000000 		.4byte	.LVL1
+ 346 01b1 61020000 		.4byte	0x261
+ 347 01b5 0E       		.uleb128 0xe
+ 348 01b6 12000000 		.4byte	.LVL2
+ 349 01ba 6C020000 		.4byte	0x26c
+ 350 01be C8010000 		.4byte	0x1c8
+ 351 01c2 0F       		.uleb128 0xf
+ 352 01c3 01       		.uleb128 0x1
+ 353 01c4 50       		.byte	0x50
+ 354 01c5 01       		.uleb128 0x1
+ 355 01c6 30       		.byte	0x30
+ 356 01c7 00       		.byte	0
+ 357 01c8 10       		.uleb128 0x10
+ 358 01c9 16000000 		.4byte	.LVL3
+ 359 01cd 77020000 		.4byte	0x277
+ 360 01d1 10       		.uleb128 0x10
+ 361 01d2 1C000000 		.4byte	.LVL5
+ 362 01d6 82020000 		.4byte	0x282
+ 363 01da 00       		.byte	0
+ 364 01db 0A       		.uleb128 0xa
+ 365 01dc 08020000 		.4byte	.LASF30
+ 366 01e0 01       		.byte	0x1
+ 367 01e1 62       		.byte	0x62
+ 368 01e2 A5000000 		.4byte	0xa5
+ 369 01e6 00000000 		.4byte	.LFB65
+ 370 01ea 38000000 		.4byte	.LFE65-.LFB65
+ 371 01ee 01       		.uleb128 0x1
+ 372 01ef 9C       		.byte	0x9c
+ 373 01f0 24020000 		.4byte	0x224
+ 374 01f4 11       		.uleb128 0x11
+ 375 01f5 38020000 		.4byte	.LASF44
+ 376 01f9 01       		.byte	0x1
+ 377 01fa 62       		.byte	0x62
+ 378 01fb A5000000 		.4byte	0xa5
+ 379 01ff 1E000000 		.4byte	.LLST1
+ 380 0203 12       		.uleb128 0x12
+ 381 0204 89010000 		.4byte	.LASF32
+ 382 0208 01       		.byte	0x1
+ 383 0209 65       		.byte	0x65
+ 384 020a A5000000 		.4byte	0xa5
+ 385 020e 05       		.uleb128 0x5
+ 386 020f 03       		.byte	0x3
+ 387 0210 00000000 		.4byte	filteredValue.7313
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 10
+
+
+ 388 0214 0B       		.uleb128 0xb
+ 389 0215 60020000 		.4byte	.LASF33
+ 390 0219 01       		.byte	0x1
+ 391 021a 68       		.byte	0x68
+ 392 021b A5000000 		.4byte	0xa5
+ 393 021f 4C000000 		.4byte	.LLST2
+ 394 0223 00       		.byte	0
+ 395 0224 13       		.uleb128 0x13
+ 396 0225 5A010000 		.4byte	.LASF34
+ 397 0229 06       		.byte	0x6
+ 398 022a 1207     		.2byte	0x712
+ 399 022c 30020000 		.4byte	0x230
+ 400 0230 14       		.uleb128 0x14
+ 401 0231 76000000 		.4byte	0x76
+ 402 0235 08       		.uleb128 0x8
+ 403 0236 55010000 		.4byte	0x155
+ 404 023a 45020000 		.4byte	0x245
+ 405 023e 09       		.uleb128 0x9
+ 406 023f CD000000 		.4byte	0xcd
+ 407 0243 04       		.byte	0x4
+ 408 0244 00       		.byte	0
+ 409 0245 15       		.uleb128 0x15
+ 410 0246 96020000 		.4byte	.LASF35
+ 411 024a 05       		.byte	0x5
+ 412 024b 5A       		.byte	0x5a
+ 413 024c 35020000 		.4byte	0x235
+ 414 0250 05       		.uleb128 0x5
+ 415 0251 03       		.byte	0x3
+ 416 0252 00000000 		.4byte	Programas
+ 417 0256 16       		.uleb128 0x16
+ 418 0257 71000000 		.4byte	.LASF36
+ 419 025b 71000000 		.4byte	.LASF36
+ 420 025f 01       		.byte	0x1
+ 421 0260 3F       		.byte	0x3f
+ 422 0261 16       		.uleb128 0x16
+ 423 0262 1F010000 		.4byte	.LASF37
+ 424 0266 1F010000 		.4byte	.LASF37
+ 425 026a 07       		.byte	0x7
+ 426 026b 3D       		.byte	0x3d
+ 427 026c 16       		.uleb128 0x16
+ 428 026d 30010000 		.4byte	.LASF38
+ 429 0271 30010000 		.4byte	.LASF38
+ 430 0275 07       		.byte	0x7
+ 431 0276 3F       		.byte	0x3f
+ 432 0277 16       		.uleb128 0x16
+ 433 0278 67010000 		.4byte	.LASF39
+ 434 027c 67010000 		.4byte	.LASF39
+ 435 0280 07       		.byte	0x7
+ 436 0281 42       		.byte	0x42
+ 437 0282 16       		.uleb128 0x16
+ 438 0283 4A010000 		.4byte	.LASF40
+ 439 0287 4A010000 		.4byte	.LASF40
+ 440 028b 07       		.byte	0x7
+ 441 028c 3E       		.byte	0x3e
+ 442 028d 00       		.byte	0
+ 443              		.section	.debug_abbrev,"",%progbits
+ 444              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 11
+
+
+ 445 0000 01       		.uleb128 0x1
+ 446 0001 11       		.uleb128 0x11
+ 447 0002 01       		.byte	0x1
+ 448 0003 25       		.uleb128 0x25
+ 449 0004 0E       		.uleb128 0xe
+ 450 0005 13       		.uleb128 0x13
+ 451 0006 0B       		.uleb128 0xb
+ 452 0007 03       		.uleb128 0x3
+ 453 0008 0E       		.uleb128 0xe
+ 454 0009 1B       		.uleb128 0x1b
+ 455 000a 0E       		.uleb128 0xe
+ 456 000b 55       		.uleb128 0x55
+ 457 000c 17       		.uleb128 0x17
+ 458 000d 11       		.uleb128 0x11
+ 459 000e 01       		.uleb128 0x1
+ 460 000f 10       		.uleb128 0x10
+ 461 0010 17       		.uleb128 0x17
+ 462 0011 00       		.byte	0
+ 463 0012 00       		.byte	0
+ 464 0013 02       		.uleb128 0x2
+ 465 0014 24       		.uleb128 0x24
+ 466 0015 00       		.byte	0
+ 467 0016 0B       		.uleb128 0xb
+ 468 0017 0B       		.uleb128 0xb
+ 469 0018 3E       		.uleb128 0x3e
+ 470 0019 0B       		.uleb128 0xb
+ 471 001a 03       		.uleb128 0x3
+ 472 001b 0E       		.uleb128 0xe
+ 473 001c 00       		.byte	0
+ 474 001d 00       		.byte	0
+ 475 001e 03       		.uleb128 0x3
+ 476 001f 16       		.uleb128 0x16
+ 477 0020 00       		.byte	0
+ 478 0021 03       		.uleb128 0x3
+ 479 0022 0E       		.uleb128 0xe
+ 480 0023 3A       		.uleb128 0x3a
+ 481 0024 0B       		.uleb128 0xb
+ 482 0025 3B       		.uleb128 0x3b
+ 483 0026 0B       		.uleb128 0xb
+ 484 0027 49       		.uleb128 0x49
+ 485 0028 13       		.uleb128 0x13
+ 486 0029 00       		.byte	0
+ 487 002a 00       		.byte	0
+ 488 002b 04       		.uleb128 0x4
+ 489 002c 24       		.uleb128 0x24
+ 490 002d 00       		.byte	0
+ 491 002e 0B       		.uleb128 0xb
+ 492 002f 0B       		.uleb128 0xb
+ 493 0030 3E       		.uleb128 0x3e
+ 494 0031 0B       		.uleb128 0xb
+ 495 0032 03       		.uleb128 0x3
+ 496 0033 08       		.uleb128 0x8
+ 497 0034 00       		.byte	0
+ 498 0035 00       		.byte	0
+ 499 0036 05       		.uleb128 0x5
+ 500 0037 16       		.uleb128 0x16
+ 501 0038 00       		.byte	0
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 12
+
+
+ 502 0039 03       		.uleb128 0x3
+ 503 003a 0E       		.uleb128 0xe
+ 504 003b 3A       		.uleb128 0x3a
+ 505 003c 0B       		.uleb128 0xb
+ 506 003d 3B       		.uleb128 0x3b
+ 507 003e 05       		.uleb128 0x5
+ 508 003f 49       		.uleb128 0x49
+ 509 0040 13       		.uleb128 0x13
+ 510 0041 00       		.byte	0
+ 511 0042 00       		.byte	0
+ 512 0043 06       		.uleb128 0x6
+ 513 0044 13       		.uleb128 0x13
+ 514 0045 01       		.byte	0x1
+ 515 0046 0B       		.uleb128 0xb
+ 516 0047 0B       		.uleb128 0xb
+ 517 0048 3A       		.uleb128 0x3a
+ 518 0049 0B       		.uleb128 0xb
+ 519 004a 3B       		.uleb128 0x3b
+ 520 004b 0B       		.uleb128 0xb
+ 521 004c 01       		.uleb128 0x1
+ 522 004d 13       		.uleb128 0x13
+ 523 004e 00       		.byte	0
+ 524 004f 00       		.byte	0
+ 525 0050 07       		.uleb128 0x7
+ 526 0051 0D       		.uleb128 0xd
+ 527 0052 00       		.byte	0
+ 528 0053 03       		.uleb128 0x3
+ 529 0054 0E       		.uleb128 0xe
+ 530 0055 3A       		.uleb128 0x3a
+ 531 0056 0B       		.uleb128 0xb
+ 532 0057 3B       		.uleb128 0x3b
+ 533 0058 0B       		.uleb128 0xb
+ 534 0059 49       		.uleb128 0x49
+ 535 005a 13       		.uleb128 0x13
+ 536 005b 38       		.uleb128 0x38
+ 537 005c 0B       		.uleb128 0xb
+ 538 005d 00       		.byte	0
+ 539 005e 00       		.byte	0
+ 540 005f 08       		.uleb128 0x8
+ 541 0060 01       		.uleb128 0x1
+ 542 0061 01       		.byte	0x1
+ 543 0062 49       		.uleb128 0x49
+ 544 0063 13       		.uleb128 0x13
+ 545 0064 01       		.uleb128 0x1
+ 546 0065 13       		.uleb128 0x13
+ 547 0066 00       		.byte	0
+ 548 0067 00       		.byte	0
+ 549 0068 09       		.uleb128 0x9
+ 550 0069 21       		.uleb128 0x21
+ 551 006a 00       		.byte	0
+ 552 006b 49       		.uleb128 0x49
+ 553 006c 13       		.uleb128 0x13
+ 554 006d 2F       		.uleb128 0x2f
+ 555 006e 0B       		.uleb128 0xb
+ 556 006f 00       		.byte	0
+ 557 0070 00       		.byte	0
+ 558 0071 0A       		.uleb128 0xa
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 13
+
+
+ 559 0072 2E       		.uleb128 0x2e
+ 560 0073 01       		.byte	0x1
+ 561 0074 3F       		.uleb128 0x3f
+ 562 0075 19       		.uleb128 0x19
+ 563 0076 03       		.uleb128 0x3
+ 564 0077 0E       		.uleb128 0xe
+ 565 0078 3A       		.uleb128 0x3a
+ 566 0079 0B       		.uleb128 0xb
+ 567 007a 3B       		.uleb128 0x3b
+ 568 007b 0B       		.uleb128 0xb
+ 569 007c 27       		.uleb128 0x27
+ 570 007d 19       		.uleb128 0x19
+ 571 007e 49       		.uleb128 0x49
+ 572 007f 13       		.uleb128 0x13
+ 573 0080 11       		.uleb128 0x11
+ 574 0081 01       		.uleb128 0x1
+ 575 0082 12       		.uleb128 0x12
+ 576 0083 06       		.uleb128 0x6
+ 577 0084 40       		.uleb128 0x40
+ 578 0085 18       		.uleb128 0x18
+ 579 0086 9742     		.uleb128 0x2117
+ 580 0088 19       		.uleb128 0x19
+ 581 0089 01       		.uleb128 0x1
+ 582 008a 13       		.uleb128 0x13
+ 583 008b 00       		.byte	0
+ 584 008c 00       		.byte	0
+ 585 008d 0B       		.uleb128 0xb
+ 586 008e 34       		.uleb128 0x34
+ 587 008f 00       		.byte	0
+ 588 0090 03       		.uleb128 0x3
+ 589 0091 0E       		.uleb128 0xe
+ 590 0092 3A       		.uleb128 0x3a
+ 591 0093 0B       		.uleb128 0xb
+ 592 0094 3B       		.uleb128 0x3b
+ 593 0095 0B       		.uleb128 0xb
+ 594 0096 49       		.uleb128 0x49
+ 595 0097 13       		.uleb128 0x13
+ 596 0098 02       		.uleb128 0x2
+ 597 0099 17       		.uleb128 0x17
+ 598 009a 00       		.byte	0
+ 599 009b 00       		.byte	0
+ 600 009c 0C       		.uleb128 0xc
+ 601 009d 2E       		.uleb128 0x2e
+ 602 009e 01       		.byte	0x1
+ 603 009f 3F       		.uleb128 0x3f
+ 604 00a0 19       		.uleb128 0x19
+ 605 00a1 03       		.uleb128 0x3
+ 606 00a2 0E       		.uleb128 0xe
+ 607 00a3 3A       		.uleb128 0x3a
+ 608 00a4 0B       		.uleb128 0xb
+ 609 00a5 3B       		.uleb128 0x3b
+ 610 00a6 0B       		.uleb128 0xb
+ 611 00a7 49       		.uleb128 0x49
+ 612 00a8 13       		.uleb128 0x13
+ 613 00a9 3C       		.uleb128 0x3c
+ 614 00aa 19       		.uleb128 0x19
+ 615 00ab 01       		.uleb128 0x1
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 14
+
+
+ 616 00ac 13       		.uleb128 0x13
+ 617 00ad 00       		.byte	0
+ 618 00ae 00       		.byte	0
+ 619 00af 0D       		.uleb128 0xd
+ 620 00b0 18       		.uleb128 0x18
+ 621 00b1 00       		.byte	0
+ 622 00b2 00       		.byte	0
+ 623 00b3 00       		.byte	0
+ 624 00b4 0E       		.uleb128 0xe
+ 625 00b5 898201   		.uleb128 0x4109
+ 626 00b8 01       		.byte	0x1
+ 627 00b9 11       		.uleb128 0x11
+ 628 00ba 01       		.uleb128 0x1
+ 629 00bb 31       		.uleb128 0x31
+ 630 00bc 13       		.uleb128 0x13
+ 631 00bd 01       		.uleb128 0x1
+ 632 00be 13       		.uleb128 0x13
+ 633 00bf 00       		.byte	0
+ 634 00c0 00       		.byte	0
+ 635 00c1 0F       		.uleb128 0xf
+ 636 00c2 8A8201   		.uleb128 0x410a
+ 637 00c5 00       		.byte	0
+ 638 00c6 02       		.uleb128 0x2
+ 639 00c7 18       		.uleb128 0x18
+ 640 00c8 9142     		.uleb128 0x2111
+ 641 00ca 18       		.uleb128 0x18
+ 642 00cb 00       		.byte	0
+ 643 00cc 00       		.byte	0
+ 644 00cd 10       		.uleb128 0x10
+ 645 00ce 898201   		.uleb128 0x4109
+ 646 00d1 00       		.byte	0
+ 647 00d2 11       		.uleb128 0x11
+ 648 00d3 01       		.uleb128 0x1
+ 649 00d4 31       		.uleb128 0x31
+ 650 00d5 13       		.uleb128 0x13
+ 651 00d6 00       		.byte	0
+ 652 00d7 00       		.byte	0
+ 653 00d8 11       		.uleb128 0x11
+ 654 00d9 05       		.uleb128 0x5
+ 655 00da 00       		.byte	0
+ 656 00db 03       		.uleb128 0x3
+ 657 00dc 0E       		.uleb128 0xe
+ 658 00dd 3A       		.uleb128 0x3a
+ 659 00de 0B       		.uleb128 0xb
+ 660 00df 3B       		.uleb128 0x3b
+ 661 00e0 0B       		.uleb128 0xb
+ 662 00e1 49       		.uleb128 0x49
+ 663 00e2 13       		.uleb128 0x13
+ 664 00e3 02       		.uleb128 0x2
+ 665 00e4 17       		.uleb128 0x17
+ 666 00e5 00       		.byte	0
+ 667 00e6 00       		.byte	0
+ 668 00e7 12       		.uleb128 0x12
+ 669 00e8 34       		.uleb128 0x34
+ 670 00e9 00       		.byte	0
+ 671 00ea 03       		.uleb128 0x3
+ 672 00eb 0E       		.uleb128 0xe
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 15
+
+
+ 673 00ec 3A       		.uleb128 0x3a
+ 674 00ed 0B       		.uleb128 0xb
+ 675 00ee 3B       		.uleb128 0x3b
+ 676 00ef 0B       		.uleb128 0xb
+ 677 00f0 49       		.uleb128 0x49
+ 678 00f1 13       		.uleb128 0x13
+ 679 00f2 02       		.uleb128 0x2
+ 680 00f3 18       		.uleb128 0x18
+ 681 00f4 00       		.byte	0
+ 682 00f5 00       		.byte	0
+ 683 00f6 13       		.uleb128 0x13
+ 684 00f7 34       		.uleb128 0x34
+ 685 00f8 00       		.byte	0
+ 686 00f9 03       		.uleb128 0x3
+ 687 00fa 0E       		.uleb128 0xe
+ 688 00fb 3A       		.uleb128 0x3a
+ 689 00fc 0B       		.uleb128 0xb
+ 690 00fd 3B       		.uleb128 0x3b
+ 691 00fe 05       		.uleb128 0x5
+ 692 00ff 49       		.uleb128 0x49
+ 693 0100 13       		.uleb128 0x13
+ 694 0101 3F       		.uleb128 0x3f
+ 695 0102 19       		.uleb128 0x19
+ 696 0103 3C       		.uleb128 0x3c
+ 697 0104 19       		.uleb128 0x19
+ 698 0105 00       		.byte	0
+ 699 0106 00       		.byte	0
+ 700 0107 14       		.uleb128 0x14
+ 701 0108 35       		.uleb128 0x35
+ 702 0109 00       		.byte	0
+ 703 010a 49       		.uleb128 0x49
+ 704 010b 13       		.uleb128 0x13
+ 705 010c 00       		.byte	0
+ 706 010d 00       		.byte	0
+ 707 010e 15       		.uleb128 0x15
+ 708 010f 34       		.uleb128 0x34
+ 709 0110 00       		.byte	0
+ 710 0111 03       		.uleb128 0x3
+ 711 0112 0E       		.uleb128 0xe
+ 712 0113 3A       		.uleb128 0x3a
+ 713 0114 0B       		.uleb128 0xb
+ 714 0115 3B       		.uleb128 0x3b
+ 715 0116 0B       		.uleb128 0xb
+ 716 0117 49       		.uleb128 0x49
+ 717 0118 13       		.uleb128 0x13
+ 718 0119 3F       		.uleb128 0x3f
+ 719 011a 19       		.uleb128 0x19
+ 720 011b 02       		.uleb128 0x2
+ 721 011c 18       		.uleb128 0x18
+ 722 011d 00       		.byte	0
+ 723 011e 00       		.byte	0
+ 724 011f 16       		.uleb128 0x16
+ 725 0120 2E       		.uleb128 0x2e
+ 726 0121 00       		.byte	0
+ 727 0122 3F       		.uleb128 0x3f
+ 728 0123 19       		.uleb128 0x19
+ 729 0124 3C       		.uleb128 0x3c
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 16
+
+
+ 730 0125 19       		.uleb128 0x19
+ 731 0126 6E       		.uleb128 0x6e
+ 732 0127 0E       		.uleb128 0xe
+ 733 0128 03       		.uleb128 0x3
+ 734 0129 0E       		.uleb128 0xe
+ 735 012a 3A       		.uleb128 0x3a
+ 736 012b 0B       		.uleb128 0xb
+ 737 012c 3B       		.uleb128 0x3b
+ 738 012d 0B       		.uleb128 0xb
+ 739 012e 00       		.byte	0
+ 740 012f 00       		.byte	0
+ 741 0130 00       		.byte	0
+ 742              		.section	.debug_loc,"",%progbits
+ 743              	.Ldebug_loc0:
+ 744              	.LLST0:
+ 745 0000 18000000 		.4byte	.LVL4
+ 746 0004 1B000000 		.4byte	.LVL5-1
+ 747 0008 0100     		.2byte	0x1
+ 748 000a 50       		.byte	0x50
+ 749 000b 1B000000 		.4byte	.LVL5-1
+ 750 000f 20000000 		.4byte	.LFE64
+ 751 0013 0100     		.2byte	0x1
+ 752 0015 54       		.byte	0x54
+ 753 0016 00000000 		.4byte	0
+ 754 001a 00000000 		.4byte	0
+ 755              	.LLST1:
+ 756 001e 00000000 		.4byte	.LVL6
+ 757 0022 02000000 		.4byte	.LVL7
+ 758 0026 0100     		.2byte	0x1
+ 759 0028 50       		.byte	0x50
+ 760 0029 02000000 		.4byte	.LVL7
+ 761 002d 1E000000 		.4byte	.LVL8
+ 762 0031 0100     		.2byte	0x1
+ 763 0033 50       		.byte	0x50
+ 764 0034 1E000000 		.4byte	.LVL8
+ 765 0038 38000000 		.4byte	.LFE65
+ 766 003c 0600     		.2byte	0x6
+ 767 003e F3       		.byte	0xf3
+ 768 003f 01       		.uleb128 0x1
+ 769 0040 50       		.byte	0x50
+ 770 0041 38       		.byte	0x38
+ 771 0042 24       		.byte	0x24
+ 772 0043 9F       		.byte	0x9f
+ 773 0044 00000000 		.4byte	0
+ 774 0048 00000000 		.4byte	0
+ 775              	.LLST2:
+ 776 004c 00000000 		.4byte	.LVL6
+ 777 0050 2E000000 		.4byte	.LVL9
+ 778 0054 0200     		.2byte	0x2
+ 779 0056 30       		.byte	0x30
+ 780 0057 9F       		.byte	0x9f
+ 781 0058 2E000000 		.4byte	.LVL9
+ 782 005c 32000000 		.4byte	.LVL10
+ 783 0060 0800     		.2byte	0x8
+ 784 0062 73       		.byte	0x73
+ 785 0063 00       		.sleb128 0
+ 786 0064 38       		.byte	0x38
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 17
+
+
+ 787 0065 26       		.byte	0x26
+ 788 0066 70       		.byte	0x70
+ 789 0067 00       		.sleb128 0
+ 790 0068 22       		.byte	0x22
+ 791 0069 9F       		.byte	0x9f
+ 792 006a 32000000 		.4byte	.LVL10
+ 793 006e 38000000 		.4byte	.LFE65
+ 794 0072 0100     		.2byte	0x1
+ 795 0074 50       		.byte	0x50
+ 796 0075 00000000 		.4byte	0
+ 797 0079 00000000 		.4byte	0
+ 798              		.section	.debug_aranges,"",%progbits
+ 799 0000 24000000 		.4byte	0x24
+ 800 0004 0200     		.2byte	0x2
+ 801 0006 00000000 		.4byte	.Ldebug_info0
+ 802 000a 04       		.byte	0x4
+ 803 000b 00       		.byte	0
+ 804 000c 0000     		.2byte	0
+ 805 000e 0000     		.2byte	0
+ 806 0010 00000000 		.4byte	.LFB64
+ 807 0014 20000000 		.4byte	.LFE64-.LFB64
+ 808 0018 00000000 		.4byte	.LFB65
+ 809 001c 38000000 		.4byte	.LFE65-.LFB65
+ 810 0020 00000000 		.4byte	0
+ 811 0024 00000000 		.4byte	0
+ 812              		.section	.debug_ranges,"",%progbits
+ 813              	.Ldebug_ranges0:
+ 814 0000 00000000 		.4byte	.LFB64
+ 815 0004 20000000 		.4byte	.LFE64
+ 816 0008 00000000 		.4byte	.LFB65
+ 817 000c 38000000 		.4byte	.LFE65
+ 818 0010 00000000 		.4byte	0
+ 819 0014 00000000 		.4byte	0
+ 820              		.section	.debug_line,"",%progbits
+ 821              	.Ldebug_line0:
+ 822 0000 9E010000 		.section	.debug_str,"MS",%progbits,1
+ 822      02006201 
+ 822      00000201 
+ 822      FB0E0D00 
+ 822      01010101 
+ 823              	.LASF25:
+ 824 0000 54656D70 		.ascii	"Temperatura\000"
+ 824      65726174 
+ 824      75726100 
+ 825              	.LASF9:
+ 826 000c 5F5F696E 		.ascii	"__int32_t\000"
+ 826      7433325F 
+ 826      7400
+ 827              	.LASF3:
+ 828 0016 73686F72 		.ascii	"short unsigned int\000"
+ 828      7420756E 
+ 828      7369676E 
+ 828      65642069 
+ 828      6E7400
+ 829              	.LASF26:
+ 830 0029 50657273 		.ascii	"Personalizado\000"
+ 830      6F6E616C 
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 18
+
+
+ 830      697A6164 
+ 830      6F00
+ 831              	.LASF16:
+ 832 0037 646F7562 		.ascii	"double\000"
+ 832      6C6500
+ 833              	.LASF22:
+ 834 003e 48756D65 		.ascii	"Humedad\000"
+ 834      64616400 
+ 835              	.LASF24:
+ 836 0046 4D696E75 		.ascii	"Minutos\000"
+ 836      746F7300 
+ 837              	.LASF10:
+ 838 004e 696E7433 		.ascii	"int32_t\000"
+ 838      325F7400 
+ 839              	.LASF15:
+ 840 0056 666C6F61 		.ascii	"float\000"
+ 840      7400
+ 841              	.LASF20:
+ 842 005c 54656D70 		.ascii	"TemperaturaDec\000"
+ 842      65726174 
+ 842      75726144 
+ 842      656300
+ 843              	.LASF11:
+ 844 006b 75696E74 		.ascii	"uint8\000"
+ 844      3800
+ 845              	.LASF36:
+ 846 0071 4144434D 		.ascii	"ADCMux_FastSelect\000"
+ 846      75785F46 
+ 846      61737453 
+ 846      656C6563 
+ 846      7400
+ 847              	.LASF1:
+ 848 0083 756E7369 		.ascii	"unsigned char\000"
+ 848      676E6564 
+ 848      20636861 
+ 848      7200
+ 849              	.LASF41:
+ 850 0091 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 850      43313120 
+ 850      352E342E 
+ 850      31203230 
+ 850      31363036 
+ 851 00c4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 851      20726576 
+ 851      6973696F 
+ 851      6E203233 
+ 851      37373135 
+ 852 00f7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 852      66756E63 
+ 852      74696F6E 
+ 852      2D736563 
+ 852      74696F6E 
+ 853              	.LASF37:
+ 854 011f 4144435F 		.ascii	"ADC_StartConvert\000"
+ 854      53746172 
+ 854      74436F6E 
+ 854      76657274 
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 19
+
+
+ 854      00
+ 855              	.LASF38:
+ 856 0130 4144435F 		.ascii	"ADC_IsEndConversion\000"
+ 856      4973456E 
+ 856      64436F6E 
+ 856      76657273 
+ 856      696F6E00 
+ 857              	.LASF14:
+ 858 0144 696E7433 		.ascii	"int32\000"
+ 858      3200
+ 859              	.LASF40:
+ 860 014a 4144435F 		.ascii	"ADC_StopConvert\000"
+ 860      53746F70 
+ 860      436F6E76 
+ 860      65727400 
+ 861              	.LASF34:
+ 862 015a 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 862      52784275 
+ 862      66666572 
+ 862      00
+ 863              	.LASF39:
+ 864 0167 4144435F 		.ascii	"ADC_GetResult32\000"
+ 864      47657452 
+ 864      6573756C 
+ 864      74333200 
+ 865              	.LASF5:
+ 866 0177 6C6F6E67 		.ascii	"long unsigned int\000"
+ 866      20756E73 
+ 866      69676E65 
+ 866      6420696E 
+ 866      7400
+ 867              	.LASF32:
+ 868 0189 66696C74 		.ascii	"filteredValue\000"
+ 868      65726564 
+ 868      56616C75 
+ 868      6500
+ 869              	.LASF42:
+ 870 0197 72656D6F 		.ascii	"removeoffsetnoise.c\000"
+ 870      76656F66 
+ 870      66736574 
+ 870      6E6F6973 
+ 870      652E6300 
+ 871              	.LASF12:
+ 872 01ab 75696E74 		.ascii	"uint16\000"
+ 872      313600
+ 873              	.LASF13:
+ 874 01b2 696E7438 		.ascii	"int8\000"
+ 874      00
+ 875              	.LASF8:
+ 876 01b7 756E7369 		.ascii	"unsigned int\000"
+ 876      676E6564 
+ 876      20696E74 
+ 876      00
+ 877              	.LASF7:
+ 878 01c4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 878      206C6F6E 
+ 878      6720756E 
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 20
+
+
+ 878      7369676E 
+ 878      65642069 
+ 879              	.LASF23:
+ 880 01db 486F7261 		.ascii	"Horas\000"
+ 880      7300
+ 881              	.LASF31:
+ 882 01e1 72657375 		.ascii	"result\000"
+ 882      6C7400
+ 883              	.LASF43:
+ 884 01e8 463A5C46 		.ascii	"F:\\Firmware Psoc\\LCD2\\LCD.cydsn\000"
+ 884      69726D77 
+ 884      61726520 
+ 884      50736F63 
+ 884      5C4C4344 
+ 885              	.LASF30:
+ 886 0208 46696C74 		.ascii	"FilterSignal\000"
+ 886      65725369 
+ 886      676E616C 
+ 886      00
+ 887              	.LASF18:
+ 888 0215 6C6F6E67 		.ascii	"long double\000"
+ 888      20646F75 
+ 888      626C6500 
+ 889              	.LASF19:
+ 890 0221 73697A65 		.ascii	"sizetype\000"
+ 890      74797065 
+ 890      00
+ 891              	.LASF6:
+ 892 022a 6C6F6E67 		.ascii	"long long int\000"
+ 892      206C6F6E 
+ 892      6720696E 
+ 892      7400
+ 893              	.LASF44:
+ 894 0238 41444353 		.ascii	"ADCSample\000"
+ 894      616D706C 
+ 894      6500
+ 895              	.LASF17:
+ 896 0242 63686172 		.ascii	"char\000"
+ 896      00
+ 897              	.LASF28:
+ 898 0247 50726F67 		.ascii	"Program\000"
+ 898      72616D00 
+ 899              	.LASF2:
+ 900 024f 73686F72 		.ascii	"short int\000"
+ 900      7420696E 
+ 900      7400
+ 901              	.LASF27:
+ 902 0259 72616D70 		.ascii	"rampas\000"
+ 902      617300
+ 903              	.LASF33:
+ 904 0260 66696C56 		.ascii	"filValueRounded\000"
+ 904      616C7565 
+ 904      526F756E 
+ 904      64656400 
+ 905              	.LASF29:
+ 906 0270 4D656173 		.ascii	"MeasureOffset\000"
+ 906      7572654F 
+ARM GAS  C:\Users\JPELEC~1\AppData\Local\Temp\ccPX84bO.s 			page 21
+
+
+ 906      66667365 
+ 906      7400
+ 907              	.LASF4:
+ 908 027e 6C6F6E67 		.ascii	"long int\000"
+ 908      20696E74 
+ 908      00
+ 909              	.LASF21:
+ 910 0287 54656D70 		.ascii	"TemperaturaInt\000"
+ 910      65726174 
+ 910      75726149 
+ 910      6E7400
+ 911              	.LASF35:
+ 912 0296 50726F67 		.ascii	"Programas\000"
+ 912      72616D61 
+ 912      7300
+ 913              	.LASF0:
+ 914 02a0 7369676E 		.ascii	"signed char\000"
+ 914      65642063 
+ 914      68617200 
+ 915              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

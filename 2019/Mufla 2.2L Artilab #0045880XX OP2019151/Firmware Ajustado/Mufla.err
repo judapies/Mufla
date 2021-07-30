@@ -1,0 +1,3 @@
+>>> Warning 202 "Mufla.c" Line 36(39,48): Variable never used:   Pausa_ant
+      Memory usage:   ROM=55%      RAM=59% - 61%
+      0 Errors,  1 Warnings.

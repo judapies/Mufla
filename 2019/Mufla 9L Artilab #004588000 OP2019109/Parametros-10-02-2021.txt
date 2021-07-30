@@ -1,0 +1,16 @@
+P. 3
+I.1
+D.20
+Tciclo.10
+Aj+.0
+Aj-.0
+Media.20
+Coef.100
+Alarma. 250
+Resis.230
+Mmufla.44
+m.1.76
+b.343.56
+
+m.1.74
+b.330.46

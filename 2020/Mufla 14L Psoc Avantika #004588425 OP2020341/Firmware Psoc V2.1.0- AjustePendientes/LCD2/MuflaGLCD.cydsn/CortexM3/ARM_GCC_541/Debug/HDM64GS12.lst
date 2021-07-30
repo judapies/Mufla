@@ -1,0 +1,2986 @@
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"HDM64GS12.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.glcd_pixel,"ax",%progbits
+  20              		.align	2
+  21              		.global	glcd_pixel
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	glcd_pixel, %function
+  25              	glcd_pixel:
+  26              	.LFB65:
+  27              		.file 1 "HDM64GS12.c"
+   1:HDM64GS12.c   **** /////////////////////////////////////////////////////////////////////////
+   2:HDM64GS12.c   **** ////                           HDM64GS12.c                           ////
+   3:HDM64GS12.c   **** ////                                                                 ////
+   4:HDM64GS12.c   **** //// This file contains drivers for using a Hantronix HDM64GS12 with ////
+   5:HDM64GS12.c   **** //// a KS0108 display controller. The HDM64GS12 is 128 by 64 pixels. ////
+   6:HDM64GS12.c   **** //// The driver treats the upper left pixel as (0,0).                ////
+   7:HDM64GS12.c   **** ////                                                                 ////
+   8:HDM64GS12.c   **** //// Use #define FAST_GLCD if the target chip has at least 1k of RAM ////
+   9:HDM64GS12.c   **** //// to decrease the time it takes to update the display.            ////
+  10:HDM64GS12.c   **** //// glcd_update() must then be called to update the display after   ////
+  11:HDM64GS12.c   **** //// changing the pixel information.                                 ////
+  12:HDM64GS12.c   **** //// See ex_glcd.c for suggested usage.                              ////
+  13:HDM64GS12.c   **** //// See KS0108.c for controlling a single 64 by 64 display          ////
+  14:HDM64GS12.c   **** /////////////////////////////////////////////////////////////////////////
+  15:HDM64GS12.c   **** ////                                                                 ////
+  16:HDM64GS12.c   **** //// LCD Pin connections:                                            ////
+  17:HDM64GS12.c   **** //// (These can be changed as needed in the following defines).      ////
+  18:HDM64GS12.c   **** ////  * 1: VSS is connected to GND                                   ////
+  19:HDM64GS12.c   **** ////  * 2: VDD is connected to +5V                                   ////
+  20:HDM64GS12.c   **** ////  * 3: V0  - LCD operating voltage (Constrast adjustment)        ////
+  21:HDM64GS12.c   **** ////  * 4: D/I - Data or Instruction is connected to B2              ////
+  22:HDM64GS12.c   **** ////  * 5: R/W - Read or Write is connected to B4                    ////
+  23:HDM64GS12.c   **** ////  * 6: Enable is connected to B5                                 ////
+  24:HDM64GS12.c   **** ////  *7-14: Data Bus 0 to 7 is connected to port d                  ////
+  25:HDM64GS12.c   **** ////  *15: Chip Select 1 is connected to B0                          ////
+  26:HDM64GS12.c   **** ////  *16: Chip Select 2 is connected to B1                          ////
+  27:HDM64GS12.c   **** ////  *17: Reset is connected to C0                                  ////
+  28:HDM64GS12.c   **** ////  *18: Negative voltage is also connected to the 20k Ohm POT     ////
+  29:HDM64GS12.c   **** ////  *19: Positive voltage for LED backlight is connected to +5V    ////
+  30:HDM64GS12.c   **** ////  *20: Negavtive voltage for LED backlight is connected to GND   ////
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 2
+
+
+  31:HDM64GS12.c   **** ////                                                                 ////
+  32:HDM64GS12.c   **** /////////////////////////////////////////////////////////////////////////
+  33:HDM64GS12.c   **** ////                                                                 ////
+  34:HDM64GS12.c   **** ////  glcd_init(mode)                                                ////
+  35:HDM64GS12.c   **** ////     * Must be called before any other function.                 ////
+  36:HDM64GS12.c   **** ////       - mode can be ON or OFF to turn the LCD on or off         ////
+  37:HDM64GS12.c   **** ////                                                                 ////
+  38:HDM64GS12.c   **** ////  glcd_pixel(x,y,color)                                          ////
+  39:HDM64GS12.c   **** ////     * Sets the pixel to the given color.                        ////
+  40:HDM64GS12.c   **** ////       - color can be ON or OFF                                  ////
+  41:HDM64GS12.c   **** ////                                                                 ////
+  42:HDM64GS12.c   **** ////  glcd_fillScreen(color)                                         ////
+  43:HDM64GS12.c   **** ////     * Fills the entire LCD with the given color.                ////
+  44:HDM64GS12.c   **** ////       - color can be ON or OFF                                  ////
+  45:HDM64GS12.c   **** ////                                                                 ////
+  46:HDM64GS12.c   **** ////  glcd_update()                                                  ////
+  47:HDM64GS12.c   **** ////     * Write the display data stored in RAM to the LCD           ////
+  48:HDM64GS12.c   **** ////     * Only available if FAST_GLCD is defined                    ////
+  49:HDM64GS12.c   **** ////                                                                 ////
+  50:HDM64GS12.c   **** /////////////////////////////////////////////////////////////////////////
+  51:HDM64GS12.c   **** ////        (C) Copyright 1996, 2004 Custom Computer Services        ////
+  52:HDM64GS12.c   **** //// This source code may only be used by licensed users of the CCS  ////
+  53:HDM64GS12.c   **** //// C compiler.  This source code may only be distributed to other  ////
+  54:HDM64GS12.c   **** //// licensed users of the CCS C compiler.  No other use,            ////
+  55:HDM64GS12.c   **** //// reproduction or distribution is permitted without written       ////
+  56:HDM64GS12.c   **** //// permission.  Derivative programs created using this software    ////
+  57:HDM64GS12.c   **** //// in object code form are not restricted in any way.              ////
+  58:HDM64GS12.c   **** /////////////////////////////////////////////////////////////////////////
+  59:HDM64GS12.c   **** 
+  60:HDM64GS12.c   **** #include <device.h>
+  61:HDM64GS12.c   **** #include <math.h>
+  62:HDM64GS12.c   **** #include <HDM64GS12.h>
+  63:HDM64GS12.c   **** 
+  64:HDM64GS12.c   **** /*
+  65:HDM64GS12.c   **** #ifndef GLCD_CS1
+  66:HDM64GS12.c   **** #define GLCD_CS1     PIN_B2   // Chip Selection 1
+  67:HDM64GS12.c   **** #endif
+  68:HDM64GS12.c   **** 
+  69:HDM64GS12.c   **** #ifndef GLCD_CS2
+  70:HDM64GS12.c   **** #define GLCD_CS2     PIN_B3   // Chip Selection 2
+  71:HDM64GS12.c   **** #endif
+  72:HDM64GS12.c   **** 
+  73:HDM64GS12.c   **** #ifndef GLCD_DI
+  74:HDM64GS12.c   **** #define GLCD_DI      PIN_B5   // Data or Instruction input
+  75:HDM64GS12.c   **** #endif
+  76:HDM64GS12.c   **** 
+  77:HDM64GS12.c   **** #ifndef GLCD_RW
+  78:HDM64GS12.c   **** #define GLCD_RW      PIN_B6   // Read/Write
+  79:HDM64GS12.c   **** #endif
+  80:HDM64GS12.c   **** 
+  81:HDM64GS12.c   **** #ifndef GLCD_E
+  82:HDM64GS12.c   **** #define GLCD_E       PIN_B7   // Enable
+  83:HDM64GS12.c   **** #endif
+  84:HDM64GS12.c   **** 
+  85:HDM64GS12.c   **** #ifndef GLCD_RST
+  86:HDM64GS12.c   **** #define GLCD_RST     PIN_B4   // Reset
+  87:HDM64GS12.c   **** #endif
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 3
+
+
+  88:HDM64GS12.c   **** */
+  89:HDM64GS12.c   **** 
+  90:HDM64GS12.c   **** /////////////////////////////////////////////////////////////////////////
+  91:HDM64GS12.c   **** 
+  92:HDM64GS12.c   **** #ifdef FAST_GLCD
+  93:HDM64GS12.c   **** struct
+  94:HDM64GS12.c   **** {
+  95:HDM64GS12.c   ****    uint8 left[512];
+  96:HDM64GS12.c   ****    uint8 right[512];
+  97:HDM64GS12.c   **** } displayData;
+  98:HDM64GS12.c   **** #endif
+  99:HDM64GS12.c   **** 
+ 100:HDM64GS12.c   **** 
+ 101:HDM64GS12.c   **** // Purpose:       Initialize the LCD.
+ 102:HDM64GS12.c   **** //                Call before using any other LCD function.
+ 103:HDM64GS12.c   **** // Inputs:        OFF - Turns the LCD off
+ 104:HDM64GS12.c   **** //                ON  - Turns the LCD on
+ 105:HDM64GS12.c   **** void glcd_init(short mode)
+ 106:HDM64GS12.c   **** {
+ 107:HDM64GS12.c   ****    // Initialze some pins
+ 108:HDM64GS12.c   ****    //output_high(GLCD_RST);
+ 109:HDM64GS12.c   ****    //output_low(GLCD_E);
+ 110:HDM64GS12.c   ****    //output_low(GLCD_CS1);
+ 111:HDM64GS12.c   ****    //output_low(GLCD_CS2);
+ 112:HDM64GS12.c   ****    GLCD_RST_Write(1);
+ 113:HDM64GS12.c   ****    GLCD_E_Write(0);
+ 114:HDM64GS12.c   ****    GLCD_CS1_Write(0);
+ 115:HDM64GS12.c   ****    GLCD_CS2_Write(0);
+ 116:HDM64GS12.c   ****    
+ 117:HDM64GS12.c   **** 
+ 118:HDM64GS12.c   ****    //output_low(GLCD_DI);                 // Set for instruction
+ 119:HDM64GS12.c   ****    GLCD_DI_Write(0);
+ 120:HDM64GS12.c   ****    glcd_writeByte(GLCD_LEFT,  0xC0);    // Specify first RAM line at the top
+ 121:HDM64GS12.c   ****    glcd_writeByte(GLCD_RIGH, 0xC0);    //   of the screen
+ 122:HDM64GS12.c   ****    glcd_writeByte(GLCD_LEFT,  0x40);    // Set the column address to 0
+ 123:HDM64GS12.c   ****    glcd_writeByte(GLCD_RIGH, 0x40);
+ 124:HDM64GS12.c   ****    glcd_writeByte(GLCD_LEFT,  0xB8);    // Set the page address to 0
+ 125:HDM64GS12.c   ****    glcd_writeByte(GLCD_RIGH, 0xB8);
+ 126:HDM64GS12.c   **** 
+ 127:HDM64GS12.c   ****    if(mode == ON)
+ 128:HDM64GS12.c   ****    {
+ 129:HDM64GS12.c   ****       glcd_writeByte(GLCD_LEFT,  0x3F); // Turn the display on
+ 130:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGH, 0x3F);
+ 131:HDM64GS12.c   ****    }
+ 132:HDM64GS12.c   ****    else
+ 133:HDM64GS12.c   ****    {
+ 134:HDM64GS12.c   ****       glcd_writeByte(GLCD_LEFT,  0x3E); // Turn the display off
+ 135:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGH, 0x3E);
+ 136:HDM64GS12.c   ****    }
+ 137:HDM64GS12.c   **** 
+ 138:HDM64GS12.c   ****    glcd_fillScreen(OFF);                // Clear the display
+ 139:HDM64GS12.c   **** 
+ 140:HDM64GS12.c   ****    #ifdef FAST_GLCD
+ 141:HDM64GS12.c   ****    glcd_update();
+ 142:HDM64GS12.c   ****    #endif
+ 143:HDM64GS12.c   **** }
+ 144:HDM64GS12.c   **** 
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 4
+
+
+ 145:HDM64GS12.c   **** 
+ 146:HDM64GS12.c   **** // Purpose:    Update the LCD with data from the display arrays
+ 147:HDM64GS12.c   **** #ifdef FAST_GLCD
+ 148:HDM64GS12.c   **** void glcd_update()
+ 149:HDM64GS12.c   **** {
+ 150:HDM64GS12.c   ****    uint8 i, j;
+ 151:HDM64GS12.c   ****    uint8 *p1, *p2;
+ 152:HDM64GS12.c   **** 
+ 153:HDM64GS12.c   ****    p1 = displayData.left;
+ 154:HDM64GS12.c   ****    p2 = displayData.right;
+ 155:HDM64GS12.c   **** 
+ 156:HDM64GS12.c   ****    // Loop through the vertical pages
+ 157:HDM64GS12.c   ****    for(i = 0; i < 8; ++i)
+ 158:HDM64GS12.c   ****    {
+ 159:HDM64GS12.c   ****       //output_low(GLCD_DI);                      // Set for instruction
+ 160:HDM64GS12.c   ****       GLCD_DI_Write(0);                      // Set for instruction
+ 161:HDM64GS12.c   ****       glcd_writeByte(GLCD_LEFT, 0x40);          // Set horizontal address to 0
+ 162:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGH, 0x40);
+ 163:HDM64GS12.c   ****       glcd_writeByte(GLCD_LEFT, i | 0xB8);      // Set page address
+ 164:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGH, i | 0xB8);
+ 165:HDM64GS12.c   ****       //output_high(GLCD_DI);                     // Set for data
+ 166:HDM64GS12.c   ****       GLCD_DI_Write(1);                      // Set for instruction
+ 167:HDM64GS12.c   **** 
+ 168:HDM64GS12.c   ****       // Loop through the horizontal sections
+ 169:HDM64GS12.c   ****       for(j = 0; j < 64; ++j)
+ 170:HDM64GS12.c   ****       {
+ 171:HDM64GS12.c   ****          glcd_writeByte(GLCD_LEFT, *p1++);      // Turn pixels on or off
+ 172:HDM64GS12.c   ****          glcd_writeByte(GLCD_RIGH, *p2++);     // Turn pixels on or off
+ 173:HDM64GS12.c   ****       }
+ 174:HDM64GS12.c   ****    }
+ 175:HDM64GS12.c   **** }
+ 176:HDM64GS12.c   **** #endif
+ 177:HDM64GS12.c   **** 
+ 178:HDM64GS12.c   **** 
+ 179:HDM64GS12.c   **** 
+ 180:HDM64GS12.c   **** // Purpose:    Turn a pixel on a graphic LCD on or off
+ 181:HDM64GS12.c   **** // Inputs:     1) x - the x coordinate of the pixel
+ 182:HDM64GS12.c   **** //             2) y - the y coordinate of the pixel
+ 183:HDM64GS12.c   **** //             3) color - ON or OFF
+ 184:HDM64GS12.c   **** void glcd_pixel(uint8 x, uint8 y, short color)
+ 185:HDM64GS12.c   **** #ifdef FAST_GLCD
+ 186:HDM64GS12.c   **** {
+  28              		.loc 1 186 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+ 187:HDM64GS12.c   ****    uint8* p;
+ 188:HDM64GS12.c   ****    uint16 temp;
+ 189:HDM64GS12.c   ****    temp =  y/8;
+  34              		.loc 1 189 0
+  35 0000 CB08     		lsrs	r3, r1, #3
+  36              	.LVL1:
+ 190:HDM64GS12.c   ****    temp *= 64;
+ 191:HDM64GS12.c   ****    temp += x;
+  37              		.loc 1 191 0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 5
+
+
+  38 0002 00EB8313 		add	r3, r0, r3, lsl #6
+  39              	.LVL2:
+ 192:HDM64GS12.c   **** 
+ 193:HDM64GS12.c   ****    if(x > 63)
+  40              		.loc 1 193 0
+  41 0006 3F28     		cmp	r0, #63
+  42 0008 03D9     		bls	.L2
+ 194:HDM64GS12.c   ****    {
+ 195:HDM64GS12.c   ****       p = displayData.right + temp - 64;
+  43              		.loc 1 195 0
+  44 000a 403B     		subs	r3, r3, #64
+  45              	.LVL3:
+  46 000c 0C48     		ldr	r0, .L6
+  47              	.LVL4:
+  48 000e 0344     		add	r3, r3, r0
+  49              	.LVL5:
+  50 0010 01E0     		b	.L3
+  51              	.LVL6:
+  52              	.L2:
+ 196:HDM64GS12.c   ****    }
+ 197:HDM64GS12.c   ****    else
+ 198:HDM64GS12.c   ****    {
+ 199:HDM64GS12.c   ****       p = displayData.left + temp;
+  53              		.loc 1 199 0
+  54 0012 0C48     		ldr	r0, .L6+4
+  55              	.LVL7:
+  56 0014 0344     		add	r3, r3, r0
+  57              	.LVL8:
+  58              	.L3:
+ 200:HDM64GS12.c   ****    }
+ 201:HDM64GS12.c   **** 
+ 202:HDM64GS12.c   ****    if(color)
+  59              		.loc 1 202 0
+  60 0016 42B1     		cbz	r2, .L4
+ 203:HDM64GS12.c   ****    {
+ 204:HDM64GS12.c   ****       bitSet(*p, y%8);
+  61              		.loc 1 204 0
+  62 0018 01F00701 		and	r1, r1, #7
+  63              	.LVL9:
+  64 001c 0122     		movs	r2, #1
+  65              	.LVL10:
+  66 001e 02FA01F1 		lsl	r1, r2, r1
+  67 0022 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  68 0024 1143     		orrs	r1, r1, r2
+  69 0026 1970     		strb	r1, [r3]
+  70 0028 7047     		bx	lr
+  71              	.LVL11:
+  72              	.L4:
+ 205:HDM64GS12.c   ****    }
+ 206:HDM64GS12.c   ****    else
+ 207:HDM64GS12.c   ****    {
+ 208:HDM64GS12.c   ****       bitClear(*p, y%8);
+  73              		.loc 1 208 0
+  74 002a 01F00701 		and	r1, r1, #7
+  75              	.LVL12:
+  76 002e 0122     		movs	r2, #1
+  77              	.LVL13:
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 6
+
+
+  78 0030 02FA01F1 		lsl	r1, r2, r1
+  79 0034 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  80 0036 22EA0101 		bic	r1, r2, r1
+  81 003a 1970     		strb	r1, [r3]
+  82 003c 7047     		bx	lr
+  83              	.L7:
+  84 003e 00BF     		.align	2
+  85              	.L6:
+  86 0040 00020000 		.word	displayData+512
+  87 0044 00000000 		.word	displayData
+  88              		.cfi_endproc
+  89              	.LFE65:
+  90              		.size	glcd_pixel, .-glcd_pixel
+  91              		.section	.text.glcd_fillScreen,"ax",%progbits
+  92              		.align	2
+  93              		.global	glcd_fillScreen
+  94              		.thumb
+  95              		.thumb_func
+  96              		.type	glcd_fillScreen, %function
+  97              	glcd_fillScreen:
+  98              	.LFB66:
+ 209:HDM64GS12.c   ****    }
+ 210:HDM64GS12.c   **** }
+ 211:HDM64GS12.c   **** #else
+ 212:HDM64GS12.c   **** {
+ 213:HDM64GS12.c   ****    BYTE data;
+ 214:HDM64GS12.c   ****    int1 side = GLCD_LEFT;  // Stores which chip to use on the LCD
+ 215:HDM64GS12.c   **** 
+ 216:HDM64GS12.c   ****    if(x > 63)              // Check for first or second display area
+ 217:HDM64GS12.c   ****    {
+ 218:HDM64GS12.c   ****       x -= 64;
+ 219:HDM64GS12.c   ****       side = GLCD_RIGHT;
+ 220:HDM64GS12.c   ****    }
+ 221:HDM64GS12.c   **** 
+ 222:HDM64GS12.c   ****    output_low(GLCD_DI);                         // Set for instruction
+ 223:HDM64GS12.c   ****    bit_clear(x,7);                              // Clear the MSB. Part of an instruction code
+ 224:HDM64GS12.c   ****    bit_set(x,6);                                // Set bit 6. Also part of an instruction code
+ 225:HDM64GS12.c   ****    glcd_writeByte(side, x);                     // Set the horizontal address
+ 226:HDM64GS12.c   ****    glcd_writeByte(side, (y/8 & 0xBF) | 0xB8);   // Set the vertical page address
+ 227:HDM64GS12.c   ****    output_high(GLCD_DI);                        // Set for data
+ 228:HDM64GS12.c   ****    glcd_readByte(side);                         // Need two reads to get data
+ 229:HDM64GS12.c   ****    data = glcd_readByte(side);                  //  at new address
+ 230:HDM64GS12.c   **** 
+ 231:HDM64GS12.c   ****    if(color == ON)
+ 232:HDM64GS12.c   ****       bit_set(data, y%8);        // Turn the pixel on
+ 233:HDM64GS12.c   ****    else                          // or
+ 234:HDM64GS12.c   ****       bit_clear(data, y%8);      // turn the pixel off
+ 235:HDM64GS12.c   **** 
+ 236:HDM64GS12.c   ****    output_low(GLCD_DI);          // Set for instruction
+ 237:HDM64GS12.c   ****    glcd_writeByte(side, x);      // Set the horizontal address
+ 238:HDM64GS12.c   ****    output_high(GLCD_DI);         // Set for data
+ 239:HDM64GS12.c   ****    glcd_writeByte(side, data);   // Write the pixel data
+ 240:HDM64GS12.c   **** }
+ 241:HDM64GS12.c   **** #endif
+ 242:HDM64GS12.c   **** 
+ 243:HDM64GS12.c   **** 
+ 244:HDM64GS12.c   **** // Purpose:    Fill the LCD screen with the passed in color
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 7
+
+
+ 245:HDM64GS12.c   **** // Inputs:     ON  - turn all the pixels on
+ 246:HDM64GS12.c   **** //             OFF - turn all the pixels off
+ 247:HDM64GS12.c   **** void glcd_fillScreen(short color)
+ 248:HDM64GS12.c   **** #ifdef FAST_GLCD
+ 249:HDM64GS12.c   **** {
+  99              		.loc 1 249 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104              	.LVL14:
+ 250:HDM64GS12.c   ****    uint8  data;
+ 251:HDM64GS12.c   ****    uint8  *p1, *p2;
+ 252:HDM64GS12.c   ****    uint16 i;
+ 253:HDM64GS12.c   **** 
+ 254:HDM64GS12.c   ****    p1 = displayData.left;
+ 255:HDM64GS12.c   ****    p2 = displayData.right;
+ 256:HDM64GS12.c   ****    data = 0xFF * color;
+ 105              		.loc 1 256 0
+ 106 0000 4042     		negs	r0, r0
+ 107              	.LVL15:
+ 108 0002 C0B2     		uxtb	r0, r0
+ 109              	.LVL16:
+ 257:HDM64GS12.c   **** 
+ 258:HDM64GS12.c   ****    for(i=0; i<512; ++i)
+ 110              		.loc 1 258 0
+ 111 0004 0023     		movs	r3, #0
+ 255:HDM64GS12.c   ****    data = 0xFF * color;
+ 112              		.loc 1 255 0
+ 113 0006 074A     		ldr	r2, .L11
+ 114              	.LVL17:
+ 254:HDM64GS12.c   ****    p2 = displayData.right;
+ 115              		.loc 1 254 0
+ 116 0008 A2F50071 		sub	r1, r2, #512
+ 117              		.loc 1 258 0
+ 118 000c 05E0     		b	.L9
+ 119              	.LVL18:
+ 120              	.L10:
+ 259:HDM64GS12.c   ****    {
+ 260:HDM64GS12.c   ****       *p1++ = data;
+ 121              		.loc 1 260 0 discriminator 3
+ 122 000e 0870     		strb	r0, [r1]
+ 123              	.LVL19:
+ 261:HDM64GS12.c   ****       *p2++ = data;
+ 124              		.loc 1 261 0 discriminator 3
+ 125 0010 1070     		strb	r0, [r2]
+ 258:HDM64GS12.c   ****    {
+ 126              		.loc 1 258 0 discriminator 3
+ 127 0012 0133     		adds	r3, r3, #1
+ 128              	.LVL20:
+ 129 0014 9BB2     		uxth	r3, r3
+ 130              	.LVL21:
+ 131              		.loc 1 261 0 discriminator 3
+ 132 0016 0132     		adds	r2, r2, #1
+ 133              	.LVL22:
+ 260:HDM64GS12.c   ****       *p2++ = data;
+ 134              		.loc 1 260 0 discriminator 3
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 8
+
+
+ 135 0018 0131     		adds	r1, r1, #1
+ 136              	.LVL23:
+ 137              	.L9:
+ 258:HDM64GS12.c   ****    {
+ 138              		.loc 1 258 0 discriminator 1
+ 139 001a B3F5007F 		cmp	r3, #512
+ 140 001e F6D3     		bcc	.L10
+ 262:HDM64GS12.c   ****    }
+ 263:HDM64GS12.c   **** }
+ 141              		.loc 1 263 0
+ 142 0020 7047     		bx	lr
+ 143              	.L12:
+ 144 0022 00BF     		.align	2
+ 145              	.L11:
+ 146 0024 00020000 		.word	displayData+512
+ 147              		.cfi_endproc
+ 148              	.LFE66:
+ 149              		.size	glcd_fillScreen, .-glcd_fillScreen
+ 150              		.section	.text.glcd_writeByte,"ax",%progbits
+ 151              		.align	2
+ 152              		.global	glcd_writeByte
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.type	glcd_writeByte, %function
+ 156              	glcd_writeByte:
+ 157              	.LFB67:
+ 264:HDM64GS12.c   **** #else
+ 265:HDM64GS12.c   **** {
+ 266:HDM64GS12.c   ****    int8 i, j;
+ 267:HDM64GS12.c   **** 
+ 268:HDM64GS12.c   ****    // Loop through the vertical pages
+ 269:HDM64GS12.c   ****    for(i = 0; i < 8; ++i)
+ 270:HDM64GS12.c   ****    {
+ 271:HDM64GS12.c   ****       output_low(GLCD_DI);                      // Set for instruction
+ 272:HDM64GS12.c   ****       glcd_writeByte(GLCD_LEFT, 0b01000000);    // Set horizontal address to 0
+ 273:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGHT, 0b01000000);
+ 274:HDM64GS12.c   ****       glcd_writeByte(GLCD_LEFT, i | 0b10111000);// Set page address
+ 275:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGHT, i | 0b10111000);
+ 276:HDM64GS12.c   ****       output_high(GLCD_DI);                     // Set for data
+ 277:HDM64GS12.c   **** 
+ 278:HDM64GS12.c   ****       // Loop through the horizontal sections
+ 279:HDM64GS12.c   ****       for(j = 0; j < 64; ++j)
+ 280:HDM64GS12.c   ****       {
+ 281:HDM64GS12.c   ****          glcd_writeByte(GLCD_LEFT, 0xFF*color);  // Turn pixels on or off
+ 282:HDM64GS12.c   ****          glcd_writeByte(GLCD_RIGHT, 0xFF*color); // Turn pixels on or off
+ 283:HDM64GS12.c   ****       }
+ 284:HDM64GS12.c   ****    }
+ 285:HDM64GS12.c   **** }
+ 286:HDM64GS12.c   **** #endif
+ 287:HDM64GS12.c   **** 
+ 288:HDM64GS12.c   **** 
+ 289:HDM64GS12.c   **** // Purpose:    Write a byte of data to the specified chip
+ 290:HDM64GS12.c   **** // Inputs:     1) chipSelect - which chip to write the data to
+ 291:HDM64GS12.c   **** //             2) data - the byte of data to write
+ 292:HDM64GS12.c   **** void glcd_writeByte(short side, uint8 data)
+ 293:HDM64GS12.c   **** {
+ 158              		.loc 1 293 0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 9
+
+
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              	.LVL24:
+ 163 0000 10B5     		push	{r4, lr}
+ 164              		.cfi_def_cfa_offset 8
+ 165              		.cfi_offset 4, -8
+ 166              		.cfi_offset 14, -4
+ 167 0002 0C46     		mov	r4, r1
+ 294:HDM64GS12.c   ****    if(side)                   // Choose which side to write to
+ 168              		.loc 1 294 0
+ 169 0004 18B1     		cbz	r0, .L14
+ 295:HDM64GS12.c   ****       //output_high(GLCD_CS2);
+ 296:HDM64GS12.c   ****       GLCD_CS2_Write(1);  
+ 170              		.loc 1 296 0
+ 171 0006 0120     		movs	r0, #1
+ 172              	.LVL25:
+ 173 0008 FFF7FEFF 		bl	GLCD_CS2_Write
+ 174              	.LVL26:
+ 175 000c 02E0     		b	.L15
+ 176              	.LVL27:
+ 177              	.L14:
+ 297:HDM64GS12.c   ****    else
+ 298:HDM64GS12.c   ****       //output_high(GLCD_CS1);
+ 299:HDM64GS12.c   ****       GLCD_CS1_Write(1);  
+ 178              		.loc 1 299 0
+ 179 000e 0120     		movs	r0, #1
+ 180              	.LVL28:
+ 181 0010 FFF7FEFF 		bl	GLCD_CS1_Write
+ 182              	.LVL29:
+ 183              	.L15:
+ 300:HDM64GS12.c   **** 
+ 301:HDM64GS12.c   ****    //output_low(GLCD_RW);       // Set for writing
+ 302:HDM64GS12.c   ****    GLCD_RW_Write(0);  
+ 184              		.loc 1 302 0
+ 185 0014 0020     		movs	r0, #0
+ 186 0016 FFF7FEFF 		bl	GLCD_RW_Write
+ 187              	.LVL30:
+ 303:HDM64GS12.c   ****    //output_d(data);            // Put the data on the port
+ 304:HDM64GS12.c   ****    Control_Reg_Write(data);
+ 188              		.loc 1 304 0
+ 189 001a 2046     		mov	r0, r4
+ 190 001c FFF7FEFF 		bl	Control_Reg_Write
+ 191              	.LVL31:
+ 305:HDM64GS12.c   ****    //delay_cycles(1);
+ 306:HDM64GS12.c   ****    CyDelayCycles(1);
+ 192              		.loc 1 306 0
+ 193 0020 0120     		movs	r0, #1
+ 194 0022 FFF7FEFF 		bl	CyDelayCycles
+ 195              	.LVL32:
+ 307:HDM64GS12.c   ****    //output_high(GLCD_E);       // Pulse the enable pin
+ 308:HDM64GS12.c   ****    GLCD_E_Write(1);  
+ 196              		.loc 1 308 0
+ 197 0026 0120     		movs	r0, #1
+ 198 0028 FFF7FEFF 		bl	GLCD_E_Write
+ 199              	.LVL33:
+ 309:HDM64GS12.c   ****    //delay_cycles(5);
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 10
+
+
+ 310:HDM64GS12.c   ****    CyDelayCycles(5);
+ 200              		.loc 1 310 0
+ 201 002c 0520     		movs	r0, #5
+ 202 002e FFF7FEFF 		bl	CyDelayCycles
+ 203              	.LVL34:
+ 311:HDM64GS12.c   ****    //output_low(GLCD_E);
+ 312:HDM64GS12.c   ****    GLCD_E_Write(0);  
+ 204              		.loc 1 312 0
+ 205 0032 0020     		movs	r0, #0
+ 206 0034 FFF7FEFF 		bl	GLCD_E_Write
+ 207              	.LVL35:
+ 313:HDM64GS12.c   **** 
+ 314:HDM64GS12.c   ****    //output_low(GLCD_CS1);      // Reset the chip select lines
+ 315:HDM64GS12.c   ****    //output_low(GLCD_CS2);
+ 316:HDM64GS12.c   ****    GLCD_CS1_Write(0);  
+ 208              		.loc 1 316 0
+ 209 0038 0020     		movs	r0, #0
+ 210 003a FFF7FEFF 		bl	GLCD_CS1_Write
+ 211              	.LVL36:
+ 317:HDM64GS12.c   ****    GLCD_CS2_Write(0);   
+ 212              		.loc 1 317 0
+ 213 003e 0020     		movs	r0, #0
+ 214 0040 FFF7FEFF 		bl	GLCD_CS2_Write
+ 215              	.LVL37:
+ 216 0044 10BD     		pop	{r4, pc}
+ 217              		.cfi_endproc
+ 218              	.LFE67:
+ 219              		.size	glcd_writeByte, .-glcd_writeByte
+ 220              		.section	.text.glcd_update,"ax",%progbits
+ 221              		.align	2
+ 222              		.global	glcd_update
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.type	glcd_update, %function
+ 226              	glcd_update:
+ 227              	.LFB64:
+ 149:HDM64GS12.c   ****    uint8 i, j;
+ 228              		.loc 1 149 0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 233              		.cfi_def_cfa_offset 24
+ 234              		.cfi_offset 4, -24
+ 235              		.cfi_offset 5, -20
+ 236              		.cfi_offset 6, -16
+ 237              		.cfi_offset 7, -12
+ 238              		.cfi_offset 8, -8
+ 239              		.cfi_offset 14, -4
+ 240              	.LVL38:
+ 154:HDM64GS12.c   **** 
+ 241              		.loc 1 154 0
+ 242 0004 1C4D     		ldr	r5, .L23
+ 243              	.LVL39:
+ 153:HDM64GS12.c   ****    p2 = displayData.right;
+ 244              		.loc 1 153 0
+ 245 0006 A5F50076 		sub	r6, r5, #512
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 11
+
+
+ 157:HDM64GS12.c   ****    {
+ 246              		.loc 1 157 0
+ 247 000a 4FF00008 		mov	r8, #0
+ 248 000e 2DE0     		b	.L18
+ 249              	.LVL40:
+ 250              	.L21:
+ 160:HDM64GS12.c   ****       glcd_writeByte(GLCD_LEFT, 0x40);          // Set horizontal address to 0
+ 251              		.loc 1 160 0
+ 252 0010 0020     		movs	r0, #0
+ 253 0012 FFF7FEFF 		bl	GLCD_DI_Write
+ 254              	.LVL41:
+ 161:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGH, 0x40);
+ 255              		.loc 1 161 0
+ 256 0016 4021     		movs	r1, #64
+ 257 0018 0020     		movs	r0, #0
+ 258 001a FFF7FEFF 		bl	glcd_writeByte
+ 259              	.LVL42:
+ 162:HDM64GS12.c   ****       glcd_writeByte(GLCD_LEFT, i | 0xB8);      // Set page address
+ 260              		.loc 1 162 0
+ 261 001e 4021     		movs	r1, #64
+ 262 0020 0120     		movs	r0, #1
+ 263 0022 FFF7FEFF 		bl	glcd_writeByte
+ 264              	.LVL43:
+ 163:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGH, i | 0xB8);
+ 265              		.loc 1 163 0
+ 266 0026 48F0B804 		orr	r4, r8, #184
+ 267 002a 2146     		mov	r1, r4
+ 268 002c 0020     		movs	r0, #0
+ 269 002e FFF7FEFF 		bl	glcd_writeByte
+ 270              	.LVL44:
+ 164:HDM64GS12.c   ****       //output_high(GLCD_DI);                     // Set for data
+ 271              		.loc 1 164 0
+ 272 0032 2146     		mov	r1, r4
+ 273 0034 0120     		movs	r0, #1
+ 274 0036 FFF7FEFF 		bl	glcd_writeByte
+ 275              	.LVL45:
+ 166:HDM64GS12.c   **** 
+ 276              		.loc 1 166 0
+ 277 003a 0120     		movs	r0, #1
+ 278 003c FFF7FEFF 		bl	GLCD_DI_Write
+ 279              	.LVL46:
+ 169:HDM64GS12.c   ****       {
+ 280              		.loc 1 169 0
+ 281 0040 0024     		movs	r4, #0
+ 282 0042 0DE0     		b	.L19
+ 283              	.LVL47:
+ 284              	.L20:
+ 171:HDM64GS12.c   ****          glcd_writeByte(GLCD_RIGH, *p2++);     // Turn pixels on or off
+ 285              		.loc 1 171 0 discriminator 3
+ 286 0044 771C     		adds	r7, r6, #1
+ 287              	.LVL48:
+ 288 0046 3178     		ldrb	r1, [r6]	@ zero_extendqisi2
+ 289 0048 0020     		movs	r0, #0
+ 290 004a FFF7FEFF 		bl	glcd_writeByte
+ 291              	.LVL49:
+ 172:HDM64GS12.c   ****       }
+ 292              		.loc 1 172 0 discriminator 3
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 12
+
+
+ 293 004e 6E1C     		adds	r6, r5, #1
+ 294              	.LVL50:
+ 295 0050 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 296 0052 0120     		movs	r0, #1
+ 297 0054 FFF7FEFF 		bl	glcd_writeByte
+ 298              	.LVL51:
+ 169:HDM64GS12.c   ****       {
+ 299              		.loc 1 169 0 discriminator 3
+ 300 0058 0134     		adds	r4, r4, #1
+ 301              	.LVL52:
+ 302 005a E4B2     		uxtb	r4, r4
+ 303              	.LVL53:
+ 172:HDM64GS12.c   ****       }
+ 304              		.loc 1 172 0 discriminator 3
+ 305 005c 3546     		mov	r5, r6
+ 171:HDM64GS12.c   ****          glcd_writeByte(GLCD_RIGH, *p2++);     // Turn pixels on or off
+ 306              		.loc 1 171 0 discriminator 3
+ 307 005e 3E46     		mov	r6, r7
+ 308              	.LVL54:
+ 309              	.L19:
+ 169:HDM64GS12.c   ****       {
+ 310              		.loc 1 169 0 discriminator 1
+ 311 0060 3F2C     		cmp	r4, #63
+ 312 0062 EFD9     		bls	.L20
+ 157:HDM64GS12.c   ****    {
+ 313              		.loc 1 157 0 discriminator 2
+ 314 0064 08F10108 		add	r8, r8, #1
+ 315              	.LVL55:
+ 316 0068 5FFA88F8 		uxtb	r8, r8
+ 317              	.LVL56:
+ 318              	.L18:
+ 157:HDM64GS12.c   ****    {
+ 319              		.loc 1 157 0 is_stmt 0 discriminator 1
+ 320 006c B8F1070F 		cmp	r8, #7
+ 321 0070 CED9     		bls	.L21
+ 175:HDM64GS12.c   **** #endif
+ 322              		.loc 1 175 0 is_stmt 1
+ 323 0072 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 324              	.LVL57:
+ 325              	.L24:
+ 326 0076 00BF     		.align	2
+ 327              	.L23:
+ 328 0078 00020000 		.word	displayData+512
+ 329              		.cfi_endproc
+ 330              	.LFE64:
+ 331              		.size	glcd_update, .-glcd_update
+ 332              		.section	.text.glcd_init,"ax",%progbits
+ 333              		.align	2
+ 334              		.global	glcd_init
+ 335              		.thumb
+ 336              		.thumb_func
+ 337              		.type	glcd_init, %function
+ 338              	glcd_init:
+ 339              	.LFB63:
+ 106:HDM64GS12.c   ****    // Initialze some pins
+ 340              		.loc 1 106 0
+ 341              		.cfi_startproc
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 13
+
+
+ 342              		@ args = 0, pretend = 0, frame = 0
+ 343              		@ frame_needed = 0, uses_anonymous_args = 0
+ 344              	.LVL58:
+ 345 0000 10B5     		push	{r4, lr}
+ 346              		.cfi_def_cfa_offset 8
+ 347              		.cfi_offset 4, -8
+ 348              		.cfi_offset 14, -4
+ 349 0002 0446     		mov	r4, r0
+ 112:HDM64GS12.c   ****    GLCD_E_Write(0);
+ 350              		.loc 1 112 0
+ 351 0004 0120     		movs	r0, #1
+ 352              	.LVL59:
+ 353 0006 FFF7FEFF 		bl	GLCD_RST_Write
+ 354              	.LVL60:
+ 113:HDM64GS12.c   ****    GLCD_CS1_Write(0);
+ 355              		.loc 1 113 0
+ 356 000a 0020     		movs	r0, #0
+ 357 000c FFF7FEFF 		bl	GLCD_E_Write
+ 358              	.LVL61:
+ 114:HDM64GS12.c   ****    GLCD_CS2_Write(0);
+ 359              		.loc 1 114 0
+ 360 0010 0020     		movs	r0, #0
+ 361 0012 FFF7FEFF 		bl	GLCD_CS1_Write
+ 362              	.LVL62:
+ 115:HDM64GS12.c   ****    
+ 363              		.loc 1 115 0
+ 364 0016 0020     		movs	r0, #0
+ 365 0018 FFF7FEFF 		bl	GLCD_CS2_Write
+ 366              	.LVL63:
+ 119:HDM64GS12.c   ****    glcd_writeByte(GLCD_LEFT,  0xC0);    // Specify first RAM line at the top
+ 367              		.loc 1 119 0
+ 368 001c 0020     		movs	r0, #0
+ 369 001e FFF7FEFF 		bl	GLCD_DI_Write
+ 370              	.LVL64:
+ 120:HDM64GS12.c   ****    glcd_writeByte(GLCD_RIGH, 0xC0);    //   of the screen
+ 371              		.loc 1 120 0
+ 372 0022 C021     		movs	r1, #192
+ 373 0024 0020     		movs	r0, #0
+ 374 0026 FFF7FEFF 		bl	glcd_writeByte
+ 375              	.LVL65:
+ 121:HDM64GS12.c   ****    glcd_writeByte(GLCD_LEFT,  0x40);    // Set the column address to 0
+ 376              		.loc 1 121 0
+ 377 002a C021     		movs	r1, #192
+ 378 002c 0120     		movs	r0, #1
+ 379 002e FFF7FEFF 		bl	glcd_writeByte
+ 380              	.LVL66:
+ 122:HDM64GS12.c   ****    glcd_writeByte(GLCD_RIGH, 0x40);
+ 381              		.loc 1 122 0
+ 382 0032 4021     		movs	r1, #64
+ 383 0034 0020     		movs	r0, #0
+ 384 0036 FFF7FEFF 		bl	glcd_writeByte
+ 385              	.LVL67:
+ 123:HDM64GS12.c   ****    glcd_writeByte(GLCD_LEFT,  0xB8);    // Set the page address to 0
+ 386              		.loc 1 123 0
+ 387 003a 4021     		movs	r1, #64
+ 388 003c 0120     		movs	r0, #1
+ 389 003e FFF7FEFF 		bl	glcd_writeByte
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 14
+
+
+ 390              	.LVL68:
+ 124:HDM64GS12.c   ****    glcd_writeByte(GLCD_RIGH, 0xB8);
+ 391              		.loc 1 124 0
+ 392 0042 B821     		movs	r1, #184
+ 393 0044 0020     		movs	r0, #0
+ 394 0046 FFF7FEFF 		bl	glcd_writeByte
+ 395              	.LVL69:
+ 125:HDM64GS12.c   **** 
+ 396              		.loc 1 125 0
+ 397 004a B821     		movs	r1, #184
+ 398 004c 0120     		movs	r0, #1
+ 399 004e FFF7FEFF 		bl	glcd_writeByte
+ 400              	.LVL70:
+ 127:HDM64GS12.c   ****    {
+ 401              		.loc 1 127 0
+ 402 0052 012C     		cmp	r4, #1
+ 403 0054 08D1     		bne	.L26
+ 129:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGH, 0x3F);
+ 404              		.loc 1 129 0
+ 405 0056 3F21     		movs	r1, #63
+ 406 0058 0020     		movs	r0, #0
+ 407 005a FFF7FEFF 		bl	glcd_writeByte
+ 408              	.LVL71:
+ 130:HDM64GS12.c   ****    }
+ 409              		.loc 1 130 0
+ 410 005e 3F21     		movs	r1, #63
+ 411 0060 0120     		movs	r0, #1
+ 412 0062 FFF7FEFF 		bl	glcd_writeByte
+ 413              	.LVL72:
+ 414 0066 07E0     		b	.L27
+ 415              	.L26:
+ 134:HDM64GS12.c   ****       glcd_writeByte(GLCD_RIGH, 0x3E);
+ 416              		.loc 1 134 0
+ 417 0068 3E21     		movs	r1, #62
+ 418 006a 0020     		movs	r0, #0
+ 419 006c FFF7FEFF 		bl	glcd_writeByte
+ 420              	.LVL73:
+ 135:HDM64GS12.c   ****    }
+ 421              		.loc 1 135 0
+ 422 0070 3E21     		movs	r1, #62
+ 423 0072 0120     		movs	r0, #1
+ 424 0074 FFF7FEFF 		bl	glcd_writeByte
+ 425              	.LVL74:
+ 426              	.L27:
+ 138:HDM64GS12.c   **** 
+ 427              		.loc 1 138 0
+ 428 0078 0020     		movs	r0, #0
+ 429 007a FFF7FEFF 		bl	glcd_fillScreen
+ 430              	.LVL75:
+ 141:HDM64GS12.c   ****    #endif
+ 431              		.loc 1 141 0
+ 432 007e FFF7FEFF 		bl	glcd_update
+ 433              	.LVL76:
+ 434 0082 10BD     		pop	{r4, pc}
+ 435              		.cfi_endproc
+ 436              	.LFE63:
+ 437              		.size	glcd_init, .-glcd_init
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 15
+
+
+ 438              		.section	.text.glcd_readByte,"ax",%progbits
+ 439              		.align	2
+ 440              		.global	glcd_readByte
+ 441              		.thumb
+ 442              		.thumb_func
+ 443              		.type	glcd_readByte, %function
+ 444              	glcd_readByte:
+ 445              	.LFB68:
+ 318:HDM64GS12.c   **** }
+ 319:HDM64GS12.c   **** 
+ 320:HDM64GS12.c   **** 
+ 321:HDM64GS12.c   **** // Purpose:    Reads a byte of data from the specified chip
+ 322:HDM64GS12.c   **** // Ouputs:     A byte of data read from the chip
+ 323:HDM64GS12.c   **** uint8 glcd_readByte(short side)
+ 324:HDM64GS12.c   **** {
+ 446              		.loc 1 324 0
+ 447              		.cfi_startproc
+ 448              		@ args = 0, pretend = 0, frame = 0
+ 449              		@ frame_needed = 0, uses_anonymous_args = 0
+ 450              	.LVL77:
+ 451 0000 10B5     		push	{r4, lr}
+ 452              		.cfi_def_cfa_offset 8
+ 453              		.cfi_offset 4, -8
+ 454              		.cfi_offset 14, -4
+ 455 0002 0446     		mov	r4, r0
+ 325:HDM64GS12.c   ****    uint8 data;                 // Stores the data read from the LCD
+ 326:HDM64GS12.c   **** 
+ 327:HDM64GS12.c   ****    //set_tris_d(0xFF);          // Set port d to input   
+ 328:HDM64GS12.c   ****    //output_high(GLCD_RW);      // Set for reading
+ 329:HDM64GS12.c   ****     GLCD_RW_Write(1);  
+ 456              		.loc 1 329 0
+ 457 0004 0120     		movs	r0, #1
+ 458              	.LVL78:
+ 459 0006 FFF7FEFF 		bl	GLCD_RW_Write
+ 460              	.LVL79:
+ 330:HDM64GS12.c   **** 
+ 331:HDM64GS12.c   ****    if(side)                   // Choose which side to write to
+ 461              		.loc 1 331 0
+ 462 000a 1CB1     		cbz	r4, .L30
+ 332:HDM64GS12.c   ****       //output_high(GLCD_CS2);
+ 333:HDM64GS12.c   ****       GLCD_CS2_Write(1);  
+ 463              		.loc 1 333 0
+ 464 000c 0120     		movs	r0, #1
+ 465 000e FFF7FEFF 		bl	GLCD_CS2_Write
+ 466              	.LVL80:
+ 467 0012 02E0     		b	.L31
+ 468              	.L30:
+ 334:HDM64GS12.c   ****    else
+ 335:HDM64GS12.c   ****       //output_high(GLCD_CS1);
+ 336:HDM64GS12.c   ****       GLCD_CS1_Write(1);  
+ 469              		.loc 1 336 0
+ 470 0014 0120     		movs	r0, #1
+ 471 0016 FFF7FEFF 		bl	GLCD_CS1_Write
+ 472              	.LVL81:
+ 473              	.L31:
+ 337:HDM64GS12.c   **** 
+ 338:HDM64GS12.c   ****    //delay_cycles(1);
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 16
+
+
+ 339:HDM64GS12.c   ****     CyDelayCycles(1);
+ 474              		.loc 1 339 0
+ 475 001a 0120     		movs	r0, #1
+ 476 001c FFF7FEFF 		bl	CyDelayCycles
+ 477              	.LVL82:
+ 340:HDM64GS12.c   ****    //output_high(GLCD_E);       // Pulse the enable pin
+ 341:HDM64GS12.c   ****     GLCD_E_Write(1);  
+ 478              		.loc 1 341 0
+ 479 0020 0120     		movs	r0, #1
+ 480 0022 FFF7FEFF 		bl	GLCD_E_Write
+ 481              	.LVL83:
+ 342:HDM64GS12.c   ****    //delay_cycles(4);
+ 343:HDM64GS12.c   ****     CyDelayCycles(4);
+ 482              		.loc 1 343 0
+ 483 0026 0420     		movs	r0, #4
+ 484 0028 FFF7FEFF 		bl	CyDelayCycles
+ 485              	.LVL84:
+ 344:HDM64GS12.c   ****    //data = input_d();          // Get the data from the display's output register
+ 345:HDM64GS12.c   ****     data=Control_Reg_Read();  
+ 486              		.loc 1 345 0
+ 487 002c FFF7FEFF 		bl	Control_Reg_Read
+ 488              	.LVL85:
+ 489 0030 0446     		mov	r4, r0
+ 490              	.LVL86:
+ 346:HDM64GS12.c   ****    //output_low(GLCD_E);
+ 347:HDM64GS12.c   ****     GLCD_E_Write(0);  
+ 491              		.loc 1 347 0
+ 492 0032 0020     		movs	r0, #0
+ 493 0034 FFF7FEFF 		bl	GLCD_E_Write
+ 494              	.LVL87:
+ 348:HDM64GS12.c   **** 
+ 349:HDM64GS12.c   ****    //output_low(GLCD_CS1);      // Reset the chip select lines
+ 350:HDM64GS12.c   ****    //output_low(GLCD_CS2);
+ 351:HDM64GS12.c   ****     GLCD_CS1_Write(0);  
+ 495              		.loc 1 351 0
+ 496 0038 0020     		movs	r0, #0
+ 497 003a FFF7FEFF 		bl	GLCD_CS1_Write
+ 498              	.LVL88:
+ 352:HDM64GS12.c   ****     GLCD_CS2_Write(0);  
+ 499              		.loc 1 352 0
+ 500 003e 0020     		movs	r0, #0
+ 501 0040 FFF7FEFF 		bl	GLCD_CS2_Write
+ 502              	.LVL89:
+ 353:HDM64GS12.c   ****    return data;               // Return the read data
+ 354:HDM64GS12.c   **** }
+ 503              		.loc 1 354 0
+ 504 0044 2046     		mov	r0, r4
+ 505 0046 10BD     		pop	{r4, pc}
+ 506              		.cfi_endproc
+ 507              	.LFE68:
+ 508              		.size	glcd_readByte, .-glcd_readByte
+ 509              		.comm	displayData,1024,4
+ 510              		.text
+ 511              	.Letext0:
+ 512              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 513              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 514              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 17
+
+
+ 515              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 516              		.file 6 "Generated_Source\\PSoC5/GLCD_CS2.h"
+ 517              		.file 7 "Generated_Source\\PSoC5/GLCD_CS1.h"
+ 518              		.file 8 "Generated_Source\\PSoC5/GLCD_RW.h"
+ 519              		.file 9 "Generated_Source\\PSoC5/Control_Reg.h"
+ 520              		.file 10 "Generated_Source\\PSoC5/CyLib.h"
+ 521              		.file 11 "Generated_Source\\PSoC5/GLCD_E.h"
+ 522              		.file 12 "Generated_Source\\PSoC5/GLCD_DI.h"
+ 523              		.file 13 "Generated_Source\\PSoC5/GLCD_RST.h"
+ 524              		.section	.debug_info,"",%progbits
+ 525              	.Ldebug_info0:
+ 526 0000 9B060000 		.4byte	0x69b
+ 527 0004 0400     		.2byte	0x4
+ 528 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 529 000a 04       		.byte	0x4
+ 530 000b 01       		.uleb128 0x1
+ 531 000c 89000000 		.4byte	.LASF40
+ 532 0010 0C       		.byte	0xc
+ 533 0011 6B010000 		.4byte	.LASF41
+ 534 0015 39020000 		.4byte	.LASF42
+ 535 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 536 001d 00000000 		.4byte	0
+ 537 0021 00000000 		.4byte	.Ldebug_line0
+ 538 0025 02       		.uleb128 0x2
+ 539 0026 01       		.byte	0x1
+ 540 0027 06       		.byte	0x6
+ 541 0028 6F000000 		.4byte	.LASF0
+ 542 002c 02       		.uleb128 0x2
+ 543 002d 01       		.byte	0x1
+ 544 002e 08       		.byte	0x8
+ 545 002f 7B000000 		.4byte	.LASF1
+ 546 0033 02       		.uleb128 0x2
+ 547 0034 02       		.byte	0x2
+ 548 0035 05       		.byte	0x5
+ 549 0036 29020000 		.4byte	.LASF2
+ 550 003a 02       		.uleb128 0x2
+ 551 003b 02       		.byte	0x2
+ 552 003c 07       		.byte	0x7
+ 553 003d 3B000000 		.4byte	.LASF3
+ 554 0041 03       		.uleb128 0x3
+ 555 0042 2C000000 		.4byte	.LASF9
+ 556 0046 02       		.byte	0x2
+ 557 0047 3F       		.byte	0x3f
+ 558 0048 4C000000 		.4byte	0x4c
+ 559 004c 02       		.uleb128 0x2
+ 560 004d 04       		.byte	0x4
+ 561 004e 05       		.byte	0x5
+ 562 004f A4020000 		.4byte	.LASF4
+ 563 0053 02       		.uleb128 0x2
+ 564 0054 04       		.byte	0x4
+ 565 0055 07       		.byte	0x7
+ 566 0056 59010000 		.4byte	.LASF5
+ 567 005a 02       		.uleb128 0x2
+ 568 005b 08       		.byte	0x8
+ 569 005c 05       		.byte	0x5
+ 570 005d 16020000 		.4byte	.LASF6
+ 571 0061 02       		.uleb128 0x2
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 18
+
+
+ 572 0062 08       		.byte	0x8
+ 573 0063 07       		.byte	0x7
+ 574 0064 E4010000 		.4byte	.LASF7
+ 575 0068 04       		.uleb128 0x4
+ 576 0069 04       		.byte	0x4
+ 577 006a 05       		.byte	0x5
+ 578 006b 696E7400 		.ascii	"int\000"
+ 579 006f 02       		.uleb128 0x2
+ 580 0070 04       		.byte	0x4
+ 581 0071 07       		.byte	0x7
+ 582 0072 C8010000 		.4byte	.LASF8
+ 583 0076 03       		.uleb128 0x3
+ 584 0077 00020000 		.4byte	.LASF10
+ 585 007b 03       		.byte	0x3
+ 586 007c 2C       		.byte	0x2c
+ 587 007d 41000000 		.4byte	0x41
+ 588 0081 05       		.uleb128 0x5
+ 589 0082 33020000 		.4byte	.LASF11
+ 590 0086 04       		.byte	0x4
+ 591 0087 E801     		.2byte	0x1e8
+ 592 0089 2C000000 		.4byte	0x2c
+ 593 008d 05       		.uleb128 0x5
+ 594 008e A4010000 		.4byte	.LASF12
+ 595 0092 04       		.byte	0x4
+ 596 0093 E901     		.2byte	0x1e9
+ 597 0095 3A000000 		.4byte	0x3a
+ 598 0099 02       		.uleb128 0x2
+ 599 009a 04       		.byte	0x4
+ 600 009b 04       		.byte	0x4
+ 601 009c 64000000 		.4byte	.LASF13
+ 602 00a0 02       		.uleb128 0x2
+ 603 00a1 08       		.byte	0x8
+ 604 00a2 04       		.byte	0x4
+ 605 00a3 4E000000 		.4byte	.LASF14
+ 606 00a7 02       		.uleb128 0x2
+ 607 00a8 01       		.byte	0x1
+ 608 00a9 08       		.byte	0x8
+ 609 00aa 24020000 		.4byte	.LASF15
+ 610 00ae 02       		.uleb128 0x2
+ 611 00af 08       		.byte	0x8
+ 612 00b0 04       		.byte	0x4
+ 613 00b1 AD020000 		.4byte	.LASF16
+ 614 00b5 02       		.uleb128 0x2
+ 615 00b6 04       		.byte	0x4
+ 616 00b7 07       		.byte	0x7
+ 617 00b8 08020000 		.4byte	.LASF17
+ 618 00bc 06       		.uleb128 0x6
+ 619 00bd 0004     		.2byte	0x400
+ 620 00bf 01       		.byte	0x1
+ 621 00c0 5D       		.byte	0x5d
+ 622 00c1 DF000000 		.4byte	0xdf
+ 623 00c5 07       		.uleb128 0x7
+ 624 00c6 36000000 		.4byte	.LASF18
+ 625 00ca 01       		.byte	0x1
+ 626 00cb 5F       		.byte	0x5f
+ 627 00cc DF000000 		.4byte	0xdf
+ 628 00d0 00       		.byte	0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 19
+
+
+ 629 00d1 08       		.uleb128 0x8
+ 630 00d2 33010000 		.4byte	.LASF19
+ 631 00d6 01       		.byte	0x1
+ 632 00d7 60       		.byte	0x60
+ 633 00d8 DF000000 		.4byte	0xdf
+ 634 00dc 0002     		.2byte	0x200
+ 635 00de 00       		.byte	0
+ 636 00df 09       		.uleb128 0x9
+ 637 00e0 81000000 		.4byte	0x81
+ 638 00e4 F0000000 		.4byte	0xf0
+ 639 00e8 0A       		.uleb128 0xa
+ 640 00e9 B5000000 		.4byte	0xb5
+ 641 00ed FF01     		.2byte	0x1ff
+ 642 00ef 00       		.byte	0
+ 643 00f0 0B       		.uleb128 0xb
+ 644 00f1 C5020000 		.4byte	.LASF22
+ 645 00f5 01       		.byte	0x1
+ 646 00f6 B8       		.byte	0xb8
+ 647 00f7 00000000 		.4byte	.LFB65
+ 648 00fb 48000000 		.4byte	.LFE65-.LFB65
+ 649 00ff 01       		.uleb128 0x1
+ 650 0100 9C       		.byte	0x9c
+ 651 0101 4B010000 		.4byte	0x14b
+ 652 0105 0C       		.uleb128 0xc
+ 653 0106 7800     		.ascii	"x\000"
+ 654 0108 01       		.byte	0x1
+ 655 0109 B8       		.byte	0xb8
+ 656 010a 81000000 		.4byte	0x81
+ 657 010e 00000000 		.4byte	.LLST0
+ 658 0112 0C       		.uleb128 0xc
+ 659 0113 7900     		.ascii	"y\000"
+ 660 0115 01       		.byte	0x1
+ 661 0116 B8       		.byte	0xb8
+ 662 0117 81000000 		.4byte	0x81
+ 663 011b 3A000000 		.4byte	.LLST1
+ 664 011f 0D       		.uleb128 0xd
+ 665 0120 77010000 		.4byte	.LASF20
+ 666 0124 01       		.byte	0x1
+ 667 0125 B8       		.byte	0xb8
+ 668 0126 33000000 		.4byte	0x33
+ 669 012a 74000000 		.4byte	.LLST2
+ 670 012e 0E       		.uleb128 0xe
+ 671 012f 7000     		.ascii	"p\000"
+ 672 0131 01       		.byte	0x1
+ 673 0132 BB       		.byte	0xbb
+ 674 0133 4B010000 		.4byte	0x14b
+ 675 0137 AE000000 		.4byte	.LLST3
+ 676 013b 0F       		.uleb128 0xf
+ 677 013c 39010000 		.4byte	.LASF21
+ 678 0140 01       		.byte	0x1
+ 679 0141 BC       		.byte	0xbc
+ 680 0142 8D000000 		.4byte	0x8d
+ 681 0146 CC000000 		.4byte	.LLST4
+ 682 014a 00       		.byte	0
+ 683 014b 10       		.uleb128 0x10
+ 684 014c 04       		.byte	0x4
+ 685 014d 81000000 		.4byte	0x81
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 20
+
+
+ 686 0151 0B       		.uleb128 0xb
+ 687 0152 0E000000 		.4byte	.LASF23
+ 688 0156 01       		.byte	0x1
+ 689 0157 F7       		.byte	0xf7
+ 690 0158 00000000 		.4byte	.LFB66
+ 691 015c 28000000 		.4byte	.LFE66-.LFB66
+ 692 0160 01       		.uleb128 0x1
+ 693 0161 9C       		.byte	0x9c
+ 694 0162 AC010000 		.4byte	0x1ac
+ 695 0166 0D       		.uleb128 0xd
+ 696 0167 77010000 		.4byte	.LASF20
+ 697 016b 01       		.byte	0x1
+ 698 016c F7       		.byte	0xf7
+ 699 016d 33000000 		.4byte	0x33
+ 700 0171 07010000 		.4byte	.LLST5
+ 701 0175 11       		.uleb128 0x11
+ 702 0176 6A000000 		.4byte	.LASF24
+ 703 017a 01       		.byte	0x1
+ 704 017b FA       		.byte	0xfa
+ 705 017c 81000000 		.4byte	0x81
+ 706 0180 01       		.uleb128 0x1
+ 707 0181 50       		.byte	0x50
+ 708 0182 0E       		.uleb128 0xe
+ 709 0183 703100   		.ascii	"p1\000"
+ 710 0186 01       		.byte	0x1
+ 711 0187 FB       		.byte	0xfb
+ 712 0188 4B010000 		.4byte	0x14b
+ 713 018c 28010000 		.4byte	.LLST6
+ 714 0190 0E       		.uleb128 0xe
+ 715 0191 703200   		.ascii	"p2\000"
+ 716 0194 01       		.byte	0x1
+ 717 0195 FB       		.byte	0xfb
+ 718 0196 4B010000 		.4byte	0x14b
+ 719 019a 58010000 		.4byte	.LLST7
+ 720 019e 0E       		.uleb128 0xe
+ 721 019f 6900     		.ascii	"i\000"
+ 722 01a1 01       		.byte	0x1
+ 723 01a2 FC       		.byte	0xfc
+ 724 01a3 8D000000 		.4byte	0x8d
+ 725 01a7 93010000 		.4byte	.LLST8
+ 726 01ab 00       		.byte	0
+ 727 01ac 12       		.uleb128 0x12
+ 728 01ad 55000000 		.4byte	.LASF25
+ 729 01b1 01       		.byte	0x1
+ 730 01b2 2401     		.2byte	0x124
+ 731 01b4 00000000 		.4byte	.LFB67
+ 732 01b8 46000000 		.4byte	.LFE67-.LFB67
+ 733 01bc 01       		.uleb128 0x1
+ 734 01bd 9C       		.byte	0x9c
+ 735 01be 9E020000 		.4byte	0x29e
+ 736 01c2 13       		.uleb128 0x13
+ 737 01c3 11020000 		.4byte	.LASF26
+ 738 01c7 01       		.byte	0x1
+ 739 01c8 2401     		.2byte	0x124
+ 740 01ca 33000000 		.4byte	0x33
+ 741 01ce BD010000 		.4byte	.LLST9
+ 742 01d2 13       		.uleb128 0x13
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 21
+
+
+ 743 01d3 6A000000 		.4byte	.LASF24
+ 744 01d7 01       		.byte	0x1
+ 745 01d8 2401     		.2byte	0x124
+ 746 01da 81000000 		.4byte	0x81
+ 747 01de F7010000 		.4byte	.LLST10
+ 748 01e2 14       		.uleb128 0x14
+ 749 01e3 0C000000 		.4byte	.LVL26
+ 750 01e7 3B060000 		.4byte	0x63b
+ 751 01eb F5010000 		.4byte	0x1f5
+ 752 01ef 15       		.uleb128 0x15
+ 753 01f0 01       		.uleb128 0x1
+ 754 01f1 50       		.byte	0x50
+ 755 01f2 01       		.uleb128 0x1
+ 756 01f3 31       		.byte	0x31
+ 757 01f4 00       		.byte	0
+ 758 01f5 14       		.uleb128 0x14
+ 759 01f6 14000000 		.4byte	.LVL29
+ 760 01fa 46060000 		.4byte	0x646
+ 761 01fe 08020000 		.4byte	0x208
+ 762 0202 15       		.uleb128 0x15
+ 763 0203 01       		.uleb128 0x1
+ 764 0204 50       		.byte	0x50
+ 765 0205 01       		.uleb128 0x1
+ 766 0206 31       		.byte	0x31
+ 767 0207 00       		.byte	0
+ 768 0208 14       		.uleb128 0x14
+ 769 0209 1A000000 		.4byte	.LVL30
+ 770 020d 51060000 		.4byte	0x651
+ 771 0211 1B020000 		.4byte	0x21b
+ 772 0215 15       		.uleb128 0x15
+ 773 0216 01       		.uleb128 0x1
+ 774 0217 50       		.byte	0x50
+ 775 0218 01       		.uleb128 0x1
+ 776 0219 30       		.byte	0x30
+ 777 021a 00       		.byte	0
+ 778 021b 14       		.uleb128 0x14
+ 779 021c 20000000 		.4byte	.LVL31
+ 780 0220 5C060000 		.4byte	0x65c
+ 781 0224 2F020000 		.4byte	0x22f
+ 782 0228 15       		.uleb128 0x15
+ 783 0229 01       		.uleb128 0x1
+ 784 022a 50       		.byte	0x50
+ 785 022b 02       		.uleb128 0x2
+ 786 022c 74       		.byte	0x74
+ 787 022d 00       		.sleb128 0
+ 788 022e 00       		.byte	0
+ 789 022f 14       		.uleb128 0x14
+ 790 0230 26000000 		.4byte	.LVL32
+ 791 0234 67060000 		.4byte	0x667
+ 792 0238 42020000 		.4byte	0x242
+ 793 023c 15       		.uleb128 0x15
+ 794 023d 01       		.uleb128 0x1
+ 795 023e 50       		.byte	0x50
+ 796 023f 01       		.uleb128 0x1
+ 797 0240 31       		.byte	0x31
+ 798 0241 00       		.byte	0
+ 799 0242 14       		.uleb128 0x14
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 22
+
+
+ 800 0243 2C000000 		.4byte	.LVL33
+ 801 0247 72060000 		.4byte	0x672
+ 802 024b 55020000 		.4byte	0x255
+ 803 024f 15       		.uleb128 0x15
+ 804 0250 01       		.uleb128 0x1
+ 805 0251 50       		.byte	0x50
+ 806 0252 01       		.uleb128 0x1
+ 807 0253 31       		.byte	0x31
+ 808 0254 00       		.byte	0
+ 809 0255 14       		.uleb128 0x14
+ 810 0256 32000000 		.4byte	.LVL34
+ 811 025a 67060000 		.4byte	0x667
+ 812 025e 68020000 		.4byte	0x268
+ 813 0262 15       		.uleb128 0x15
+ 814 0263 01       		.uleb128 0x1
+ 815 0264 50       		.byte	0x50
+ 816 0265 01       		.uleb128 0x1
+ 817 0266 35       		.byte	0x35
+ 818 0267 00       		.byte	0
+ 819 0268 14       		.uleb128 0x14
+ 820 0269 38000000 		.4byte	.LVL35
+ 821 026d 72060000 		.4byte	0x672
+ 822 0271 7B020000 		.4byte	0x27b
+ 823 0275 15       		.uleb128 0x15
+ 824 0276 01       		.uleb128 0x1
+ 825 0277 50       		.byte	0x50
+ 826 0278 01       		.uleb128 0x1
+ 827 0279 30       		.byte	0x30
+ 828 027a 00       		.byte	0
+ 829 027b 14       		.uleb128 0x14
+ 830 027c 3E000000 		.4byte	.LVL36
+ 831 0280 46060000 		.4byte	0x646
+ 832 0284 8E020000 		.4byte	0x28e
+ 833 0288 15       		.uleb128 0x15
+ 834 0289 01       		.uleb128 0x1
+ 835 028a 50       		.byte	0x50
+ 836 028b 01       		.uleb128 0x1
+ 837 028c 30       		.byte	0x30
+ 838 028d 00       		.byte	0
+ 839 028e 16       		.uleb128 0x16
+ 840 028f 44000000 		.4byte	.LVL37
+ 841 0293 3B060000 		.4byte	0x63b
+ 842 0297 15       		.uleb128 0x15
+ 843 0298 01       		.uleb128 0x1
+ 844 0299 50       		.byte	0x50
+ 845 029a 01       		.uleb128 0x1
+ 846 029b 30       		.byte	0x30
+ 847 029c 00       		.byte	0
+ 848 029d 00       		.byte	0
+ 849 029e 17       		.uleb128 0x17
+ 850 029f BC010000 		.4byte	.LASF43
+ 851 02a3 01       		.byte	0x1
+ 852 02a4 94       		.byte	0x94
+ 853 02a5 00000000 		.4byte	.LFB64
+ 854 02a9 7C000000 		.4byte	.LFE64-.LFB64
+ 855 02ad 01       		.uleb128 0x1
+ 856 02ae 9C       		.byte	0x9c
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 23
+
+
+ 857 02af 96030000 		.4byte	0x396
+ 858 02b3 0E       		.uleb128 0xe
+ 859 02b4 6900     		.ascii	"i\000"
+ 860 02b6 01       		.byte	0x1
+ 861 02b7 96       		.byte	0x96
+ 862 02b8 81000000 		.4byte	0x81
+ 863 02bc 31020000 		.4byte	.LLST11
+ 864 02c0 0E       		.uleb128 0xe
+ 865 02c1 6A00     		.ascii	"j\000"
+ 866 02c3 01       		.byte	0x1
+ 867 02c4 96       		.byte	0x96
+ 868 02c5 81000000 		.4byte	0x81
+ 869 02c9 5B020000 		.4byte	.LLST12
+ 870 02cd 0E       		.uleb128 0xe
+ 871 02ce 703100   		.ascii	"p1\000"
+ 872 02d1 01       		.byte	0x1
+ 873 02d2 97       		.byte	0x97
+ 874 02d3 4B010000 		.4byte	0x14b
+ 875 02d7 85020000 		.4byte	.LLST13
+ 876 02db 0E       		.uleb128 0xe
+ 877 02dc 703200   		.ascii	"p2\000"
+ 878 02df 01       		.byte	0x1
+ 879 02e0 97       		.byte	0x97
+ 880 02e1 4B010000 		.4byte	0x14b
+ 881 02e5 BE020000 		.4byte	.LLST14
+ 882 02e9 14       		.uleb128 0x14
+ 883 02ea 16000000 		.4byte	.LVL41
+ 884 02ee 7D060000 		.4byte	0x67d
+ 885 02f2 FC020000 		.4byte	0x2fc
+ 886 02f6 15       		.uleb128 0x15
+ 887 02f7 01       		.uleb128 0x1
+ 888 02f8 50       		.byte	0x50
+ 889 02f9 01       		.uleb128 0x1
+ 890 02fa 30       		.byte	0x30
+ 891 02fb 00       		.byte	0
+ 892 02fc 14       		.uleb128 0x14
+ 893 02fd 1E000000 		.4byte	.LVL42
+ 894 0301 AC010000 		.4byte	0x1ac
+ 895 0305 15030000 		.4byte	0x315
+ 896 0309 15       		.uleb128 0x15
+ 897 030a 01       		.uleb128 0x1
+ 898 030b 50       		.byte	0x50
+ 899 030c 01       		.uleb128 0x1
+ 900 030d 30       		.byte	0x30
+ 901 030e 15       		.uleb128 0x15
+ 902 030f 01       		.uleb128 0x1
+ 903 0310 51       		.byte	0x51
+ 904 0311 02       		.uleb128 0x2
+ 905 0312 08       		.byte	0x8
+ 906 0313 40       		.byte	0x40
+ 907 0314 00       		.byte	0
+ 908 0315 14       		.uleb128 0x14
+ 909 0316 26000000 		.4byte	.LVL43
+ 910 031a AC010000 		.4byte	0x1ac
+ 911 031e 2E030000 		.4byte	0x32e
+ 912 0322 15       		.uleb128 0x15
+ 913 0323 01       		.uleb128 0x1
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 24
+
+
+ 914 0324 50       		.byte	0x50
+ 915 0325 01       		.uleb128 0x1
+ 916 0326 31       		.byte	0x31
+ 917 0327 15       		.uleb128 0x15
+ 918 0328 01       		.uleb128 0x1
+ 919 0329 51       		.byte	0x51
+ 920 032a 02       		.uleb128 0x2
+ 921 032b 08       		.byte	0x8
+ 922 032c 40       		.byte	0x40
+ 923 032d 00       		.byte	0
+ 924 032e 14       		.uleb128 0x14
+ 925 032f 32000000 		.4byte	.LVL44
+ 926 0333 AC010000 		.4byte	0x1ac
+ 927 0337 47030000 		.4byte	0x347
+ 928 033b 15       		.uleb128 0x15
+ 929 033c 01       		.uleb128 0x1
+ 930 033d 50       		.byte	0x50
+ 931 033e 01       		.uleb128 0x1
+ 932 033f 30       		.byte	0x30
+ 933 0340 15       		.uleb128 0x15
+ 934 0341 01       		.uleb128 0x1
+ 935 0342 51       		.byte	0x51
+ 936 0343 02       		.uleb128 0x2
+ 937 0344 74       		.byte	0x74
+ 938 0345 00       		.sleb128 0
+ 939 0346 00       		.byte	0
+ 940 0347 14       		.uleb128 0x14
+ 941 0348 3A000000 		.4byte	.LVL45
+ 942 034c AC010000 		.4byte	0x1ac
+ 943 0350 60030000 		.4byte	0x360
+ 944 0354 15       		.uleb128 0x15
+ 945 0355 01       		.uleb128 0x1
+ 946 0356 50       		.byte	0x50
+ 947 0357 01       		.uleb128 0x1
+ 948 0358 31       		.byte	0x31
+ 949 0359 15       		.uleb128 0x15
+ 950 035a 01       		.uleb128 0x1
+ 951 035b 51       		.byte	0x51
+ 952 035c 02       		.uleb128 0x2
+ 953 035d 74       		.byte	0x74
+ 954 035e 00       		.sleb128 0
+ 955 035f 00       		.byte	0
+ 956 0360 14       		.uleb128 0x14
+ 957 0361 40000000 		.4byte	.LVL46
+ 958 0365 7D060000 		.4byte	0x67d
+ 959 0369 73030000 		.4byte	0x373
+ 960 036d 15       		.uleb128 0x15
+ 961 036e 01       		.uleb128 0x1
+ 962 036f 50       		.byte	0x50
+ 963 0370 01       		.uleb128 0x1
+ 964 0371 31       		.byte	0x31
+ 965 0372 00       		.byte	0
+ 966 0373 14       		.uleb128 0x14
+ 967 0374 4E000000 		.4byte	.LVL49
+ 968 0378 AC010000 		.4byte	0x1ac
+ 969 037c 86030000 		.4byte	0x386
+ 970 0380 15       		.uleb128 0x15
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 25
+
+
+ 971 0381 01       		.uleb128 0x1
+ 972 0382 50       		.byte	0x50
+ 973 0383 01       		.uleb128 0x1
+ 974 0384 30       		.byte	0x30
+ 975 0385 00       		.byte	0
+ 976 0386 16       		.uleb128 0x16
+ 977 0387 58000000 		.4byte	.LVL51
+ 978 038b AC010000 		.4byte	0x1ac
+ 979 038f 15       		.uleb128 0x15
+ 980 0390 01       		.uleb128 0x1
+ 981 0391 50       		.byte	0x50
+ 982 0392 01       		.uleb128 0x1
+ 983 0393 31       		.byte	0x31
+ 984 0394 00       		.byte	0
+ 985 0395 00       		.byte	0
+ 986 0396 0B       		.uleb128 0xb
+ 987 0397 9A010000 		.4byte	.LASF27
+ 988 039b 01       		.byte	0x1
+ 989 039c 69       		.byte	0x69
+ 990 039d 00000000 		.4byte	.LFB63
+ 991 03a1 84000000 		.4byte	.LFE63-.LFB63
+ 992 03a5 01       		.uleb128 0x1
+ 993 03a6 9C       		.byte	0x9c
+ 994 03a7 30050000 		.4byte	0x530
+ 995 03ab 0D       		.uleb128 0xd
+ 996 03ac FB010000 		.4byte	.LASF28
+ 997 03b0 01       		.byte	0x1
+ 998 03b1 69       		.byte	0x69
+ 999 03b2 33000000 		.4byte	0x33
+ 1000 03b6 F7020000 		.4byte	.LLST15
+ 1001 03ba 14       		.uleb128 0x14
+ 1002 03bb 0A000000 		.4byte	.LVL60
+ 1003 03bf 88060000 		.4byte	0x688
+ 1004 03c3 CD030000 		.4byte	0x3cd
+ 1005 03c7 15       		.uleb128 0x15
+ 1006 03c8 01       		.uleb128 0x1
+ 1007 03c9 50       		.byte	0x50
+ 1008 03ca 01       		.uleb128 0x1
+ 1009 03cb 31       		.byte	0x31
+ 1010 03cc 00       		.byte	0
+ 1011 03cd 14       		.uleb128 0x14
+ 1012 03ce 10000000 		.4byte	.LVL61
+ 1013 03d2 72060000 		.4byte	0x672
+ 1014 03d6 E0030000 		.4byte	0x3e0
+ 1015 03da 15       		.uleb128 0x15
+ 1016 03db 01       		.uleb128 0x1
+ 1017 03dc 50       		.byte	0x50
+ 1018 03dd 01       		.uleb128 0x1
+ 1019 03de 30       		.byte	0x30
+ 1020 03df 00       		.byte	0
+ 1021 03e0 14       		.uleb128 0x14
+ 1022 03e1 16000000 		.4byte	.LVL62
+ 1023 03e5 46060000 		.4byte	0x646
+ 1024 03e9 F3030000 		.4byte	0x3f3
+ 1025 03ed 15       		.uleb128 0x15
+ 1026 03ee 01       		.uleb128 0x1
+ 1027 03ef 50       		.byte	0x50
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 26
+
+
+ 1028 03f0 01       		.uleb128 0x1
+ 1029 03f1 30       		.byte	0x30
+ 1030 03f2 00       		.byte	0
+ 1031 03f3 14       		.uleb128 0x14
+ 1032 03f4 1C000000 		.4byte	.LVL63
+ 1033 03f8 3B060000 		.4byte	0x63b
+ 1034 03fc 06040000 		.4byte	0x406
+ 1035 0400 15       		.uleb128 0x15
+ 1036 0401 01       		.uleb128 0x1
+ 1037 0402 50       		.byte	0x50
+ 1038 0403 01       		.uleb128 0x1
+ 1039 0404 30       		.byte	0x30
+ 1040 0405 00       		.byte	0
+ 1041 0406 14       		.uleb128 0x14
+ 1042 0407 22000000 		.4byte	.LVL64
+ 1043 040b 7D060000 		.4byte	0x67d
+ 1044 040f 19040000 		.4byte	0x419
+ 1045 0413 15       		.uleb128 0x15
+ 1046 0414 01       		.uleb128 0x1
+ 1047 0415 50       		.byte	0x50
+ 1048 0416 01       		.uleb128 0x1
+ 1049 0417 30       		.byte	0x30
+ 1050 0418 00       		.byte	0
+ 1051 0419 14       		.uleb128 0x14
+ 1052 041a 2A000000 		.4byte	.LVL65
+ 1053 041e AC010000 		.4byte	0x1ac
+ 1054 0422 32040000 		.4byte	0x432
+ 1055 0426 15       		.uleb128 0x15
+ 1056 0427 01       		.uleb128 0x1
+ 1057 0428 50       		.byte	0x50
+ 1058 0429 01       		.uleb128 0x1
+ 1059 042a 30       		.byte	0x30
+ 1060 042b 15       		.uleb128 0x15
+ 1061 042c 01       		.uleb128 0x1
+ 1062 042d 51       		.byte	0x51
+ 1063 042e 02       		.uleb128 0x2
+ 1064 042f 09       		.byte	0x9
+ 1065 0430 C0       		.byte	0xc0
+ 1066 0431 00       		.byte	0
+ 1067 0432 14       		.uleb128 0x14
+ 1068 0433 32000000 		.4byte	.LVL66
+ 1069 0437 AC010000 		.4byte	0x1ac
+ 1070 043b 4B040000 		.4byte	0x44b
+ 1071 043f 15       		.uleb128 0x15
+ 1072 0440 01       		.uleb128 0x1
+ 1073 0441 50       		.byte	0x50
+ 1074 0442 01       		.uleb128 0x1
+ 1075 0443 31       		.byte	0x31
+ 1076 0444 15       		.uleb128 0x15
+ 1077 0445 01       		.uleb128 0x1
+ 1078 0446 51       		.byte	0x51
+ 1079 0447 02       		.uleb128 0x2
+ 1080 0448 09       		.byte	0x9
+ 1081 0449 C0       		.byte	0xc0
+ 1082 044a 00       		.byte	0
+ 1083 044b 14       		.uleb128 0x14
+ 1084 044c 3A000000 		.4byte	.LVL67
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 27
+
+
+ 1085 0450 AC010000 		.4byte	0x1ac
+ 1086 0454 64040000 		.4byte	0x464
+ 1087 0458 15       		.uleb128 0x15
+ 1088 0459 01       		.uleb128 0x1
+ 1089 045a 50       		.byte	0x50
+ 1090 045b 01       		.uleb128 0x1
+ 1091 045c 30       		.byte	0x30
+ 1092 045d 15       		.uleb128 0x15
+ 1093 045e 01       		.uleb128 0x1
+ 1094 045f 51       		.byte	0x51
+ 1095 0460 02       		.uleb128 0x2
+ 1096 0461 08       		.byte	0x8
+ 1097 0462 40       		.byte	0x40
+ 1098 0463 00       		.byte	0
+ 1099 0464 14       		.uleb128 0x14
+ 1100 0465 42000000 		.4byte	.LVL68
+ 1101 0469 AC010000 		.4byte	0x1ac
+ 1102 046d 7D040000 		.4byte	0x47d
+ 1103 0471 15       		.uleb128 0x15
+ 1104 0472 01       		.uleb128 0x1
+ 1105 0473 50       		.byte	0x50
+ 1106 0474 01       		.uleb128 0x1
+ 1107 0475 31       		.byte	0x31
+ 1108 0476 15       		.uleb128 0x15
+ 1109 0477 01       		.uleb128 0x1
+ 1110 0478 51       		.byte	0x51
+ 1111 0479 02       		.uleb128 0x2
+ 1112 047a 08       		.byte	0x8
+ 1113 047b 40       		.byte	0x40
+ 1114 047c 00       		.byte	0
+ 1115 047d 14       		.uleb128 0x14
+ 1116 047e 4A000000 		.4byte	.LVL69
+ 1117 0482 AC010000 		.4byte	0x1ac
+ 1118 0486 96040000 		.4byte	0x496
+ 1119 048a 15       		.uleb128 0x15
+ 1120 048b 01       		.uleb128 0x1
+ 1121 048c 50       		.byte	0x50
+ 1122 048d 01       		.uleb128 0x1
+ 1123 048e 30       		.byte	0x30
+ 1124 048f 15       		.uleb128 0x15
+ 1125 0490 01       		.uleb128 0x1
+ 1126 0491 51       		.byte	0x51
+ 1127 0492 02       		.uleb128 0x2
+ 1128 0493 09       		.byte	0x9
+ 1129 0494 B8       		.byte	0xb8
+ 1130 0495 00       		.byte	0
+ 1131 0496 14       		.uleb128 0x14
+ 1132 0497 52000000 		.4byte	.LVL70
+ 1133 049b AC010000 		.4byte	0x1ac
+ 1134 049f AF040000 		.4byte	0x4af
+ 1135 04a3 15       		.uleb128 0x15
+ 1136 04a4 01       		.uleb128 0x1
+ 1137 04a5 50       		.byte	0x50
+ 1138 04a6 01       		.uleb128 0x1
+ 1139 04a7 31       		.byte	0x31
+ 1140 04a8 15       		.uleb128 0x15
+ 1141 04a9 01       		.uleb128 0x1
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 28
+
+
+ 1142 04aa 51       		.byte	0x51
+ 1143 04ab 02       		.uleb128 0x2
+ 1144 04ac 09       		.byte	0x9
+ 1145 04ad B8       		.byte	0xb8
+ 1146 04ae 00       		.byte	0
+ 1147 04af 14       		.uleb128 0x14
+ 1148 04b0 5E000000 		.4byte	.LVL71
+ 1149 04b4 AC010000 		.4byte	0x1ac
+ 1150 04b8 C8040000 		.4byte	0x4c8
+ 1151 04bc 15       		.uleb128 0x15
+ 1152 04bd 01       		.uleb128 0x1
+ 1153 04be 50       		.byte	0x50
+ 1154 04bf 01       		.uleb128 0x1
+ 1155 04c0 30       		.byte	0x30
+ 1156 04c1 15       		.uleb128 0x15
+ 1157 04c2 01       		.uleb128 0x1
+ 1158 04c3 51       		.byte	0x51
+ 1159 04c4 02       		.uleb128 0x2
+ 1160 04c5 08       		.byte	0x8
+ 1161 04c6 3F       		.byte	0x3f
+ 1162 04c7 00       		.byte	0
+ 1163 04c8 14       		.uleb128 0x14
+ 1164 04c9 66000000 		.4byte	.LVL72
+ 1165 04cd AC010000 		.4byte	0x1ac
+ 1166 04d1 E1040000 		.4byte	0x4e1
+ 1167 04d5 15       		.uleb128 0x15
+ 1168 04d6 01       		.uleb128 0x1
+ 1169 04d7 50       		.byte	0x50
+ 1170 04d8 01       		.uleb128 0x1
+ 1171 04d9 31       		.byte	0x31
+ 1172 04da 15       		.uleb128 0x15
+ 1173 04db 01       		.uleb128 0x1
+ 1174 04dc 51       		.byte	0x51
+ 1175 04dd 02       		.uleb128 0x2
+ 1176 04de 08       		.byte	0x8
+ 1177 04df 3F       		.byte	0x3f
+ 1178 04e0 00       		.byte	0
+ 1179 04e1 14       		.uleb128 0x14
+ 1180 04e2 70000000 		.4byte	.LVL73
+ 1181 04e6 AC010000 		.4byte	0x1ac
+ 1182 04ea FA040000 		.4byte	0x4fa
+ 1183 04ee 15       		.uleb128 0x15
+ 1184 04ef 01       		.uleb128 0x1
+ 1185 04f0 50       		.byte	0x50
+ 1186 04f1 01       		.uleb128 0x1
+ 1187 04f2 30       		.byte	0x30
+ 1188 04f3 15       		.uleb128 0x15
+ 1189 04f4 01       		.uleb128 0x1
+ 1190 04f5 51       		.byte	0x51
+ 1191 04f6 02       		.uleb128 0x2
+ 1192 04f7 08       		.byte	0x8
+ 1193 04f8 3E       		.byte	0x3e
+ 1194 04f9 00       		.byte	0
+ 1195 04fa 14       		.uleb128 0x14
+ 1196 04fb 78000000 		.4byte	.LVL74
+ 1197 04ff AC010000 		.4byte	0x1ac
+ 1198 0503 13050000 		.4byte	0x513
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 29
+
+
+ 1199 0507 15       		.uleb128 0x15
+ 1200 0508 01       		.uleb128 0x1
+ 1201 0509 50       		.byte	0x50
+ 1202 050a 01       		.uleb128 0x1
+ 1203 050b 31       		.byte	0x31
+ 1204 050c 15       		.uleb128 0x15
+ 1205 050d 01       		.uleb128 0x1
+ 1206 050e 51       		.byte	0x51
+ 1207 050f 02       		.uleb128 0x2
+ 1208 0510 08       		.byte	0x8
+ 1209 0511 3E       		.byte	0x3e
+ 1210 0512 00       		.byte	0
+ 1211 0513 14       		.uleb128 0x14
+ 1212 0514 7E000000 		.4byte	.LVL75
+ 1213 0518 51010000 		.4byte	0x151
+ 1214 051c 26050000 		.4byte	0x526
+ 1215 0520 15       		.uleb128 0x15
+ 1216 0521 01       		.uleb128 0x1
+ 1217 0522 50       		.byte	0x50
+ 1218 0523 01       		.uleb128 0x1
+ 1219 0524 30       		.byte	0x30
+ 1220 0525 00       		.byte	0
+ 1221 0526 18       		.uleb128 0x18
+ 1222 0527 82000000 		.4byte	.LVL76
+ 1223 052b 9E020000 		.4byte	0x29e
+ 1224 052f 00       		.byte	0
+ 1225 0530 19       		.uleb128 0x19
+ 1226 0531 1E000000 		.4byte	.LASF44
+ 1227 0535 01       		.byte	0x1
+ 1228 0536 4301     		.2byte	0x143
+ 1229 0538 81000000 		.4byte	0x81
+ 1230 053c 00000000 		.4byte	.LFB68
+ 1231 0540 48000000 		.4byte	.LFE68-.LFB68
+ 1232 0544 01       		.uleb128 0x1
+ 1233 0545 9C       		.byte	0x9c
+ 1234 0546 19060000 		.4byte	0x619
+ 1235 054a 13       		.uleb128 0x13
+ 1236 054b 11020000 		.4byte	.LASF26
+ 1237 054f 01       		.byte	0x1
+ 1238 0550 4301     		.2byte	0x143
+ 1239 0552 33000000 		.4byte	0x33
+ 1240 0556 18030000 		.4byte	.LLST16
+ 1241 055a 1A       		.uleb128 0x1a
+ 1242 055b 6A000000 		.4byte	.LASF24
+ 1243 055f 01       		.byte	0x1
+ 1244 0560 4501     		.2byte	0x145
+ 1245 0562 81000000 		.4byte	0x81
+ 1246 0566 01       		.uleb128 0x1
+ 1247 0567 54       		.byte	0x54
+ 1248 0568 14       		.uleb128 0x14
+ 1249 0569 0A000000 		.4byte	.LVL79
+ 1250 056d 51060000 		.4byte	0x651
+ 1251 0571 7B050000 		.4byte	0x57b
+ 1252 0575 15       		.uleb128 0x15
+ 1253 0576 01       		.uleb128 0x1
+ 1254 0577 50       		.byte	0x50
+ 1255 0578 01       		.uleb128 0x1
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 30
+
+
+ 1256 0579 31       		.byte	0x31
+ 1257 057a 00       		.byte	0
+ 1258 057b 14       		.uleb128 0x14
+ 1259 057c 12000000 		.4byte	.LVL80
+ 1260 0580 3B060000 		.4byte	0x63b
+ 1261 0584 8E050000 		.4byte	0x58e
+ 1262 0588 15       		.uleb128 0x15
+ 1263 0589 01       		.uleb128 0x1
+ 1264 058a 50       		.byte	0x50
+ 1265 058b 01       		.uleb128 0x1
+ 1266 058c 31       		.byte	0x31
+ 1267 058d 00       		.byte	0
+ 1268 058e 14       		.uleb128 0x14
+ 1269 058f 1A000000 		.4byte	.LVL81
+ 1270 0593 46060000 		.4byte	0x646
+ 1271 0597 A1050000 		.4byte	0x5a1
+ 1272 059b 15       		.uleb128 0x15
+ 1273 059c 01       		.uleb128 0x1
+ 1274 059d 50       		.byte	0x50
+ 1275 059e 01       		.uleb128 0x1
+ 1276 059f 31       		.byte	0x31
+ 1277 05a0 00       		.byte	0
+ 1278 05a1 14       		.uleb128 0x14
+ 1279 05a2 20000000 		.4byte	.LVL82
+ 1280 05a6 67060000 		.4byte	0x667
+ 1281 05aa B4050000 		.4byte	0x5b4
+ 1282 05ae 15       		.uleb128 0x15
+ 1283 05af 01       		.uleb128 0x1
+ 1284 05b0 50       		.byte	0x50
+ 1285 05b1 01       		.uleb128 0x1
+ 1286 05b2 31       		.byte	0x31
+ 1287 05b3 00       		.byte	0
+ 1288 05b4 14       		.uleb128 0x14
+ 1289 05b5 26000000 		.4byte	.LVL83
+ 1290 05b9 72060000 		.4byte	0x672
+ 1291 05bd C7050000 		.4byte	0x5c7
+ 1292 05c1 15       		.uleb128 0x15
+ 1293 05c2 01       		.uleb128 0x1
+ 1294 05c3 50       		.byte	0x50
+ 1295 05c4 01       		.uleb128 0x1
+ 1296 05c5 31       		.byte	0x31
+ 1297 05c6 00       		.byte	0
+ 1298 05c7 14       		.uleb128 0x14
+ 1299 05c8 2C000000 		.4byte	.LVL84
+ 1300 05cc 67060000 		.4byte	0x667
+ 1301 05d0 DA050000 		.4byte	0x5da
+ 1302 05d4 15       		.uleb128 0x15
+ 1303 05d5 01       		.uleb128 0x1
+ 1304 05d6 50       		.byte	0x50
+ 1305 05d7 01       		.uleb128 0x1
+ 1306 05d8 34       		.byte	0x34
+ 1307 05d9 00       		.byte	0
+ 1308 05da 18       		.uleb128 0x18
+ 1309 05db 30000000 		.4byte	.LVL85
+ 1310 05df 93060000 		.4byte	0x693
+ 1311 05e3 14       		.uleb128 0x14
+ 1312 05e4 38000000 		.4byte	.LVL87
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 31
+
+
+ 1313 05e8 72060000 		.4byte	0x672
+ 1314 05ec F6050000 		.4byte	0x5f6
+ 1315 05f0 15       		.uleb128 0x15
+ 1316 05f1 01       		.uleb128 0x1
+ 1317 05f2 50       		.byte	0x50
+ 1318 05f3 01       		.uleb128 0x1
+ 1319 05f4 30       		.byte	0x30
+ 1320 05f5 00       		.byte	0
+ 1321 05f6 14       		.uleb128 0x14
+ 1322 05f7 3E000000 		.4byte	.LVL88
+ 1323 05fb 46060000 		.4byte	0x646
+ 1324 05ff 09060000 		.4byte	0x609
+ 1325 0603 15       		.uleb128 0x15
+ 1326 0604 01       		.uleb128 0x1
+ 1327 0605 50       		.byte	0x50
+ 1328 0606 01       		.uleb128 0x1
+ 1329 0607 30       		.byte	0x30
+ 1330 0608 00       		.byte	0
+ 1331 0609 16       		.uleb128 0x16
+ 1332 060a 44000000 		.4byte	.LVL89
+ 1333 060e 3B060000 		.4byte	0x63b
+ 1334 0612 15       		.uleb128 0x15
+ 1335 0613 01       		.uleb128 0x1
+ 1336 0614 50       		.byte	0x50
+ 1337 0615 01       		.uleb128 0x1
+ 1338 0616 30       		.byte	0x30
+ 1339 0617 00       		.byte	0
+ 1340 0618 00       		.byte	0
+ 1341 0619 1B       		.uleb128 0x1b
+ 1342 061a 4C010000 		.4byte	.LASF29
+ 1343 061e 05       		.byte	0x5
+ 1344 061f 1207     		.2byte	0x712
+ 1345 0621 25060000 		.4byte	0x625
+ 1346 0625 1C       		.uleb128 0x1c
+ 1347 0626 76000000 		.4byte	0x76
+ 1348 062a 1D       		.uleb128 0x1d
+ 1349 062b B9020000 		.4byte	.LASF30
+ 1350 062f 01       		.byte	0x1
+ 1351 0630 61       		.byte	0x61
+ 1352 0631 BC000000 		.4byte	0xbc
+ 1353 0635 05       		.uleb128 0x5
+ 1354 0636 03       		.byte	0x3
+ 1355 0637 00000000 		.4byte	displayData
+ 1356 063b 1E       		.uleb128 0x1e
+ 1357 063c D5010000 		.4byte	.LASF31
+ 1358 0640 D5010000 		.4byte	.LASF31
+ 1359 0644 06       		.byte	0x6
+ 1360 0645 26       		.byte	0x26
+ 1361 0646 1E       		.uleb128 0x1e
+ 1362 0647 8B010000 		.4byte	.LASF32
+ 1363 064b 8B010000 		.4byte	.LASF32
+ 1364 064f 07       		.byte	0x7
+ 1365 0650 26       		.byte	0x26
+ 1366 0651 1E       		.uleb128 0x1e
+ 1367 0652 3E010000 		.4byte	.LASF33
+ 1368 0656 3E010000 		.4byte	.LASF33
+ 1369 065a 08       		.byte	0x8
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 32
+
+
+ 1370 065b 26       		.byte	0x26
+ 1371 065c 1E       		.uleb128 0x1e
+ 1372 065d D0020000 		.4byte	.LASF34
+ 1373 0661 D0020000 		.4byte	.LASF34
+ 1374 0665 09       		.byte	0x9
+ 1375 0666 2F       		.byte	0x2f
+ 1376 0667 1E       		.uleb128 0x1e
+ 1377 0668 00000000 		.4byte	.LASF35
+ 1378 066c 00000000 		.4byte	.LASF35
+ 1379 0670 0A       		.byte	0xa
+ 1380 0671 79       		.byte	0x79
+ 1381 0672 1E       		.uleb128 0x1e
+ 1382 0673 17010000 		.4byte	.LASF36
+ 1383 0677 17010000 		.4byte	.LASF36
+ 1384 067b 0B       		.byte	0xb
+ 1385 067c 26       		.byte	0x26
+ 1386 067d 1E       		.uleb128 0x1e
+ 1387 067e 7D010000 		.4byte	.LASF37
+ 1388 0682 7D010000 		.4byte	.LASF37
+ 1389 0686 0C       		.byte	0xc
+ 1390 0687 26       		.byte	0x26
+ 1391 0688 1E       		.uleb128 0x1e
+ 1392 0689 24010000 		.4byte	.LASF38
+ 1393 068d 24010000 		.4byte	.LASF38
+ 1394 0691 0D       		.byte	0xd
+ 1395 0692 26       		.byte	0x26
+ 1396 0693 1E       		.uleb128 0x1e
+ 1397 0694 AB010000 		.4byte	.LASF39
+ 1398 0698 AB010000 		.4byte	.LASF39
+ 1399 069c 09       		.byte	0x9
+ 1400 069d 30       		.byte	0x30
+ 1401 069e 00       		.byte	0
+ 1402              		.section	.debug_abbrev,"",%progbits
+ 1403              	.Ldebug_abbrev0:
+ 1404 0000 01       		.uleb128 0x1
+ 1405 0001 11       		.uleb128 0x11
+ 1406 0002 01       		.byte	0x1
+ 1407 0003 25       		.uleb128 0x25
+ 1408 0004 0E       		.uleb128 0xe
+ 1409 0005 13       		.uleb128 0x13
+ 1410 0006 0B       		.uleb128 0xb
+ 1411 0007 03       		.uleb128 0x3
+ 1412 0008 0E       		.uleb128 0xe
+ 1413 0009 1B       		.uleb128 0x1b
+ 1414 000a 0E       		.uleb128 0xe
+ 1415 000b 55       		.uleb128 0x55
+ 1416 000c 17       		.uleb128 0x17
+ 1417 000d 11       		.uleb128 0x11
+ 1418 000e 01       		.uleb128 0x1
+ 1419 000f 10       		.uleb128 0x10
+ 1420 0010 17       		.uleb128 0x17
+ 1421 0011 00       		.byte	0
+ 1422 0012 00       		.byte	0
+ 1423 0013 02       		.uleb128 0x2
+ 1424 0014 24       		.uleb128 0x24
+ 1425 0015 00       		.byte	0
+ 1426 0016 0B       		.uleb128 0xb
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 33
+
+
+ 1427 0017 0B       		.uleb128 0xb
+ 1428 0018 3E       		.uleb128 0x3e
+ 1429 0019 0B       		.uleb128 0xb
+ 1430 001a 03       		.uleb128 0x3
+ 1431 001b 0E       		.uleb128 0xe
+ 1432 001c 00       		.byte	0
+ 1433 001d 00       		.byte	0
+ 1434 001e 03       		.uleb128 0x3
+ 1435 001f 16       		.uleb128 0x16
+ 1436 0020 00       		.byte	0
+ 1437 0021 03       		.uleb128 0x3
+ 1438 0022 0E       		.uleb128 0xe
+ 1439 0023 3A       		.uleb128 0x3a
+ 1440 0024 0B       		.uleb128 0xb
+ 1441 0025 3B       		.uleb128 0x3b
+ 1442 0026 0B       		.uleb128 0xb
+ 1443 0027 49       		.uleb128 0x49
+ 1444 0028 13       		.uleb128 0x13
+ 1445 0029 00       		.byte	0
+ 1446 002a 00       		.byte	0
+ 1447 002b 04       		.uleb128 0x4
+ 1448 002c 24       		.uleb128 0x24
+ 1449 002d 00       		.byte	0
+ 1450 002e 0B       		.uleb128 0xb
+ 1451 002f 0B       		.uleb128 0xb
+ 1452 0030 3E       		.uleb128 0x3e
+ 1453 0031 0B       		.uleb128 0xb
+ 1454 0032 03       		.uleb128 0x3
+ 1455 0033 08       		.uleb128 0x8
+ 1456 0034 00       		.byte	0
+ 1457 0035 00       		.byte	0
+ 1458 0036 05       		.uleb128 0x5
+ 1459 0037 16       		.uleb128 0x16
+ 1460 0038 00       		.byte	0
+ 1461 0039 03       		.uleb128 0x3
+ 1462 003a 0E       		.uleb128 0xe
+ 1463 003b 3A       		.uleb128 0x3a
+ 1464 003c 0B       		.uleb128 0xb
+ 1465 003d 3B       		.uleb128 0x3b
+ 1466 003e 05       		.uleb128 0x5
+ 1467 003f 49       		.uleb128 0x49
+ 1468 0040 13       		.uleb128 0x13
+ 1469 0041 00       		.byte	0
+ 1470 0042 00       		.byte	0
+ 1471 0043 06       		.uleb128 0x6
+ 1472 0044 13       		.uleb128 0x13
+ 1473 0045 01       		.byte	0x1
+ 1474 0046 0B       		.uleb128 0xb
+ 1475 0047 05       		.uleb128 0x5
+ 1476 0048 3A       		.uleb128 0x3a
+ 1477 0049 0B       		.uleb128 0xb
+ 1478 004a 3B       		.uleb128 0x3b
+ 1479 004b 0B       		.uleb128 0xb
+ 1480 004c 01       		.uleb128 0x1
+ 1481 004d 13       		.uleb128 0x13
+ 1482 004e 00       		.byte	0
+ 1483 004f 00       		.byte	0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 34
+
+
+ 1484 0050 07       		.uleb128 0x7
+ 1485 0051 0D       		.uleb128 0xd
+ 1486 0052 00       		.byte	0
+ 1487 0053 03       		.uleb128 0x3
+ 1488 0054 0E       		.uleb128 0xe
+ 1489 0055 3A       		.uleb128 0x3a
+ 1490 0056 0B       		.uleb128 0xb
+ 1491 0057 3B       		.uleb128 0x3b
+ 1492 0058 0B       		.uleb128 0xb
+ 1493 0059 49       		.uleb128 0x49
+ 1494 005a 13       		.uleb128 0x13
+ 1495 005b 38       		.uleb128 0x38
+ 1496 005c 0B       		.uleb128 0xb
+ 1497 005d 00       		.byte	0
+ 1498 005e 00       		.byte	0
+ 1499 005f 08       		.uleb128 0x8
+ 1500 0060 0D       		.uleb128 0xd
+ 1501 0061 00       		.byte	0
+ 1502 0062 03       		.uleb128 0x3
+ 1503 0063 0E       		.uleb128 0xe
+ 1504 0064 3A       		.uleb128 0x3a
+ 1505 0065 0B       		.uleb128 0xb
+ 1506 0066 3B       		.uleb128 0x3b
+ 1507 0067 0B       		.uleb128 0xb
+ 1508 0068 49       		.uleb128 0x49
+ 1509 0069 13       		.uleb128 0x13
+ 1510 006a 38       		.uleb128 0x38
+ 1511 006b 05       		.uleb128 0x5
+ 1512 006c 00       		.byte	0
+ 1513 006d 00       		.byte	0
+ 1514 006e 09       		.uleb128 0x9
+ 1515 006f 01       		.uleb128 0x1
+ 1516 0070 01       		.byte	0x1
+ 1517 0071 49       		.uleb128 0x49
+ 1518 0072 13       		.uleb128 0x13
+ 1519 0073 01       		.uleb128 0x1
+ 1520 0074 13       		.uleb128 0x13
+ 1521 0075 00       		.byte	0
+ 1522 0076 00       		.byte	0
+ 1523 0077 0A       		.uleb128 0xa
+ 1524 0078 21       		.uleb128 0x21
+ 1525 0079 00       		.byte	0
+ 1526 007a 49       		.uleb128 0x49
+ 1527 007b 13       		.uleb128 0x13
+ 1528 007c 2F       		.uleb128 0x2f
+ 1529 007d 05       		.uleb128 0x5
+ 1530 007e 00       		.byte	0
+ 1531 007f 00       		.byte	0
+ 1532 0080 0B       		.uleb128 0xb
+ 1533 0081 2E       		.uleb128 0x2e
+ 1534 0082 01       		.byte	0x1
+ 1535 0083 3F       		.uleb128 0x3f
+ 1536 0084 19       		.uleb128 0x19
+ 1537 0085 03       		.uleb128 0x3
+ 1538 0086 0E       		.uleb128 0xe
+ 1539 0087 3A       		.uleb128 0x3a
+ 1540 0088 0B       		.uleb128 0xb
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 35
+
+
+ 1541 0089 3B       		.uleb128 0x3b
+ 1542 008a 0B       		.uleb128 0xb
+ 1543 008b 27       		.uleb128 0x27
+ 1544 008c 19       		.uleb128 0x19
+ 1545 008d 11       		.uleb128 0x11
+ 1546 008e 01       		.uleb128 0x1
+ 1547 008f 12       		.uleb128 0x12
+ 1548 0090 06       		.uleb128 0x6
+ 1549 0091 40       		.uleb128 0x40
+ 1550 0092 18       		.uleb128 0x18
+ 1551 0093 9742     		.uleb128 0x2117
+ 1552 0095 19       		.uleb128 0x19
+ 1553 0096 01       		.uleb128 0x1
+ 1554 0097 13       		.uleb128 0x13
+ 1555 0098 00       		.byte	0
+ 1556 0099 00       		.byte	0
+ 1557 009a 0C       		.uleb128 0xc
+ 1558 009b 05       		.uleb128 0x5
+ 1559 009c 00       		.byte	0
+ 1560 009d 03       		.uleb128 0x3
+ 1561 009e 08       		.uleb128 0x8
+ 1562 009f 3A       		.uleb128 0x3a
+ 1563 00a0 0B       		.uleb128 0xb
+ 1564 00a1 3B       		.uleb128 0x3b
+ 1565 00a2 0B       		.uleb128 0xb
+ 1566 00a3 49       		.uleb128 0x49
+ 1567 00a4 13       		.uleb128 0x13
+ 1568 00a5 02       		.uleb128 0x2
+ 1569 00a6 17       		.uleb128 0x17
+ 1570 00a7 00       		.byte	0
+ 1571 00a8 00       		.byte	0
+ 1572 00a9 0D       		.uleb128 0xd
+ 1573 00aa 05       		.uleb128 0x5
+ 1574 00ab 00       		.byte	0
+ 1575 00ac 03       		.uleb128 0x3
+ 1576 00ad 0E       		.uleb128 0xe
+ 1577 00ae 3A       		.uleb128 0x3a
+ 1578 00af 0B       		.uleb128 0xb
+ 1579 00b0 3B       		.uleb128 0x3b
+ 1580 00b1 0B       		.uleb128 0xb
+ 1581 00b2 49       		.uleb128 0x49
+ 1582 00b3 13       		.uleb128 0x13
+ 1583 00b4 02       		.uleb128 0x2
+ 1584 00b5 17       		.uleb128 0x17
+ 1585 00b6 00       		.byte	0
+ 1586 00b7 00       		.byte	0
+ 1587 00b8 0E       		.uleb128 0xe
+ 1588 00b9 34       		.uleb128 0x34
+ 1589 00ba 00       		.byte	0
+ 1590 00bb 03       		.uleb128 0x3
+ 1591 00bc 08       		.uleb128 0x8
+ 1592 00bd 3A       		.uleb128 0x3a
+ 1593 00be 0B       		.uleb128 0xb
+ 1594 00bf 3B       		.uleb128 0x3b
+ 1595 00c0 0B       		.uleb128 0xb
+ 1596 00c1 49       		.uleb128 0x49
+ 1597 00c2 13       		.uleb128 0x13
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 36
+
+
+ 1598 00c3 02       		.uleb128 0x2
+ 1599 00c4 17       		.uleb128 0x17
+ 1600 00c5 00       		.byte	0
+ 1601 00c6 00       		.byte	0
+ 1602 00c7 0F       		.uleb128 0xf
+ 1603 00c8 34       		.uleb128 0x34
+ 1604 00c9 00       		.byte	0
+ 1605 00ca 03       		.uleb128 0x3
+ 1606 00cb 0E       		.uleb128 0xe
+ 1607 00cc 3A       		.uleb128 0x3a
+ 1608 00cd 0B       		.uleb128 0xb
+ 1609 00ce 3B       		.uleb128 0x3b
+ 1610 00cf 0B       		.uleb128 0xb
+ 1611 00d0 49       		.uleb128 0x49
+ 1612 00d1 13       		.uleb128 0x13
+ 1613 00d2 02       		.uleb128 0x2
+ 1614 00d3 17       		.uleb128 0x17
+ 1615 00d4 00       		.byte	0
+ 1616 00d5 00       		.byte	0
+ 1617 00d6 10       		.uleb128 0x10
+ 1618 00d7 0F       		.uleb128 0xf
+ 1619 00d8 00       		.byte	0
+ 1620 00d9 0B       		.uleb128 0xb
+ 1621 00da 0B       		.uleb128 0xb
+ 1622 00db 49       		.uleb128 0x49
+ 1623 00dc 13       		.uleb128 0x13
+ 1624 00dd 00       		.byte	0
+ 1625 00de 00       		.byte	0
+ 1626 00df 11       		.uleb128 0x11
+ 1627 00e0 34       		.uleb128 0x34
+ 1628 00e1 00       		.byte	0
+ 1629 00e2 03       		.uleb128 0x3
+ 1630 00e3 0E       		.uleb128 0xe
+ 1631 00e4 3A       		.uleb128 0x3a
+ 1632 00e5 0B       		.uleb128 0xb
+ 1633 00e6 3B       		.uleb128 0x3b
+ 1634 00e7 0B       		.uleb128 0xb
+ 1635 00e8 49       		.uleb128 0x49
+ 1636 00e9 13       		.uleb128 0x13
+ 1637 00ea 02       		.uleb128 0x2
+ 1638 00eb 18       		.uleb128 0x18
+ 1639 00ec 00       		.byte	0
+ 1640 00ed 00       		.byte	0
+ 1641 00ee 12       		.uleb128 0x12
+ 1642 00ef 2E       		.uleb128 0x2e
+ 1643 00f0 01       		.byte	0x1
+ 1644 00f1 3F       		.uleb128 0x3f
+ 1645 00f2 19       		.uleb128 0x19
+ 1646 00f3 03       		.uleb128 0x3
+ 1647 00f4 0E       		.uleb128 0xe
+ 1648 00f5 3A       		.uleb128 0x3a
+ 1649 00f6 0B       		.uleb128 0xb
+ 1650 00f7 3B       		.uleb128 0x3b
+ 1651 00f8 05       		.uleb128 0x5
+ 1652 00f9 27       		.uleb128 0x27
+ 1653 00fa 19       		.uleb128 0x19
+ 1654 00fb 11       		.uleb128 0x11
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 37
+
+
+ 1655 00fc 01       		.uleb128 0x1
+ 1656 00fd 12       		.uleb128 0x12
+ 1657 00fe 06       		.uleb128 0x6
+ 1658 00ff 40       		.uleb128 0x40
+ 1659 0100 18       		.uleb128 0x18
+ 1660 0101 9742     		.uleb128 0x2117
+ 1661 0103 19       		.uleb128 0x19
+ 1662 0104 01       		.uleb128 0x1
+ 1663 0105 13       		.uleb128 0x13
+ 1664 0106 00       		.byte	0
+ 1665 0107 00       		.byte	0
+ 1666 0108 13       		.uleb128 0x13
+ 1667 0109 05       		.uleb128 0x5
+ 1668 010a 00       		.byte	0
+ 1669 010b 03       		.uleb128 0x3
+ 1670 010c 0E       		.uleb128 0xe
+ 1671 010d 3A       		.uleb128 0x3a
+ 1672 010e 0B       		.uleb128 0xb
+ 1673 010f 3B       		.uleb128 0x3b
+ 1674 0110 05       		.uleb128 0x5
+ 1675 0111 49       		.uleb128 0x49
+ 1676 0112 13       		.uleb128 0x13
+ 1677 0113 02       		.uleb128 0x2
+ 1678 0114 17       		.uleb128 0x17
+ 1679 0115 00       		.byte	0
+ 1680 0116 00       		.byte	0
+ 1681 0117 14       		.uleb128 0x14
+ 1682 0118 898201   		.uleb128 0x4109
+ 1683 011b 01       		.byte	0x1
+ 1684 011c 11       		.uleb128 0x11
+ 1685 011d 01       		.uleb128 0x1
+ 1686 011e 31       		.uleb128 0x31
+ 1687 011f 13       		.uleb128 0x13
+ 1688 0120 01       		.uleb128 0x1
+ 1689 0121 13       		.uleb128 0x13
+ 1690 0122 00       		.byte	0
+ 1691 0123 00       		.byte	0
+ 1692 0124 15       		.uleb128 0x15
+ 1693 0125 8A8201   		.uleb128 0x410a
+ 1694 0128 00       		.byte	0
+ 1695 0129 02       		.uleb128 0x2
+ 1696 012a 18       		.uleb128 0x18
+ 1697 012b 9142     		.uleb128 0x2111
+ 1698 012d 18       		.uleb128 0x18
+ 1699 012e 00       		.byte	0
+ 1700 012f 00       		.byte	0
+ 1701 0130 16       		.uleb128 0x16
+ 1702 0131 898201   		.uleb128 0x4109
+ 1703 0134 01       		.byte	0x1
+ 1704 0135 11       		.uleb128 0x11
+ 1705 0136 01       		.uleb128 0x1
+ 1706 0137 31       		.uleb128 0x31
+ 1707 0138 13       		.uleb128 0x13
+ 1708 0139 00       		.byte	0
+ 1709 013a 00       		.byte	0
+ 1710 013b 17       		.uleb128 0x17
+ 1711 013c 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 38
+
+
+ 1712 013d 01       		.byte	0x1
+ 1713 013e 3F       		.uleb128 0x3f
+ 1714 013f 19       		.uleb128 0x19
+ 1715 0140 03       		.uleb128 0x3
+ 1716 0141 0E       		.uleb128 0xe
+ 1717 0142 3A       		.uleb128 0x3a
+ 1718 0143 0B       		.uleb128 0xb
+ 1719 0144 3B       		.uleb128 0x3b
+ 1720 0145 0B       		.uleb128 0xb
+ 1721 0146 11       		.uleb128 0x11
+ 1722 0147 01       		.uleb128 0x1
+ 1723 0148 12       		.uleb128 0x12
+ 1724 0149 06       		.uleb128 0x6
+ 1725 014a 40       		.uleb128 0x40
+ 1726 014b 18       		.uleb128 0x18
+ 1727 014c 9742     		.uleb128 0x2117
+ 1728 014e 19       		.uleb128 0x19
+ 1729 014f 01       		.uleb128 0x1
+ 1730 0150 13       		.uleb128 0x13
+ 1731 0151 00       		.byte	0
+ 1732 0152 00       		.byte	0
+ 1733 0153 18       		.uleb128 0x18
+ 1734 0154 898201   		.uleb128 0x4109
+ 1735 0157 00       		.byte	0
+ 1736 0158 11       		.uleb128 0x11
+ 1737 0159 01       		.uleb128 0x1
+ 1738 015a 31       		.uleb128 0x31
+ 1739 015b 13       		.uleb128 0x13
+ 1740 015c 00       		.byte	0
+ 1741 015d 00       		.byte	0
+ 1742 015e 19       		.uleb128 0x19
+ 1743 015f 2E       		.uleb128 0x2e
+ 1744 0160 01       		.byte	0x1
+ 1745 0161 3F       		.uleb128 0x3f
+ 1746 0162 19       		.uleb128 0x19
+ 1747 0163 03       		.uleb128 0x3
+ 1748 0164 0E       		.uleb128 0xe
+ 1749 0165 3A       		.uleb128 0x3a
+ 1750 0166 0B       		.uleb128 0xb
+ 1751 0167 3B       		.uleb128 0x3b
+ 1752 0168 05       		.uleb128 0x5
+ 1753 0169 27       		.uleb128 0x27
+ 1754 016a 19       		.uleb128 0x19
+ 1755 016b 49       		.uleb128 0x49
+ 1756 016c 13       		.uleb128 0x13
+ 1757 016d 11       		.uleb128 0x11
+ 1758 016e 01       		.uleb128 0x1
+ 1759 016f 12       		.uleb128 0x12
+ 1760 0170 06       		.uleb128 0x6
+ 1761 0171 40       		.uleb128 0x40
+ 1762 0172 18       		.uleb128 0x18
+ 1763 0173 9742     		.uleb128 0x2117
+ 1764 0175 19       		.uleb128 0x19
+ 1765 0176 01       		.uleb128 0x1
+ 1766 0177 13       		.uleb128 0x13
+ 1767 0178 00       		.byte	0
+ 1768 0179 00       		.byte	0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 39
+
+
+ 1769 017a 1A       		.uleb128 0x1a
+ 1770 017b 34       		.uleb128 0x34
+ 1771 017c 00       		.byte	0
+ 1772 017d 03       		.uleb128 0x3
+ 1773 017e 0E       		.uleb128 0xe
+ 1774 017f 3A       		.uleb128 0x3a
+ 1775 0180 0B       		.uleb128 0xb
+ 1776 0181 3B       		.uleb128 0x3b
+ 1777 0182 05       		.uleb128 0x5
+ 1778 0183 49       		.uleb128 0x49
+ 1779 0184 13       		.uleb128 0x13
+ 1780 0185 02       		.uleb128 0x2
+ 1781 0186 18       		.uleb128 0x18
+ 1782 0187 00       		.byte	0
+ 1783 0188 00       		.byte	0
+ 1784 0189 1B       		.uleb128 0x1b
+ 1785 018a 34       		.uleb128 0x34
+ 1786 018b 00       		.byte	0
+ 1787 018c 03       		.uleb128 0x3
+ 1788 018d 0E       		.uleb128 0xe
+ 1789 018e 3A       		.uleb128 0x3a
+ 1790 018f 0B       		.uleb128 0xb
+ 1791 0190 3B       		.uleb128 0x3b
+ 1792 0191 05       		.uleb128 0x5
+ 1793 0192 49       		.uleb128 0x49
+ 1794 0193 13       		.uleb128 0x13
+ 1795 0194 3F       		.uleb128 0x3f
+ 1796 0195 19       		.uleb128 0x19
+ 1797 0196 3C       		.uleb128 0x3c
+ 1798 0197 19       		.uleb128 0x19
+ 1799 0198 00       		.byte	0
+ 1800 0199 00       		.byte	0
+ 1801 019a 1C       		.uleb128 0x1c
+ 1802 019b 35       		.uleb128 0x35
+ 1803 019c 00       		.byte	0
+ 1804 019d 49       		.uleb128 0x49
+ 1805 019e 13       		.uleb128 0x13
+ 1806 019f 00       		.byte	0
+ 1807 01a0 00       		.byte	0
+ 1808 01a1 1D       		.uleb128 0x1d
+ 1809 01a2 34       		.uleb128 0x34
+ 1810 01a3 00       		.byte	0
+ 1811 01a4 03       		.uleb128 0x3
+ 1812 01a5 0E       		.uleb128 0xe
+ 1813 01a6 3A       		.uleb128 0x3a
+ 1814 01a7 0B       		.uleb128 0xb
+ 1815 01a8 3B       		.uleb128 0x3b
+ 1816 01a9 0B       		.uleb128 0xb
+ 1817 01aa 49       		.uleb128 0x49
+ 1818 01ab 13       		.uleb128 0x13
+ 1819 01ac 3F       		.uleb128 0x3f
+ 1820 01ad 19       		.uleb128 0x19
+ 1821 01ae 02       		.uleb128 0x2
+ 1822 01af 18       		.uleb128 0x18
+ 1823 01b0 00       		.byte	0
+ 1824 01b1 00       		.byte	0
+ 1825 01b2 1E       		.uleb128 0x1e
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 40
+
+
+ 1826 01b3 2E       		.uleb128 0x2e
+ 1827 01b4 00       		.byte	0
+ 1828 01b5 3F       		.uleb128 0x3f
+ 1829 01b6 19       		.uleb128 0x19
+ 1830 01b7 3C       		.uleb128 0x3c
+ 1831 01b8 19       		.uleb128 0x19
+ 1832 01b9 6E       		.uleb128 0x6e
+ 1833 01ba 0E       		.uleb128 0xe
+ 1834 01bb 03       		.uleb128 0x3
+ 1835 01bc 0E       		.uleb128 0xe
+ 1836 01bd 3A       		.uleb128 0x3a
+ 1837 01be 0B       		.uleb128 0xb
+ 1838 01bf 3B       		.uleb128 0x3b
+ 1839 01c0 0B       		.uleb128 0xb
+ 1840 01c1 00       		.byte	0
+ 1841 01c2 00       		.byte	0
+ 1842 01c3 00       		.byte	0
+ 1843              		.section	.debug_loc,"",%progbits
+ 1844              	.Ldebug_loc0:
+ 1845              	.LLST0:
+ 1846 0000 00000000 		.4byte	.LVL0
+ 1847 0004 0E000000 		.4byte	.LVL4
+ 1848 0008 0100     		.2byte	0x1
+ 1849 000a 50       		.byte	0x50
+ 1850 000b 0E000000 		.4byte	.LVL4
+ 1851 000f 12000000 		.4byte	.LVL6
+ 1852 0013 0400     		.2byte	0x4
+ 1853 0015 F3       		.byte	0xf3
+ 1854 0016 01       		.uleb128 0x1
+ 1855 0017 50       		.byte	0x50
+ 1856 0018 9F       		.byte	0x9f
+ 1857 0019 12000000 		.4byte	.LVL6
+ 1858 001d 14000000 		.4byte	.LVL7
+ 1859 0021 0100     		.2byte	0x1
+ 1860 0023 50       		.byte	0x50
+ 1861 0024 14000000 		.4byte	.LVL7
+ 1862 0028 48000000 		.4byte	.LFE65
+ 1863 002c 0400     		.2byte	0x4
+ 1864 002e F3       		.byte	0xf3
+ 1865 002f 01       		.uleb128 0x1
+ 1866 0030 50       		.byte	0x50
+ 1867 0031 9F       		.byte	0x9f
+ 1868 0032 00000000 		.4byte	0
+ 1869 0036 00000000 		.4byte	0
+ 1870              	.LLST1:
+ 1871 003a 00000000 		.4byte	.LVL0
+ 1872 003e 1C000000 		.4byte	.LVL9
+ 1873 0042 0100     		.2byte	0x1
+ 1874 0044 51       		.byte	0x51
+ 1875 0045 1C000000 		.4byte	.LVL9
+ 1876 0049 2A000000 		.4byte	.LVL11
+ 1877 004d 0400     		.2byte	0x4
+ 1878 004f F3       		.byte	0xf3
+ 1879 0050 01       		.uleb128 0x1
+ 1880 0051 51       		.byte	0x51
+ 1881 0052 9F       		.byte	0x9f
+ 1882 0053 2A000000 		.4byte	.LVL11
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 41
+
+
+ 1883 0057 2E000000 		.4byte	.LVL12
+ 1884 005b 0100     		.2byte	0x1
+ 1885 005d 51       		.byte	0x51
+ 1886 005e 2E000000 		.4byte	.LVL12
+ 1887 0062 48000000 		.4byte	.LFE65
+ 1888 0066 0400     		.2byte	0x4
+ 1889 0068 F3       		.byte	0xf3
+ 1890 0069 01       		.uleb128 0x1
+ 1891 006a 51       		.byte	0x51
+ 1892 006b 9F       		.byte	0x9f
+ 1893 006c 00000000 		.4byte	0
+ 1894 0070 00000000 		.4byte	0
+ 1895              	.LLST2:
+ 1896 0074 00000000 		.4byte	.LVL0
+ 1897 0078 1E000000 		.4byte	.LVL10
+ 1898 007c 0100     		.2byte	0x1
+ 1899 007e 52       		.byte	0x52
+ 1900 007f 1E000000 		.4byte	.LVL10
+ 1901 0083 2A000000 		.4byte	.LVL11
+ 1902 0087 0400     		.2byte	0x4
+ 1903 0089 F3       		.byte	0xf3
+ 1904 008a 01       		.uleb128 0x1
+ 1905 008b 52       		.byte	0x52
+ 1906 008c 9F       		.byte	0x9f
+ 1907 008d 2A000000 		.4byte	.LVL11
+ 1908 0091 30000000 		.4byte	.LVL13
+ 1909 0095 0100     		.2byte	0x1
+ 1910 0097 52       		.byte	0x52
+ 1911 0098 30000000 		.4byte	.LVL13
+ 1912 009c 48000000 		.4byte	.LFE65
+ 1913 00a0 0400     		.2byte	0x4
+ 1914 00a2 F3       		.byte	0xf3
+ 1915 00a3 01       		.uleb128 0x1
+ 1916 00a4 52       		.byte	0x52
+ 1917 00a5 9F       		.byte	0x9f
+ 1918 00a6 00000000 		.4byte	0
+ 1919 00aa 00000000 		.4byte	0
+ 1920              	.LLST3:
+ 1921 00ae 10000000 		.4byte	.LVL5
+ 1922 00b2 12000000 		.4byte	.LVL6
+ 1923 00b6 0100     		.2byte	0x1
+ 1924 00b8 53       		.byte	0x53
+ 1925 00b9 16000000 		.4byte	.LVL8
+ 1926 00bd 48000000 		.4byte	.LFE65
+ 1927 00c1 0100     		.2byte	0x1
+ 1928 00c3 53       		.byte	0x53
+ 1929 00c4 00000000 		.4byte	0
+ 1930 00c8 00000000 		.4byte	0
+ 1931              	.LLST4:
+ 1932 00cc 02000000 		.4byte	.LVL1
+ 1933 00d0 06000000 		.4byte	.LVL2
+ 1934 00d4 0500     		.2byte	0x5
+ 1935 00d6 73       		.byte	0x73
+ 1936 00d7 00       		.sleb128 0
+ 1937 00d8 36       		.byte	0x36
+ 1938 00d9 24       		.byte	0x24
+ 1939 00da 9F       		.byte	0x9f
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 42
+
+
+ 1940 00db 06000000 		.4byte	.LVL2
+ 1941 00df 0C000000 		.4byte	.LVL3
+ 1942 00e3 0100     		.2byte	0x1
+ 1943 00e5 53       		.byte	0x53
+ 1944 00e6 0C000000 		.4byte	.LVL3
+ 1945 00ea 10000000 		.4byte	.LVL5
+ 1946 00ee 0400     		.2byte	0x4
+ 1947 00f0 73       		.byte	0x73
+ 1948 00f1 C000     		.sleb128 64
+ 1949 00f3 9F       		.byte	0x9f
+ 1950 00f4 12000000 		.4byte	.LVL6
+ 1951 00f8 16000000 		.4byte	.LVL8
+ 1952 00fc 0100     		.2byte	0x1
+ 1953 00fe 53       		.byte	0x53
+ 1954 00ff 00000000 		.4byte	0
+ 1955 0103 00000000 		.4byte	0
+ 1956              	.LLST5:
+ 1957 0107 00000000 		.4byte	.LVL14
+ 1958 010b 02000000 		.4byte	.LVL15
+ 1959 010f 0100     		.2byte	0x1
+ 1960 0111 50       		.byte	0x50
+ 1961 0112 02000000 		.4byte	.LVL15
+ 1962 0116 28000000 		.4byte	.LFE66
+ 1963 011a 0400     		.2byte	0x4
+ 1964 011c F3       		.byte	0xf3
+ 1965 011d 01       		.uleb128 0x1
+ 1966 011e 50       		.byte	0x50
+ 1967 011f 9F       		.byte	0x9f
+ 1968 0120 00000000 		.4byte	0
+ 1969 0124 00000000 		.4byte	0
+ 1970              	.LLST6:
+ 1971 0128 00000000 		.4byte	.LVL14
+ 1972 012c 0E000000 		.4byte	.LVL18
+ 1973 0130 0600     		.2byte	0x6
+ 1974 0132 03       		.byte	0x3
+ 1975 0133 00000000 		.4byte	displayData
+ 1976 0137 9F       		.byte	0x9f
+ 1977 0138 0E000000 		.4byte	.LVL18
+ 1978 013c 1A000000 		.4byte	.LVL23
+ 1979 0140 0300     		.2byte	0x3
+ 1980 0142 71       		.byte	0x71
+ 1981 0143 01       		.sleb128 1
+ 1982 0144 9F       		.byte	0x9f
+ 1983 0145 1A000000 		.4byte	.LVL23
+ 1984 0149 28000000 		.4byte	.LFE66
+ 1985 014d 0100     		.2byte	0x1
+ 1986 014f 51       		.byte	0x51
+ 1987 0150 00000000 		.4byte	0
+ 1988 0154 00000000 		.4byte	0
+ 1989              	.LLST7:
+ 1990 0158 00000000 		.4byte	.LVL14
+ 1991 015c 08000000 		.4byte	.LVL17
+ 1992 0160 0600     		.2byte	0x6
+ 1993 0162 03       		.byte	0x3
+ 1994 0163 00020000 		.4byte	displayData+512
+ 1995 0167 9F       		.byte	0x9f
+ 1996 0168 08000000 		.4byte	.LVL17
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 43
+
+
+ 1997 016c 10000000 		.4byte	.LVL19
+ 1998 0170 0100     		.2byte	0x1
+ 1999 0172 52       		.byte	0x52
+ 2000 0173 10000000 		.4byte	.LVL19
+ 2001 0177 18000000 		.4byte	.LVL22
+ 2002 017b 0300     		.2byte	0x3
+ 2003 017d 72       		.byte	0x72
+ 2004 017e 01       		.sleb128 1
+ 2005 017f 9F       		.byte	0x9f
+ 2006 0180 18000000 		.4byte	.LVL22
+ 2007 0184 28000000 		.4byte	.LFE66
+ 2008 0188 0100     		.2byte	0x1
+ 2009 018a 52       		.byte	0x52
+ 2010 018b 00000000 		.4byte	0
+ 2011 018f 00000000 		.4byte	0
+ 2012              	.LLST8:
+ 2013 0193 04000000 		.4byte	.LVL16
+ 2014 0197 0E000000 		.4byte	.LVL18
+ 2015 019b 0200     		.2byte	0x2
+ 2016 019d 30       		.byte	0x30
+ 2017 019e 9F       		.byte	0x9f
+ 2018 019f 0E000000 		.4byte	.LVL18
+ 2019 01a3 14000000 		.4byte	.LVL20
+ 2020 01a7 0100     		.2byte	0x1
+ 2021 01a9 53       		.byte	0x53
+ 2022 01aa 16000000 		.4byte	.LVL21
+ 2023 01ae 28000000 		.4byte	.LFE66
+ 2024 01b2 0100     		.2byte	0x1
+ 2025 01b4 53       		.byte	0x53
+ 2026 01b5 00000000 		.4byte	0
+ 2027 01b9 00000000 		.4byte	0
+ 2028              	.LLST9:
+ 2029 01bd 00000000 		.4byte	.LVL24
+ 2030 01c1 08000000 		.4byte	.LVL25
+ 2031 01c5 0100     		.2byte	0x1
+ 2032 01c7 50       		.byte	0x50
+ 2033 01c8 08000000 		.4byte	.LVL25
+ 2034 01cc 0E000000 		.4byte	.LVL27
+ 2035 01d0 0400     		.2byte	0x4
+ 2036 01d2 F3       		.byte	0xf3
+ 2037 01d3 01       		.uleb128 0x1
+ 2038 01d4 50       		.byte	0x50
+ 2039 01d5 9F       		.byte	0x9f
+ 2040 01d6 0E000000 		.4byte	.LVL27
+ 2041 01da 10000000 		.4byte	.LVL28
+ 2042 01de 0100     		.2byte	0x1
+ 2043 01e0 50       		.byte	0x50
+ 2044 01e1 10000000 		.4byte	.LVL28
+ 2045 01e5 46000000 		.4byte	.LFE67
+ 2046 01e9 0400     		.2byte	0x4
+ 2047 01eb F3       		.byte	0xf3
+ 2048 01ec 01       		.uleb128 0x1
+ 2049 01ed 50       		.byte	0x50
+ 2050 01ee 9F       		.byte	0x9f
+ 2051 01ef 00000000 		.4byte	0
+ 2052 01f3 00000000 		.4byte	0
+ 2053              	.LLST10:
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 44
+
+
+ 2054 01f7 00000000 		.4byte	.LVL24
+ 2055 01fb 0B000000 		.4byte	.LVL26-1
+ 2056 01ff 0100     		.2byte	0x1
+ 2057 0201 51       		.byte	0x51
+ 2058 0202 0B000000 		.4byte	.LVL26-1
+ 2059 0206 0E000000 		.4byte	.LVL27
+ 2060 020a 0400     		.2byte	0x4
+ 2061 020c F3       		.byte	0xf3
+ 2062 020d 01       		.uleb128 0x1
+ 2063 020e 51       		.byte	0x51
+ 2064 020f 9F       		.byte	0x9f
+ 2065 0210 0E000000 		.4byte	.LVL27
+ 2066 0214 13000000 		.4byte	.LVL29-1
+ 2067 0218 0100     		.2byte	0x1
+ 2068 021a 51       		.byte	0x51
+ 2069 021b 13000000 		.4byte	.LVL29-1
+ 2070 021f 46000000 		.4byte	.LFE67
+ 2071 0223 0400     		.2byte	0x4
+ 2072 0225 F3       		.byte	0xf3
+ 2073 0226 01       		.uleb128 0x1
+ 2074 0227 51       		.byte	0x51
+ 2075 0228 9F       		.byte	0x9f
+ 2076 0229 00000000 		.4byte	0
+ 2077 022d 00000000 		.4byte	0
+ 2078              	.LLST11:
+ 2079 0231 04000000 		.4byte	.LVL38
+ 2080 0235 10000000 		.4byte	.LVL40
+ 2081 0239 0200     		.2byte	0x2
+ 2082 023b 30       		.byte	0x30
+ 2083 023c 9F       		.byte	0x9f
+ 2084 023d 10000000 		.4byte	.LVL40
+ 2085 0241 68000000 		.4byte	.LVL55
+ 2086 0245 0100     		.2byte	0x1
+ 2087 0247 58       		.byte	0x58
+ 2088 0248 6C000000 		.4byte	.LVL56
+ 2089 024c 76000000 		.4byte	.LVL57
+ 2090 0250 0100     		.2byte	0x1
+ 2091 0252 58       		.byte	0x58
+ 2092 0253 00000000 		.4byte	0
+ 2093 0257 00000000 		.4byte	0
+ 2094              	.LLST12:
+ 2095 025b 40000000 		.4byte	.LVL46
+ 2096 025f 44000000 		.4byte	.LVL47
+ 2097 0263 0200     		.2byte	0x2
+ 2098 0265 30       		.byte	0x30
+ 2099 0266 9F       		.byte	0x9f
+ 2100 0267 44000000 		.4byte	.LVL47
+ 2101 026b 5A000000 		.4byte	.LVL52
+ 2102 026f 0100     		.2byte	0x1
+ 2103 0271 54       		.byte	0x54
+ 2104 0272 5C000000 		.4byte	.LVL53
+ 2105 0276 6C000000 		.4byte	.LVL56
+ 2106 027a 0100     		.2byte	0x1
+ 2107 027c 54       		.byte	0x54
+ 2108 027d 00000000 		.4byte	0
+ 2109 0281 00000000 		.4byte	0
+ 2110              	.LLST13:
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 45
+
+
+ 2111 0285 04000000 		.4byte	.LVL38
+ 2112 0289 10000000 		.4byte	.LVL40
+ 2113 028d 0600     		.2byte	0x6
+ 2114 028f 03       		.byte	0x3
+ 2115 0290 00000000 		.4byte	displayData
+ 2116 0294 9F       		.byte	0x9f
+ 2117 0295 10000000 		.4byte	.LVL40
+ 2118 0299 46000000 		.4byte	.LVL48
+ 2119 029d 0100     		.2byte	0x1
+ 2120 029f 56       		.byte	0x56
+ 2121 02a0 46000000 		.4byte	.LVL48
+ 2122 02a4 60000000 		.4byte	.LVL54
+ 2123 02a8 0100     		.2byte	0x1
+ 2124 02aa 57       		.byte	0x57
+ 2125 02ab 60000000 		.4byte	.LVL54
+ 2126 02af 76000000 		.4byte	.LVL57
+ 2127 02b3 0100     		.2byte	0x1
+ 2128 02b5 56       		.byte	0x56
+ 2129 02b6 00000000 		.4byte	0
+ 2130 02ba 00000000 		.4byte	0
+ 2131              	.LLST14:
+ 2132 02be 04000000 		.4byte	.LVL38
+ 2133 02c2 06000000 		.4byte	.LVL39
+ 2134 02c6 0600     		.2byte	0x6
+ 2135 02c8 03       		.byte	0x3
+ 2136 02c9 00020000 		.4byte	displayData+512
+ 2137 02cd 9F       		.byte	0x9f
+ 2138 02ce 06000000 		.4byte	.LVL39
+ 2139 02d2 50000000 		.4byte	.LVL50
+ 2140 02d6 0100     		.2byte	0x1
+ 2141 02d8 55       		.byte	0x55
+ 2142 02d9 50000000 		.4byte	.LVL50
+ 2143 02dd 60000000 		.4byte	.LVL54
+ 2144 02e1 0100     		.2byte	0x1
+ 2145 02e3 56       		.byte	0x56
+ 2146 02e4 60000000 		.4byte	.LVL54
+ 2147 02e8 76000000 		.4byte	.LVL57
+ 2148 02ec 0100     		.2byte	0x1
+ 2149 02ee 55       		.byte	0x55
+ 2150 02ef 00000000 		.4byte	0
+ 2151 02f3 00000000 		.4byte	0
+ 2152              	.LLST15:
+ 2153 02f7 00000000 		.4byte	.LVL58
+ 2154 02fb 06000000 		.4byte	.LVL59
+ 2155 02ff 0100     		.2byte	0x1
+ 2156 0301 50       		.byte	0x50
+ 2157 0302 06000000 		.4byte	.LVL59
+ 2158 0306 84000000 		.4byte	.LFE63
+ 2159 030a 0400     		.2byte	0x4
+ 2160 030c F3       		.byte	0xf3
+ 2161 030d 01       		.uleb128 0x1
+ 2162 030e 50       		.byte	0x50
+ 2163 030f 9F       		.byte	0x9f
+ 2164 0310 00000000 		.4byte	0
+ 2165 0314 00000000 		.4byte	0
+ 2166              	.LLST16:
+ 2167 0318 00000000 		.4byte	.LVL77
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 46
+
+
+ 2168 031c 06000000 		.4byte	.LVL78
+ 2169 0320 0100     		.2byte	0x1
+ 2170 0322 50       		.byte	0x50
+ 2171 0323 06000000 		.4byte	.LVL78
+ 2172 0327 48000000 		.4byte	.LFE68
+ 2173 032b 0400     		.2byte	0x4
+ 2174 032d F3       		.byte	0xf3
+ 2175 032e 01       		.uleb128 0x1
+ 2176 032f 50       		.byte	0x50
+ 2177 0330 9F       		.byte	0x9f
+ 2178 0331 00000000 		.4byte	0
+ 2179 0335 00000000 		.4byte	0
+ 2180              		.section	.debug_aranges,"",%progbits
+ 2181 0000 44000000 		.4byte	0x44
+ 2182 0004 0200     		.2byte	0x2
+ 2183 0006 00000000 		.4byte	.Ldebug_info0
+ 2184 000a 04       		.byte	0x4
+ 2185 000b 00       		.byte	0
+ 2186 000c 0000     		.2byte	0
+ 2187 000e 0000     		.2byte	0
+ 2188 0010 00000000 		.4byte	.LFB65
+ 2189 0014 48000000 		.4byte	.LFE65-.LFB65
+ 2190 0018 00000000 		.4byte	.LFB66
+ 2191 001c 28000000 		.4byte	.LFE66-.LFB66
+ 2192 0020 00000000 		.4byte	.LFB67
+ 2193 0024 46000000 		.4byte	.LFE67-.LFB67
+ 2194 0028 00000000 		.4byte	.LFB64
+ 2195 002c 7C000000 		.4byte	.LFE64-.LFB64
+ 2196 0030 00000000 		.4byte	.LFB63
+ 2197 0034 84000000 		.4byte	.LFE63-.LFB63
+ 2198 0038 00000000 		.4byte	.LFB68
+ 2199 003c 48000000 		.4byte	.LFE68-.LFB68
+ 2200 0040 00000000 		.4byte	0
+ 2201 0044 00000000 		.4byte	0
+ 2202              		.section	.debug_ranges,"",%progbits
+ 2203              	.Ldebug_ranges0:
+ 2204 0000 00000000 		.4byte	.LFB65
+ 2205 0004 48000000 		.4byte	.LFE65
+ 2206 0008 00000000 		.4byte	.LFB66
+ 2207 000c 28000000 		.4byte	.LFE66
+ 2208 0010 00000000 		.4byte	.LFB67
+ 2209 0014 46000000 		.4byte	.LFE67
+ 2210 0018 00000000 		.4byte	.LFB64
+ 2211 001c 7C000000 		.4byte	.LFE64
+ 2212 0020 00000000 		.4byte	.LFB63
+ 2213 0024 84000000 		.4byte	.LFE63
+ 2214 0028 00000000 		.4byte	.LFB68
+ 2215 002c 48000000 		.4byte	.LFE68
+ 2216 0030 00000000 		.4byte	0
+ 2217 0034 00000000 		.4byte	0
+ 2218              		.section	.debug_line,"",%progbits
+ 2219              	.Ldebug_line0:
+ 2220 0000 B1020000 		.section	.debug_str,"MS",%progbits,1
+ 2220      0200BD01 
+ 2220      00000201 
+ 2220      FB0E0D00 
+ 2220      01010101 
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 47
+
+
+ 2221              	.LASF35:
+ 2222 0000 43794465 		.ascii	"CyDelayCycles\000"
+ 2222      6C617943 
+ 2222      79636C65 
+ 2222      7300
+ 2223              	.LASF23:
+ 2224 000e 676C6364 		.ascii	"glcd_fillScreen\000"
+ 2224      5F66696C 
+ 2224      6C536372 
+ 2224      65656E00 
+ 2225              	.LASF44:
+ 2226 001e 676C6364 		.ascii	"glcd_readByte\000"
+ 2226      5F726561 
+ 2226      64427974 
+ 2226      6500
+ 2227              	.LASF9:
+ 2228 002c 5F5F696E 		.ascii	"__int32_t\000"
+ 2228      7433325F 
+ 2228      7400
+ 2229              	.LASF18:
+ 2230 0036 6C656674 		.ascii	"left\000"
+ 2230      00
+ 2231              	.LASF3:
+ 2232 003b 73686F72 		.ascii	"short unsigned int\000"
+ 2232      7420756E 
+ 2232      7369676E 
+ 2232      65642069 
+ 2232      6E7400
+ 2233              	.LASF14:
+ 2234 004e 646F7562 		.ascii	"double\000"
+ 2234      6C6500
+ 2235              	.LASF25:
+ 2236 0055 676C6364 		.ascii	"glcd_writeByte\000"
+ 2236      5F777269 
+ 2236      74654279 
+ 2236      746500
+ 2237              	.LASF13:
+ 2238 0064 666C6F61 		.ascii	"float\000"
+ 2238      7400
+ 2239              	.LASF24:
+ 2240 006a 64617461 		.ascii	"data\000"
+ 2240      00
+ 2241              	.LASF0:
+ 2242 006f 7369676E 		.ascii	"signed char\000"
+ 2242      65642063 
+ 2242      68617200 
+ 2243              	.LASF1:
+ 2244 007b 756E7369 		.ascii	"unsigned char\000"
+ 2244      676E6564 
+ 2244      20636861 
+ 2244      7200
+ 2245              	.LASF40:
+ 2246 0089 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2246      43313120 
+ 2246      352E342E 
+ 2246      31203230 
+ 2246      31363036 
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 48
+
+
+ 2247 00bc 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2247      20726576 
+ 2247      6973696F 
+ 2247      6E203233 
+ 2247      37373135 
+ 2248 00ef 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2248      66756E63 
+ 2248      74696F6E 
+ 2248      2D736563 
+ 2248      74696F6E 
+ 2249              	.LASF36:
+ 2250 0117 474C4344 		.ascii	"GLCD_E_Write\000"
+ 2250      5F455F57 
+ 2250      72697465 
+ 2250      00
+ 2251              	.LASF38:
+ 2252 0124 474C4344 		.ascii	"GLCD_RST_Write\000"
+ 2252      5F525354 
+ 2252      5F577269 
+ 2252      746500
+ 2253              	.LASF19:
+ 2254 0133 72696768 		.ascii	"right\000"
+ 2254      7400
+ 2255              	.LASF21:
+ 2256 0139 74656D70 		.ascii	"temp\000"
+ 2256      00
+ 2257              	.LASF33:
+ 2258 013e 474C4344 		.ascii	"GLCD_RW_Write\000"
+ 2258      5F52575F 
+ 2258      57726974 
+ 2258      6500
+ 2259              	.LASF29:
+ 2260 014c 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2260      52784275 
+ 2260      66666572 
+ 2260      00
+ 2261              	.LASF5:
+ 2262 0159 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2262      20756E73 
+ 2262      69676E65 
+ 2262      6420696E 
+ 2262      7400
+ 2263              	.LASF41:
+ 2264 016b 48444D36 		.ascii	"HDM64GS12.c\000"
+ 2264      34475331 
+ 2264      322E6300 
+ 2265              	.LASF20:
+ 2266 0177 636F6C6F 		.ascii	"color\000"
+ 2266      7200
+ 2267              	.LASF37:
+ 2268 017d 474C4344 		.ascii	"GLCD_DI_Write\000"
+ 2268      5F44495F 
+ 2268      57726974 
+ 2268      6500
+ 2269              	.LASF32:
+ 2270 018b 474C4344 		.ascii	"GLCD_CS1_Write\000"
+ 2270      5F435331 
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 49
+
+
+ 2270      5F577269 
+ 2270      746500
+ 2271              	.LASF27:
+ 2272 019a 676C6364 		.ascii	"glcd_init\000"
+ 2272      5F696E69 
+ 2272      7400
+ 2273              	.LASF12:
+ 2274 01a4 75696E74 		.ascii	"uint16\000"
+ 2274      313600
+ 2275              	.LASF39:
+ 2276 01ab 436F6E74 		.ascii	"Control_Reg_Read\000"
+ 2276      726F6C5F 
+ 2276      5265675F 
+ 2276      52656164 
+ 2276      00
+ 2277              	.LASF43:
+ 2278 01bc 676C6364 		.ascii	"glcd_update\000"
+ 2278      5F757064 
+ 2278      61746500 
+ 2279              	.LASF8:
+ 2280 01c8 756E7369 		.ascii	"unsigned int\000"
+ 2280      676E6564 
+ 2280      20696E74 
+ 2280      00
+ 2281              	.LASF31:
+ 2282 01d5 474C4344 		.ascii	"GLCD_CS2_Write\000"
+ 2282      5F435332 
+ 2282      5F577269 
+ 2282      746500
+ 2283              	.LASF7:
+ 2284 01e4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2284      206C6F6E 
+ 2284      6720756E 
+ 2284      7369676E 
+ 2284      65642069 
+ 2285              	.LASF28:
+ 2286 01fb 6D6F6465 		.ascii	"mode\000"
+ 2286      00
+ 2287              	.LASF10:
+ 2288 0200 696E7433 		.ascii	"int32_t\000"
+ 2288      325F7400 
+ 2289              	.LASF17:
+ 2290 0208 73697A65 		.ascii	"sizetype\000"
+ 2290      74797065 
+ 2290      00
+ 2291              	.LASF26:
+ 2292 0211 73696465 		.ascii	"side\000"
+ 2292      00
+ 2293              	.LASF6:
+ 2294 0216 6C6F6E67 		.ascii	"long long int\000"
+ 2294      206C6F6E 
+ 2294      6720696E 
+ 2294      7400
+ 2295              	.LASF15:
+ 2296 0224 63686172 		.ascii	"char\000"
+ 2296      00
+ 2297              	.LASF2:
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\cc1DyRb0.s 			page 50
+
+
+ 2298 0229 73686F72 		.ascii	"short int\000"
+ 2298      7420696E 
+ 2298      7400
+ 2299              	.LASF11:
+ 2300 0233 75696E74 		.ascii	"uint8\000"
+ 2300      3800
+ 2301              	.LASF42:
+ 2302 0239 443A5C4C 		.ascii	"D:\\Laboratorio\\Mufla\\2020\\Mufla 2.2L Psoc Avant"
+ 2302      61626F72 
+ 2302      61746F72 
+ 2302      696F5C4D 
+ 2302      75666C61 
+ 2303 0268 696B6120 		.ascii	"ika #0045884XX OP2020346\\Firmware Psoc\\LCD2\\Mufl"
+ 2303      23303034 
+ 2303      35383834 
+ 2303      5858204F 
+ 2303      50323032 
+ 2304 0298 61474C43 		.ascii	"aGLCD.cydsn\000"
+ 2304      442E6379 
+ 2304      64736E00 
+ 2305              	.LASF4:
+ 2306 02a4 6C6F6E67 		.ascii	"long int\000"
+ 2306      20696E74 
+ 2306      00
+ 2307              	.LASF16:
+ 2308 02ad 6C6F6E67 		.ascii	"long double\000"
+ 2308      20646F75 
+ 2308      626C6500 
+ 2309              	.LASF30:
+ 2310 02b9 64697370 		.ascii	"displayData\000"
+ 2310      6C617944 
+ 2310      61746100 
+ 2311              	.LASF22:
+ 2312 02c5 676C6364 		.ascii	"glcd_pixel\000"
+ 2312      5F706978 
+ 2312      656C00
+ 2313              	.LASF34:
+ 2314 02d0 436F6E74 		.ascii	"Control_Reg_Write\000"
+ 2314      726F6C5F 
+ 2314      5265675F 
+ 2314      57726974 
+ 2314      6500
+ 2315              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

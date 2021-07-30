@@ -1,0 +1,1239 @@
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"coldJnTemp.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.MeasureColdJnSensorTemp,"ax",%progbits
+  20              		.align	2
+  21              		.global	MeasureColdJnSensorTemp
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	MeasureColdJnSensorTemp, %function
+  25              	MeasureColdJnSensorTemp:
+  26              	.LFB64:
+  27              		.file 1 "coldJnTemp.c"
+   1:coldJnTemp.c  **** /******************************************************************************
+   2:coldJnTemp.c  **** * File Name: coldJnTemp.c
+   3:coldJnTemp.c  **** *  Version 1.0
+   4:coldJnTemp.c  **** *
+   5:coldJnTemp.c  **** * Description:
+   6:coldJnTemp.c  **** *  This file contains the code to measure cold junction temperature
+   7:coldJnTemp.c  **** *
+   8:coldJnTemp.c  **** * Note:
+   9:coldJnTemp.c  **** *
+  10:coldJnTemp.c  **** ********************************************************************************
+  11:coldJnTemp.c  **** * Copyright (2018), Cypress Semiconductor Corporation. All Rights Reserved.
+  12:coldJnTemp.c  **** ********************************************************************************
+  13:coldJnTemp.c  **** * This software is owned by Cypress Semiconductor Corporation (Cypress)
+  14:coldJnTemp.c  **** * and is protected by and subject to worldwide patent protection (United
+  15:coldJnTemp.c  **** * States and foreign), United States copyright laws and international treaty
+  16:coldJnTemp.c  **** * provisions. Cypress hereby grants to licensee a personal, non-exclusive,
+  17:coldJnTemp.c  **** * non-transferable license to copy, use, modify, create derivative works of,
+  18:coldJnTemp.c  **** * and compile the Cypress Source Code and derivative works for the sole
+  19:coldJnTemp.c  **** * purpose of creating custom software in support of licensee product to be
+  20:coldJnTemp.c  **** * used only in conjunction with a Cypress integrated circuit as specified in
+  21:coldJnTemp.c  **** * the applicable agreement. Any reproduction, modification, translation,
+  22:coldJnTemp.c  **** * compilation, or representation of this software except as specified above 
+  23:coldJnTemp.c  **** * is prohibited without the express written permission of Cypress.
+  24:coldJnTemp.c  **** *
+  25:coldJnTemp.c  **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH 
+  26:coldJnTemp.c  **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  27:coldJnTemp.c  **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  28:coldJnTemp.c  **** * Cypress reserves the right to make changes without further notice to the 
+  29:coldJnTemp.c  **** * materials described herein. Cypress does not assume any liability arising out 
+  30:coldJnTemp.c  **** * of the application or use of any product or circuit described herein. Cypress 
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 2
+
+
+  31:coldJnTemp.c  **** * does not authorize its products for use as critical components in life-support 
+  32:coldJnTemp.c  **** * systems where a malfunction or failure may reasonably be expected to result in 
+  33:coldJnTemp.c  **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  34:coldJnTemp.c  **** * support systems application implies that the manufacturer assumes all risk of 
+  35:coldJnTemp.c  **** * such use and in doing so indemnifies Cypress against all charges. 
+  36:coldJnTemp.c  **** *
+  37:coldJnTemp.c  **** * Use of this Software may be limited by and subject to the applicable Cypress
+  38:coldJnTemp.c  **** * software license agreement. 
+  39:coldJnTemp.c  **** *******************************************************************************/
+  40:coldJnTemp.c  **** #include <main.h>
+  41:coldJnTemp.c  **** #include <ks0108.h>
+  42:coldJnTemp.c  **** 
+  43:coldJnTemp.c  **** extern volatile uint8 CJSelectFlag;
+  44:coldJnTemp.c  **** 
+  45:coldJnTemp.c  **** 
+  46:coldJnTemp.c  **** uint8 i;
+  47:coldJnTemp.c  **** uint8 l2,h2;
+  48:coldJnTemp.c  **** uint16 Prom1;
+  49:coldJnTemp.c  **** uint16 promedio2[20];
+  50:coldJnTemp.c  **** 
+  51:coldJnTemp.c  **** /*******************************************************************************
+  52:coldJnTemp.c  **** *  Function Name: MeasureColdJnSensorTemp
+  53:coldJnTemp.c  **** ********************************************************************************
+  54:coldJnTemp.c  **** * Summary:
+  55:coldJnTemp.c  **** *  This function is used to select cold junction temperature sensor which is used 
+  56:coldJnTemp.c  **** *  as cold junction compensation for thermocouple. The selection is made based on 
+  57:coldJnTemp.c  **** *  the value of CJSelectFlag
+  58:coldJnTemp.c  **** *
+  59:coldJnTemp.c  **** * Parameters:  
+  60:coldJnTemp.c  **** * void:
+  61:coldJnTemp.c  **** *
+  62:coldJnTemp.c  **** * Return: 
+  63:coldJnTemp.c  **** * Temperature in °C
+  64:coldJnTemp.c  **** *
+  65:coldJnTemp.c  **** * Theory:
+  66:coldJnTemp.c  **** *
+  67:coldJnTemp.c  **** * Side Effects:
+  68:coldJnTemp.c  **** * None
+  69:coldJnTemp.c  **** *******************************************************************************/
+  70:coldJnTemp.c  **** int32 MeasureColdJnSensorTemp(void)
+  71:coldJnTemp.c  **** {
+  28              		.loc 1 71 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  36              	.LVL0:
+  72:coldJnTemp.c  ****     /* Cold Jn temperature is measured using either DS600 IC or Thermistor SW2
+  73:coldJnTemp.c  ****         controls the selection*/
+  74:coldJnTemp.c  ****     uint16 lm35;
+  75:coldJnTemp.c  ****         /* Show ADC2 result on LCD*/
+  76:coldJnTemp.c  ****         lm35=0;
+  77:coldJnTemp.c  ****         if(dataReady != 0u)
+  37              		.loc 1 77 0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 3
+
+
+  38 0002 1C4B     		ldr	r3, .L8
+  39 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  40 0006 002B     		cmp	r3, #0
+  41 0008 2ED0     		beq	.L6
+  78:coldJnTemp.c  ****         {
+  79:coldJnTemp.c  ****             Prom1=ADC_SAR_CountsTo_mVolts(result);
+  42              		.loc 1 79 0
+  43 000a 1B4B     		ldr	r3, .L8+4
+  44 000c B3F90000 		ldrsh	r0, [r3]
+  45 0010 FFF7FEFF 		bl	ADC_SAR_CountsTo_mVolts
+  46              	.LVL1:
+  47 0014 80B2     		uxth	r0, r0
+  48 0016 194B     		ldr	r3, .L8+8
+  49 0018 1880     		strh	r0, [r3]	@ movhi
+  80:coldJnTemp.c  ****             if(l2>(10-1))
+  50              		.loc 1 80 0
+  51 001a 194B     		ldr	r3, .L8+12
+  52 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  53 001e 092B     		cmp	r3, #9
+  54 0020 02D9     		bls	.L3
+  81:coldJnTemp.c  ****                l2=0;
+  55              		.loc 1 81 0
+  56 0022 0022     		movs	r2, #0
+  57 0024 164B     		ldr	r3, .L8+12
+  58 0026 1A70     		strb	r2, [r3]
+  59              	.L3:
+  82:coldJnTemp.c  **** 
+  83:coldJnTemp.c  ****             promedio2[l2]=Prom1;l2++;
+  60              		.loc 1 83 0
+  61 0028 154A     		ldr	r2, .L8+12
+  62 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  63 002c 1549     		ldr	r1, .L8+16
+  64 002e 21F81300 		strh	r0, [r1, r3, lsl #1]	@ movhi
+  65 0032 0133     		adds	r3, r3, #1
+  66 0034 1370     		strb	r3, [r2]
+  84:coldJnTemp.c  ****                  
+  85:coldJnTemp.c  ****             for(h2=0;h2<10;h2++){
+  67              		.loc 1 85 0
+  68 0036 0023     		movs	r3, #0
+  69 0038 134A     		ldr	r2, .L8+20
+  70 003a 1370     		strb	r3, [r2]
+  71 003c 07E0     		b	.L4
+  72              	.LVL2:
+  73              	.L5:
+  86:coldJnTemp.c  ****                 lm35+=promedio2[h2];
+  74              		.loc 1 86 0 discriminator 3
+  75 003e 1149     		ldr	r1, .L8+16
+  76 0040 31F81210 		ldrh	r1, [r1, r2, lsl #1]
+  77 0044 0B44     		add	r3, r3, r1
+  78              	.LVL3:
+  79 0046 9BB2     		uxth	r3, r3
+  80              	.LVL4:
+  85:coldJnTemp.c  ****                 lm35+=promedio2[h2];
+  81              		.loc 1 85 0 discriminator 3
+  82 0048 0132     		adds	r2, r2, #1
+  83 004a 0F49     		ldr	r1, .L8+20
+  84 004c 0A70     		strb	r2, [r1]
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 4
+
+
+  85              	.LVL5:
+  86              	.L4:
+  85:coldJnTemp.c  ****                 lm35+=promedio2[h2];
+  87              		.loc 1 85 0 is_stmt 0 discriminator 1
+  88 004e 0E4A     		ldr	r2, .L8+20
+  89 0050 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+  90 0052 092A     		cmp	r2, #9
+  91 0054 F3D9     		bls	.L5
+  87:coldJnTemp.c  ****             } 
+  88:coldJnTemp.c  ****             lm35=lm35/10; 
+  92              		.loc 1 88 0 is_stmt 1
+  93 0056 0D4A     		ldr	r2, .L8+24
+  94 0058 A2FB0323 		umull	r2, r3, r2, r3
+  95              	.LVL6:
+  96 005c C3F3CF03 		ubfx	r3, r3, #3, #16
+  97              	.LVL7:
+  89:coldJnTemp.c  ****             dataReady = 0u;
+  98              		.loc 1 89 0
+  99 0060 0021     		movs	r1, #0
+ 100 0062 044A     		ldr	r2, .L8
+ 101 0064 1170     		strb	r1, [r2]
+ 102 0066 00E0     		b	.L2
+ 103              	.LVL8:
+ 104              	.L6:
+  76:coldJnTemp.c  ****         if(dataReady != 0u)
+ 105              		.loc 1 76 0
+ 106 0068 0023     		movs	r3, #0
+ 107              	.LVL9:
+ 108              	.L2:
+  90:coldJnTemp.c  ****         }
+  91:coldJnTemp.c  ****     
+  92:coldJnTemp.c  **** 	return lm35*10;
+ 109              		.loc 1 92 0
+ 110 006a 03EB8303 		add	r3, r3, r3, lsl #2
+ 111              	.LVL10:
+ 112 006e 5800     		lsls	r0, r3, #1
+  93:coldJnTemp.c  **** }
+ 113              		.loc 1 93 0
+ 114 0070 08BD     		pop	{r3, pc}
+ 115              	.L9:
+ 116 0072 00BF     		.align	2
+ 117              	.L8:
+ 118 0074 00000000 		.word	dataReady
+ 119 0078 00000000 		.word	result
+ 120 007c 00000000 		.word	Prom1
+ 121 0080 00000000 		.word	l2
+ 122 0084 00000000 		.word	promedio2
+ 123 0088 00000000 		.word	h2
+ 124 008c CDCCCCCC 		.word	-858993459
+ 125              		.cfi_endproc
+ 126              	.LFE64:
+ 127              		.size	MeasureColdJnSensorTemp, .-MeasureColdJnSensorTemp
+ 128              		.section	.text.MeasureICTemp,"ax",%progbits
+ 129              		.align	2
+ 130              		.global	MeasureICTemp
+ 131              		.thumb
+ 132              		.thumb_func
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 5
+
+
+ 133              		.type	MeasureICTemp, %function
+ 134              	MeasureICTemp:
+ 135              	.LFB65:
+  94:coldJnTemp.c  **** 
+  95:coldJnTemp.c  **** /*******************************************************************************
+  96:coldJnTemp.c  **** *  Function Name: MeasureICTemp
+  97:coldJnTemp.c  **** ********************************************************************************
+  98:coldJnTemp.c  **** * Summary:
+  99:coldJnTemp.c  **** *  This function is used to measure the DS600 IC temperature which is used as
+ 100:coldJnTemp.c  **** *  cold junction compensation for thermocouple.
+ 101:coldJnTemp.c  **** *
+ 102:coldJnTemp.c  **** * Parameters:  
+ 103:coldJnTemp.c  **** * void:
+ 104:coldJnTemp.c  **** *
+ 105:coldJnTemp.c  **** * Return: 
+ 106:coldJnTemp.c  **** * int32: Temperature in °C
+ 107:coldJnTemp.c  **** *
+ 108:coldJnTemp.c  **** * Theory:
+ 109:coldJnTemp.c  **** * Cold Junction IC DS600 has temperature coefficient of 6.45mV/°C with 
+ 110:coldJnTemp.c  **** * 509mv offset at 25°C.
+ 111:coldJnTemp.c  **** * Analog voltage output from IC is converted to temperature as follows:
+ 112:coldJnTemp.c  **** * Temp = (Vout - 509mV)/6.45mV
+ 113:coldJnTemp.c  **** *
+ 114:coldJnTemp.c  **** * Side Effects:
+ 115:coldJnTemp.c  **** * None
+ 116:coldJnTemp.c  **** *******************************************************************************/
+ 117:coldJnTemp.c  **** int32 MeasureICTemp(void)
+ 118:coldJnTemp.c  **** {
+ 136              		.loc 1 118 0
+ 137              		.cfi_startproc
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140              		@ link register save eliminated.
+ 119:coldJnTemp.c  ****   	/* Cold junction IC ADC count measurement*/
+ 120:coldJnTemp.c  ****     int32 ICResult;
+ 121:coldJnTemp.c  ****    
+ 122:coldJnTemp.c  ****     /* Cold Junction micro volts converted from ADC reading */
+ 123:coldJnTemp.c  ****     int32 ICUVolts;
+ 124:coldJnTemp.c  ****     
+ 125:coldJnTemp.c  ****     /* Cold Jn temperature measured using DS600 */
+ 126:coldJnTemp.c  ****     int32 ICTemp;
+ 127:coldJnTemp.c  **** 	
+ 128:coldJnTemp.c  **** 	/* Variable used to calculate VSSA ground reference voltage */
+ 129:coldJnTemp.c  ****     int32 offset;
+ 130:coldJnTemp.c  ****     
+ 131:coldJnTemp.c  ****     
+ 132:coldJnTemp.c  ****     /* Measure cold junction temperature in Celsius from parameters from the DS600 
+ 133:coldJnTemp.c  **** 	 * Temp Sensor 509 mV at 0 degrees C, divided by 6.45 mV per degree C. The macros
+ 134:coldJnTemp.c  **** 	 * (SCALING, VOLTAGE_PER_DEGREE and ZERO_DEGREE_OFFSET_VOLTAGE have been 
+ 135:coldJnTemp.c  **** 	 * manipulated such that the resultant temperature is in 100th of a degree Celsius*/
+ 136:coldJnTemp.c  ****     
+ 137:coldJnTemp.c  **** 	ICTemp = ((ICUVolts - ZERO_DEGREE_OFFSET_VOLTAGE) * SCALING) / VOLTAGE_PER_DEGREE;
+ 141              		.loc 1 137 0
+ 142 0000 034B     		ldr	r3, .L11
+ 143 0002 0448     		ldr	r0, .L11+4
+ 144 0004 80FB0320 		smull	r2, r0, r0, r3
+ 145 0008 DB17     		asrs	r3, r3, #31
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 6
+
+
+ 146              	.LVL11:
+ 138:coldJnTemp.c  **** 
+ 139:coldJnTemp.c  ****     return ICTemp;
+ 140:coldJnTemp.c  **** }
+ 147              		.loc 1 140 0
+ 148 000a C3EB2020 		rsb	r0, r3, r0, asr #8
+ 149              	.LVL12:
+ 150 000e 7047     		bx	lr
+ 151              	.L12:
+ 152              		.align	2
+ 153              	.L11:
+ 154 0010 3055B2FF 		.word	-5090000
+ 155 0014 07309B65 		.word	1704669191
+ 156              		.cfi_endproc
+ 157              	.LFE65:
+ 158              		.size	MeasureICTemp, .-MeasureICTemp
+ 159              		.comm	promedio2,40,4
+ 160              		.comm	Prom1,2,2
+ 161              		.comm	h2,1,1
+ 162              		.comm	l2,1,1
+ 163              		.comm	i,1,1
+ 164              		.comm	displayData,1024,4
+ 165              		.comm	Menus,30,4
+ 166              		.text
+ 167              	.Letext0:
+ 168              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 169              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 170              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 171              		.file 5 "./main.h"
+ 172              		.file 6 "./ks0108.h"
+ 173              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 174              		.file 8 "Generated_Source\\PSoC5/ADC_SAR.h"
+ 175              		.section	.debug_info,"",%progbits
+ 176              	.Ldebug_info0:
+ 177 0000 5A020000 		.4byte	0x25a
+ 178 0004 0400     		.2byte	0x4
+ 179 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 180 000a 04       		.byte	0x4
+ 181 000b 01       		.uleb128 0x1
+ 182 000c 6C000000 		.4byte	.LASF37
+ 183 0010 0C       		.byte	0xc
+ 184 0011 31010000 		.4byte	.LASF38
+ 185 0015 E4010000 		.4byte	.LASF39
+ 186 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 187 001d 00000000 		.4byte	0
+ 188 0021 00000000 		.4byte	.Ldebug_line0
+ 189 0025 02       		.uleb128 0x2
+ 190 0026 01       		.byte	0x1
+ 191 0027 06       		.byte	0x6
+ 192 0028 00000000 		.4byte	.LASF0
+ 193 002c 02       		.uleb128 0x2
+ 194 002d 01       		.byte	0x1
+ 195 002e 08       		.byte	0x8
+ 196 002f 5E000000 		.4byte	.LASF1
+ 197 0033 02       		.uleb128 0x2
+ 198 0034 02       		.byte	0x2
+ 199 0035 05       		.byte	0x5
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 7
+
+
+ 200 0036 D4010000 		.4byte	.LASF2
+ 201 003a 02       		.uleb128 0x2
+ 202 003b 02       		.byte	0x2
+ 203 003c 07       		.byte	0x7
+ 204 003d 38000000 		.4byte	.LASF3
+ 205 0041 03       		.uleb128 0x3
+ 206 0042 20000000 		.4byte	.LASF9
+ 207 0046 02       		.byte	0x2
+ 208 0047 3F       		.byte	0x3f
+ 209 0048 4C000000 		.4byte	0x4c
+ 210 004c 02       		.uleb128 0x2
+ 211 004d 04       		.byte	0x4
+ 212 004e 05       		.byte	0x5
+ 213 004f 55020000 		.4byte	.LASF4
+ 214 0053 02       		.uleb128 0x2
+ 215 0054 04       		.byte	0x4
+ 216 0055 07       		.byte	0x7
+ 217 0056 13010000 		.4byte	.LASF5
+ 218 005a 02       		.uleb128 0x2
+ 219 005b 08       		.byte	0x8
+ 220 005c 05       		.byte	0x5
+ 221 005d B3010000 		.4byte	.LASF6
+ 222 0061 02       		.uleb128 0x2
+ 223 0062 08       		.byte	0x8
+ 224 0063 07       		.byte	0x7
+ 225 0064 7B010000 		.4byte	.LASF7
+ 226 0068 04       		.uleb128 0x4
+ 227 0069 04       		.byte	0x4
+ 228 006a 05       		.byte	0x5
+ 229 006b 696E7400 		.ascii	"int\000"
+ 230 006f 02       		.uleb128 0x2
+ 231 0070 04       		.byte	0x4
+ 232 0071 07       		.byte	0x7
+ 233 0072 56010000 		.4byte	.LASF8
+ 234 0076 03       		.uleb128 0x3
+ 235 0077 A2010000 		.4byte	.LASF10
+ 236 007b 03       		.byte	0x3
+ 237 007c 2C       		.byte	0x2c
+ 238 007d 41000000 		.4byte	0x41
+ 239 0081 05       		.uleb128 0x5
+ 240 0082 DE010000 		.4byte	.LASF11
+ 241 0086 04       		.byte	0x4
+ 242 0087 E801     		.2byte	0x1e8
+ 243 0089 2C000000 		.4byte	0x2c
+ 244 008d 05       		.uleb128 0x5
+ 245 008e 2A010000 		.4byte	.LASF12
+ 246 0092 04       		.byte	0x4
+ 247 0093 E901     		.2byte	0x1e9
+ 248 0095 3A000000 		.4byte	0x3a
+ 249 0099 05       		.uleb128 0x5
+ 250 009a 00010000 		.4byte	.LASF13
+ 251 009e 04       		.byte	0x4
+ 252 009f ED01     		.2byte	0x1ed
+ 253 00a1 4C000000 		.4byte	0x4c
+ 254 00a5 02       		.uleb128 0x2
+ 255 00a6 04       		.byte	0x4
+ 256 00a7 04       		.byte	0x4
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 8
+
+
+ 257 00a8 58000000 		.4byte	.LASF14
+ 258 00ac 02       		.uleb128 0x2
+ 259 00ad 08       		.byte	0x8
+ 260 00ae 04       		.byte	0x4
+ 261 00af 4B000000 		.4byte	.LASF15
+ 262 00b3 02       		.uleb128 0x2
+ 263 00b4 01       		.byte	0x1
+ 264 00b5 08       		.byte	0x8
+ 265 00b6 C1010000 		.4byte	.LASF16
+ 266 00ba 02       		.uleb128 0x2
+ 267 00bb 08       		.byte	0x8
+ 268 00bc 04       		.byte	0x4
+ 269 00bd 5E020000 		.4byte	.LASF17
+ 270 00c1 02       		.uleb128 0x2
+ 271 00c2 04       		.byte	0x4
+ 272 00c3 07       		.byte	0x7
+ 273 00c4 AA010000 		.4byte	.LASF18
+ 274 00c8 06       		.uleb128 0x6
+ 275 00c9 1E       		.byte	0x1e
+ 276 00ca 05       		.byte	0x5
+ 277 00cb 99       		.byte	0x99
+ 278 00cc DD000000 		.4byte	0xdd
+ 279 00d0 07       		.uleb128 0x7
+ 280 00d1 8A020000 		.4byte	.LASF20
+ 281 00d5 05       		.byte	0x5
+ 282 00d6 9A       		.byte	0x9a
+ 283 00d7 DD000000 		.4byte	0xdd
+ 284 00db 00       		.byte	0
+ 285 00dc 00       		.byte	0
+ 286 00dd 08       		.uleb128 0x8
+ 287 00de B3000000 		.4byte	0xb3
+ 288 00e2 ED000000 		.4byte	0xed
+ 289 00e6 09       		.uleb128 0x9
+ 290 00e7 C1000000 		.4byte	0xc1
+ 291 00eb 1D       		.byte	0x1d
+ 292 00ec 00       		.byte	0
+ 293 00ed 03       		.uleb128 0x3
+ 294 00ee 4F020000 		.4byte	.LASF19
+ 295 00f2 05       		.byte	0x5
+ 296 00f3 9B       		.byte	0x9b
+ 297 00f4 C8000000 		.4byte	0xc8
+ 298 00f8 0A       		.uleb128 0xa
+ 299 00f9 0004     		.2byte	0x400
+ 300 00fb 06       		.byte	0x6
+ 301 00fc 5C       		.byte	0x5c
+ 302 00fd 1B010000 		.4byte	0x11b
+ 303 0101 07       		.uleb128 0x7
+ 304 0102 2A000000 		.4byte	.LASF21
+ 305 0106 06       		.byte	0x6
+ 306 0107 5E       		.byte	0x5e
+ 307 0108 1B010000 		.4byte	0x11b
+ 308 010c 00       		.byte	0
+ 309 010d 0B       		.uleb128 0xb
+ 310 010e FA000000 		.4byte	.LASF22
+ 311 0112 06       		.byte	0x6
+ 312 0113 5F       		.byte	0x5f
+ 313 0114 1B010000 		.4byte	0x11b
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 9
+
+
+ 314 0118 0002     		.2byte	0x200
+ 315 011a 00       		.byte	0
+ 316 011b 08       		.uleb128 0x8
+ 317 011c 81000000 		.4byte	0x81
+ 318 0120 2C010000 		.4byte	0x12c
+ 319 0124 0C       		.uleb128 0xc
+ 320 0125 C1000000 		.4byte	0xc1
+ 321 0129 FF01     		.2byte	0x1ff
+ 322 012b 00       		.byte	0
+ 323 012c 0D       		.uleb128 0xd
+ 324 012d 3E010000 		.4byte	.LASF23
+ 325 0131 01       		.byte	0x1
+ 326 0132 46       		.byte	0x46
+ 327 0133 99000000 		.4byte	0x99
+ 328 0137 00000000 		.4byte	.LFB64
+ 329 013b 90000000 		.4byte	.LFE64-.LFB64
+ 330 013f 01       		.uleb128 0x1
+ 331 0140 9C       		.byte	0x9c
+ 332 0141 5E010000 		.4byte	0x15e
+ 333 0145 0E       		.uleb128 0xe
+ 334 0146 25010000 		.4byte	.LASF27
+ 335 014a 01       		.byte	0x1
+ 336 014b 4A       		.byte	0x4a
+ 337 014c 8D000000 		.4byte	0x8d
+ 338 0150 00000000 		.4byte	.LLST0
+ 339 0154 0F       		.uleb128 0xf
+ 340 0155 14000000 		.4byte	.LVL1
+ 341 0159 52020000 		.4byte	0x252
+ 342 015d 00       		.byte	0
+ 343 015e 0D       		.uleb128 0xd
+ 344 015f 76020000 		.4byte	.LASF24
+ 345 0163 01       		.byte	0x1
+ 346 0164 75       		.byte	0x75
+ 347 0165 99000000 		.4byte	0x99
+ 348 0169 00000000 		.4byte	.LFB65
+ 349 016d 18000000 		.4byte	.LFE65-.LFB65
+ 350 0171 01       		.uleb128 0x1
+ 351 0172 9C       		.byte	0x9c
+ 352 0173 A8010000 		.4byte	0x1a8
+ 353 0177 10       		.uleb128 0x10
+ 354 0178 2F000000 		.4byte	.LASF25
+ 355 017c 01       		.byte	0x1
+ 356 017d 78       		.byte	0x78
+ 357 017e 99000000 		.4byte	0x99
+ 358 0182 10       		.uleb128 0x10
+ 359 0183 99010000 		.4byte	.LASF26
+ 360 0187 01       		.byte	0x1
+ 361 0188 7B       		.byte	0x7b
+ 362 0189 99000000 		.4byte	0x99
+ 363 018d 0E       		.uleb128 0xe
+ 364 018e CD010000 		.4byte	.LASF28
+ 365 0192 01       		.byte	0x1
+ 366 0193 7E       		.byte	0x7e
+ 367 0194 99000000 		.4byte	0x99
+ 368 0198 4C000000 		.4byte	.LLST1
+ 369 019c 10       		.uleb128 0x10
+ 370 019d C6010000 		.4byte	.LASF29
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 10
+
+
+ 371 01a1 01       		.byte	0x1
+ 372 01a2 81       		.byte	0x81
+ 373 01a3 99000000 		.4byte	0x99
+ 374 01a7 00       		.byte	0
+ 375 01a8 11       		.uleb128 0x11
+ 376 01a9 06010000 		.4byte	.LASF30
+ 377 01ad 07       		.byte	0x7
+ 378 01ae 1207     		.2byte	0x712
+ 379 01b0 B4010000 		.4byte	0x1b4
+ 380 01b4 12       		.uleb128 0x12
+ 381 01b5 76000000 		.4byte	0x76
+ 382 01b9 13       		.uleb128 0x13
+ 383 01ba 6900     		.ascii	"i\000"
+ 384 01bc 01       		.byte	0x1
+ 385 01bd 2E       		.byte	0x2e
+ 386 01be 81000000 		.4byte	0x81
+ 387 01c2 05       		.uleb128 0x5
+ 388 01c3 03       		.byte	0x3
+ 389 01c4 00000000 		.4byte	i
+ 390 01c8 14       		.uleb128 0x14
+ 391 01c9 0C000000 		.4byte	.LASF31
+ 392 01cd 05       		.byte	0x5
+ 393 01ce 8B       		.byte	0x8b
+ 394 01cf 81000000 		.4byte	0x81
+ 395 01d3 14       		.uleb128 0x14
+ 396 01d4 92010000 		.4byte	.LASF32
+ 397 01d8 05       		.byte	0x5
+ 398 01d9 8D       		.byte	0x8d
+ 399 01da 8D000000 		.4byte	0x8d
+ 400 01de 15       		.uleb128 0x15
+ 401 01df 52000000 		.4byte	.LASF33
+ 402 01e3 05       		.byte	0x5
+ 403 01e4 9F       		.byte	0x9f
+ 404 01e5 ED000000 		.4byte	0xed
+ 405 01e9 05       		.uleb128 0x5
+ 406 01ea 03       		.byte	0x3
+ 407 01eb 00000000 		.4byte	Menus
+ 408 01ef 15       		.uleb128 0x15
+ 409 01f0 6A020000 		.4byte	.LASF34
+ 410 01f4 06       		.byte	0x6
+ 411 01f5 60       		.byte	0x60
+ 412 01f6 F8000000 		.4byte	0xf8
+ 413 01fa 05       		.uleb128 0x5
+ 414 01fb 03       		.byte	0x3
+ 415 01fc 00000000 		.4byte	displayData
+ 416 0200 13       		.uleb128 0x13
+ 417 0201 6C3200   		.ascii	"l2\000"
+ 418 0204 01       		.byte	0x1
+ 419 0205 2F       		.byte	0x2f
+ 420 0206 81000000 		.4byte	0x81
+ 421 020a 05       		.uleb128 0x5
+ 422 020b 03       		.byte	0x3
+ 423 020c 00000000 		.4byte	l2
+ 424 0210 13       		.uleb128 0x13
+ 425 0211 683200   		.ascii	"h2\000"
+ 426 0214 01       		.byte	0x1
+ 427 0215 2F       		.byte	0x2f
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 11
+
+
+ 428 0216 81000000 		.4byte	0x81
+ 429 021a 05       		.uleb128 0x5
+ 430 021b 03       		.byte	0x3
+ 431 021c 00000000 		.4byte	h2
+ 432 0220 15       		.uleb128 0x15
+ 433 0221 84020000 		.4byte	.LASF35
+ 434 0225 01       		.byte	0x1
+ 435 0226 30       		.byte	0x30
+ 436 0227 8D000000 		.4byte	0x8d
+ 437 022b 05       		.uleb128 0x5
+ 438 022c 03       		.byte	0x3
+ 439 022d 00000000 		.4byte	Prom1
+ 440 0231 08       		.uleb128 0x8
+ 441 0232 8D000000 		.4byte	0x8d
+ 442 0236 41020000 		.4byte	0x241
+ 443 023a 09       		.uleb128 0x9
+ 444 023b C1000000 		.4byte	0xc1
+ 445 023f 13       		.byte	0x13
+ 446 0240 00       		.byte	0
+ 447 0241 15       		.uleb128 0x15
+ 448 0242 16000000 		.4byte	.LASF36
+ 449 0246 01       		.byte	0x1
+ 450 0247 31       		.byte	0x31
+ 451 0248 31020000 		.4byte	0x231
+ 452 024c 05       		.uleb128 0x5
+ 453 024d 03       		.byte	0x3
+ 454 024e 00000000 		.4byte	promedio2
+ 455 0252 16       		.uleb128 0x16
+ 456 0253 63010000 		.4byte	.LASF40
+ 457 0257 63010000 		.4byte	.LASF40
+ 458 025b 08       		.byte	0x8
+ 459 025c 3F       		.byte	0x3f
+ 460 025d 00       		.byte	0
+ 461              		.section	.debug_abbrev,"",%progbits
+ 462              	.Ldebug_abbrev0:
+ 463 0000 01       		.uleb128 0x1
+ 464 0001 11       		.uleb128 0x11
+ 465 0002 01       		.byte	0x1
+ 466 0003 25       		.uleb128 0x25
+ 467 0004 0E       		.uleb128 0xe
+ 468 0005 13       		.uleb128 0x13
+ 469 0006 0B       		.uleb128 0xb
+ 470 0007 03       		.uleb128 0x3
+ 471 0008 0E       		.uleb128 0xe
+ 472 0009 1B       		.uleb128 0x1b
+ 473 000a 0E       		.uleb128 0xe
+ 474 000b 55       		.uleb128 0x55
+ 475 000c 17       		.uleb128 0x17
+ 476 000d 11       		.uleb128 0x11
+ 477 000e 01       		.uleb128 0x1
+ 478 000f 10       		.uleb128 0x10
+ 479 0010 17       		.uleb128 0x17
+ 480 0011 00       		.byte	0
+ 481 0012 00       		.byte	0
+ 482 0013 02       		.uleb128 0x2
+ 483 0014 24       		.uleb128 0x24
+ 484 0015 00       		.byte	0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 12
+
+
+ 485 0016 0B       		.uleb128 0xb
+ 486 0017 0B       		.uleb128 0xb
+ 487 0018 3E       		.uleb128 0x3e
+ 488 0019 0B       		.uleb128 0xb
+ 489 001a 03       		.uleb128 0x3
+ 490 001b 0E       		.uleb128 0xe
+ 491 001c 00       		.byte	0
+ 492 001d 00       		.byte	0
+ 493 001e 03       		.uleb128 0x3
+ 494 001f 16       		.uleb128 0x16
+ 495 0020 00       		.byte	0
+ 496 0021 03       		.uleb128 0x3
+ 497 0022 0E       		.uleb128 0xe
+ 498 0023 3A       		.uleb128 0x3a
+ 499 0024 0B       		.uleb128 0xb
+ 500 0025 3B       		.uleb128 0x3b
+ 501 0026 0B       		.uleb128 0xb
+ 502 0027 49       		.uleb128 0x49
+ 503 0028 13       		.uleb128 0x13
+ 504 0029 00       		.byte	0
+ 505 002a 00       		.byte	0
+ 506 002b 04       		.uleb128 0x4
+ 507 002c 24       		.uleb128 0x24
+ 508 002d 00       		.byte	0
+ 509 002e 0B       		.uleb128 0xb
+ 510 002f 0B       		.uleb128 0xb
+ 511 0030 3E       		.uleb128 0x3e
+ 512 0031 0B       		.uleb128 0xb
+ 513 0032 03       		.uleb128 0x3
+ 514 0033 08       		.uleb128 0x8
+ 515 0034 00       		.byte	0
+ 516 0035 00       		.byte	0
+ 517 0036 05       		.uleb128 0x5
+ 518 0037 16       		.uleb128 0x16
+ 519 0038 00       		.byte	0
+ 520 0039 03       		.uleb128 0x3
+ 521 003a 0E       		.uleb128 0xe
+ 522 003b 3A       		.uleb128 0x3a
+ 523 003c 0B       		.uleb128 0xb
+ 524 003d 3B       		.uleb128 0x3b
+ 525 003e 05       		.uleb128 0x5
+ 526 003f 49       		.uleb128 0x49
+ 527 0040 13       		.uleb128 0x13
+ 528 0041 00       		.byte	0
+ 529 0042 00       		.byte	0
+ 530 0043 06       		.uleb128 0x6
+ 531 0044 13       		.uleb128 0x13
+ 532 0045 01       		.byte	0x1
+ 533 0046 0B       		.uleb128 0xb
+ 534 0047 0B       		.uleb128 0xb
+ 535 0048 3A       		.uleb128 0x3a
+ 536 0049 0B       		.uleb128 0xb
+ 537 004a 3B       		.uleb128 0x3b
+ 538 004b 0B       		.uleb128 0xb
+ 539 004c 01       		.uleb128 0x1
+ 540 004d 13       		.uleb128 0x13
+ 541 004e 00       		.byte	0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 13
+
+
+ 542 004f 00       		.byte	0
+ 543 0050 07       		.uleb128 0x7
+ 544 0051 0D       		.uleb128 0xd
+ 545 0052 00       		.byte	0
+ 546 0053 03       		.uleb128 0x3
+ 547 0054 0E       		.uleb128 0xe
+ 548 0055 3A       		.uleb128 0x3a
+ 549 0056 0B       		.uleb128 0xb
+ 550 0057 3B       		.uleb128 0x3b
+ 551 0058 0B       		.uleb128 0xb
+ 552 0059 49       		.uleb128 0x49
+ 553 005a 13       		.uleb128 0x13
+ 554 005b 38       		.uleb128 0x38
+ 555 005c 0B       		.uleb128 0xb
+ 556 005d 00       		.byte	0
+ 557 005e 00       		.byte	0
+ 558 005f 08       		.uleb128 0x8
+ 559 0060 01       		.uleb128 0x1
+ 560 0061 01       		.byte	0x1
+ 561 0062 49       		.uleb128 0x49
+ 562 0063 13       		.uleb128 0x13
+ 563 0064 01       		.uleb128 0x1
+ 564 0065 13       		.uleb128 0x13
+ 565 0066 00       		.byte	0
+ 566 0067 00       		.byte	0
+ 567 0068 09       		.uleb128 0x9
+ 568 0069 21       		.uleb128 0x21
+ 569 006a 00       		.byte	0
+ 570 006b 49       		.uleb128 0x49
+ 571 006c 13       		.uleb128 0x13
+ 572 006d 2F       		.uleb128 0x2f
+ 573 006e 0B       		.uleb128 0xb
+ 574 006f 00       		.byte	0
+ 575 0070 00       		.byte	0
+ 576 0071 0A       		.uleb128 0xa
+ 577 0072 13       		.uleb128 0x13
+ 578 0073 01       		.byte	0x1
+ 579 0074 0B       		.uleb128 0xb
+ 580 0075 05       		.uleb128 0x5
+ 581 0076 3A       		.uleb128 0x3a
+ 582 0077 0B       		.uleb128 0xb
+ 583 0078 3B       		.uleb128 0x3b
+ 584 0079 0B       		.uleb128 0xb
+ 585 007a 01       		.uleb128 0x1
+ 586 007b 13       		.uleb128 0x13
+ 587 007c 00       		.byte	0
+ 588 007d 00       		.byte	0
+ 589 007e 0B       		.uleb128 0xb
+ 590 007f 0D       		.uleb128 0xd
+ 591 0080 00       		.byte	0
+ 592 0081 03       		.uleb128 0x3
+ 593 0082 0E       		.uleb128 0xe
+ 594 0083 3A       		.uleb128 0x3a
+ 595 0084 0B       		.uleb128 0xb
+ 596 0085 3B       		.uleb128 0x3b
+ 597 0086 0B       		.uleb128 0xb
+ 598 0087 49       		.uleb128 0x49
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 14
+
+
+ 599 0088 13       		.uleb128 0x13
+ 600 0089 38       		.uleb128 0x38
+ 601 008a 05       		.uleb128 0x5
+ 602 008b 00       		.byte	0
+ 603 008c 00       		.byte	0
+ 604 008d 0C       		.uleb128 0xc
+ 605 008e 21       		.uleb128 0x21
+ 606 008f 00       		.byte	0
+ 607 0090 49       		.uleb128 0x49
+ 608 0091 13       		.uleb128 0x13
+ 609 0092 2F       		.uleb128 0x2f
+ 610 0093 05       		.uleb128 0x5
+ 611 0094 00       		.byte	0
+ 612 0095 00       		.byte	0
+ 613 0096 0D       		.uleb128 0xd
+ 614 0097 2E       		.uleb128 0x2e
+ 615 0098 01       		.byte	0x1
+ 616 0099 3F       		.uleb128 0x3f
+ 617 009a 19       		.uleb128 0x19
+ 618 009b 03       		.uleb128 0x3
+ 619 009c 0E       		.uleb128 0xe
+ 620 009d 3A       		.uleb128 0x3a
+ 621 009e 0B       		.uleb128 0xb
+ 622 009f 3B       		.uleb128 0x3b
+ 623 00a0 0B       		.uleb128 0xb
+ 624 00a1 27       		.uleb128 0x27
+ 625 00a2 19       		.uleb128 0x19
+ 626 00a3 49       		.uleb128 0x49
+ 627 00a4 13       		.uleb128 0x13
+ 628 00a5 11       		.uleb128 0x11
+ 629 00a6 01       		.uleb128 0x1
+ 630 00a7 12       		.uleb128 0x12
+ 631 00a8 06       		.uleb128 0x6
+ 632 00a9 40       		.uleb128 0x40
+ 633 00aa 18       		.uleb128 0x18
+ 634 00ab 9742     		.uleb128 0x2117
+ 635 00ad 19       		.uleb128 0x19
+ 636 00ae 01       		.uleb128 0x1
+ 637 00af 13       		.uleb128 0x13
+ 638 00b0 00       		.byte	0
+ 639 00b1 00       		.byte	0
+ 640 00b2 0E       		.uleb128 0xe
+ 641 00b3 34       		.uleb128 0x34
+ 642 00b4 00       		.byte	0
+ 643 00b5 03       		.uleb128 0x3
+ 644 00b6 0E       		.uleb128 0xe
+ 645 00b7 3A       		.uleb128 0x3a
+ 646 00b8 0B       		.uleb128 0xb
+ 647 00b9 3B       		.uleb128 0x3b
+ 648 00ba 0B       		.uleb128 0xb
+ 649 00bb 49       		.uleb128 0x49
+ 650 00bc 13       		.uleb128 0x13
+ 651 00bd 02       		.uleb128 0x2
+ 652 00be 17       		.uleb128 0x17
+ 653 00bf 00       		.byte	0
+ 654 00c0 00       		.byte	0
+ 655 00c1 0F       		.uleb128 0xf
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 15
+
+
+ 656 00c2 898201   		.uleb128 0x4109
+ 657 00c5 00       		.byte	0
+ 658 00c6 11       		.uleb128 0x11
+ 659 00c7 01       		.uleb128 0x1
+ 660 00c8 31       		.uleb128 0x31
+ 661 00c9 13       		.uleb128 0x13
+ 662 00ca 00       		.byte	0
+ 663 00cb 00       		.byte	0
+ 664 00cc 10       		.uleb128 0x10
+ 665 00cd 34       		.uleb128 0x34
+ 666 00ce 00       		.byte	0
+ 667 00cf 03       		.uleb128 0x3
+ 668 00d0 0E       		.uleb128 0xe
+ 669 00d1 3A       		.uleb128 0x3a
+ 670 00d2 0B       		.uleb128 0xb
+ 671 00d3 3B       		.uleb128 0x3b
+ 672 00d4 0B       		.uleb128 0xb
+ 673 00d5 49       		.uleb128 0x49
+ 674 00d6 13       		.uleb128 0x13
+ 675 00d7 00       		.byte	0
+ 676 00d8 00       		.byte	0
+ 677 00d9 11       		.uleb128 0x11
+ 678 00da 34       		.uleb128 0x34
+ 679 00db 00       		.byte	0
+ 680 00dc 03       		.uleb128 0x3
+ 681 00dd 0E       		.uleb128 0xe
+ 682 00de 3A       		.uleb128 0x3a
+ 683 00df 0B       		.uleb128 0xb
+ 684 00e0 3B       		.uleb128 0x3b
+ 685 00e1 05       		.uleb128 0x5
+ 686 00e2 49       		.uleb128 0x49
+ 687 00e3 13       		.uleb128 0x13
+ 688 00e4 3F       		.uleb128 0x3f
+ 689 00e5 19       		.uleb128 0x19
+ 690 00e6 3C       		.uleb128 0x3c
+ 691 00e7 19       		.uleb128 0x19
+ 692 00e8 00       		.byte	0
+ 693 00e9 00       		.byte	0
+ 694 00ea 12       		.uleb128 0x12
+ 695 00eb 35       		.uleb128 0x35
+ 696 00ec 00       		.byte	0
+ 697 00ed 49       		.uleb128 0x49
+ 698 00ee 13       		.uleb128 0x13
+ 699 00ef 00       		.byte	0
+ 700 00f0 00       		.byte	0
+ 701 00f1 13       		.uleb128 0x13
+ 702 00f2 34       		.uleb128 0x34
+ 703 00f3 00       		.byte	0
+ 704 00f4 03       		.uleb128 0x3
+ 705 00f5 08       		.uleb128 0x8
+ 706 00f6 3A       		.uleb128 0x3a
+ 707 00f7 0B       		.uleb128 0xb
+ 708 00f8 3B       		.uleb128 0x3b
+ 709 00f9 0B       		.uleb128 0xb
+ 710 00fa 49       		.uleb128 0x49
+ 711 00fb 13       		.uleb128 0x13
+ 712 00fc 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 16
+
+
+ 713 00fd 19       		.uleb128 0x19
+ 714 00fe 02       		.uleb128 0x2
+ 715 00ff 18       		.uleb128 0x18
+ 716 0100 00       		.byte	0
+ 717 0101 00       		.byte	0
+ 718 0102 14       		.uleb128 0x14
+ 719 0103 34       		.uleb128 0x34
+ 720 0104 00       		.byte	0
+ 721 0105 03       		.uleb128 0x3
+ 722 0106 0E       		.uleb128 0xe
+ 723 0107 3A       		.uleb128 0x3a
+ 724 0108 0B       		.uleb128 0xb
+ 725 0109 3B       		.uleb128 0x3b
+ 726 010a 0B       		.uleb128 0xb
+ 727 010b 49       		.uleb128 0x49
+ 728 010c 13       		.uleb128 0x13
+ 729 010d 3F       		.uleb128 0x3f
+ 730 010e 19       		.uleb128 0x19
+ 731 010f 3C       		.uleb128 0x3c
+ 732 0110 19       		.uleb128 0x19
+ 733 0111 00       		.byte	0
+ 734 0112 00       		.byte	0
+ 735 0113 15       		.uleb128 0x15
+ 736 0114 34       		.uleb128 0x34
+ 737 0115 00       		.byte	0
+ 738 0116 03       		.uleb128 0x3
+ 739 0117 0E       		.uleb128 0xe
+ 740 0118 3A       		.uleb128 0x3a
+ 741 0119 0B       		.uleb128 0xb
+ 742 011a 3B       		.uleb128 0x3b
+ 743 011b 0B       		.uleb128 0xb
+ 744 011c 49       		.uleb128 0x49
+ 745 011d 13       		.uleb128 0x13
+ 746 011e 3F       		.uleb128 0x3f
+ 747 011f 19       		.uleb128 0x19
+ 748 0120 02       		.uleb128 0x2
+ 749 0121 18       		.uleb128 0x18
+ 750 0122 00       		.byte	0
+ 751 0123 00       		.byte	0
+ 752 0124 16       		.uleb128 0x16
+ 753 0125 2E       		.uleb128 0x2e
+ 754 0126 00       		.byte	0
+ 755 0127 3F       		.uleb128 0x3f
+ 756 0128 19       		.uleb128 0x19
+ 757 0129 3C       		.uleb128 0x3c
+ 758 012a 19       		.uleb128 0x19
+ 759 012b 6E       		.uleb128 0x6e
+ 760 012c 0E       		.uleb128 0xe
+ 761 012d 03       		.uleb128 0x3
+ 762 012e 0E       		.uleb128 0xe
+ 763 012f 3A       		.uleb128 0x3a
+ 764 0130 0B       		.uleb128 0xb
+ 765 0131 3B       		.uleb128 0x3b
+ 766 0132 0B       		.uleb128 0xb
+ 767 0133 00       		.byte	0
+ 768 0134 00       		.byte	0
+ 769 0135 00       		.byte	0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 17
+
+
+ 770              		.section	.debug_loc,"",%progbits
+ 771              	.Ldebug_loc0:
+ 772              	.LLST0:
+ 773 0000 02000000 		.4byte	.LVL0
+ 774 0004 3E000000 		.4byte	.LVL2
+ 775 0008 0200     		.2byte	0x2
+ 776 000a 30       		.byte	0x30
+ 777 000b 9F       		.byte	0x9f
+ 778 000c 3E000000 		.4byte	.LVL2
+ 779 0010 46000000 		.4byte	.LVL3
+ 780 0014 0100     		.2byte	0x1
+ 781 0016 53       		.byte	0x53
+ 782 0017 48000000 		.4byte	.LVL4
+ 783 001b 5C000000 		.4byte	.LVL6
+ 784 001f 0100     		.2byte	0x1
+ 785 0021 53       		.byte	0x53
+ 786 0022 60000000 		.4byte	.LVL7
+ 787 0026 68000000 		.4byte	.LVL8
+ 788 002a 0100     		.2byte	0x1
+ 789 002c 53       		.byte	0x53
+ 790 002d 68000000 		.4byte	.LVL8
+ 791 0031 6A000000 		.4byte	.LVL9
+ 792 0035 0200     		.2byte	0x2
+ 793 0037 30       		.byte	0x30
+ 794 0038 9F       		.byte	0x9f
+ 795 0039 6A000000 		.4byte	.LVL9
+ 796 003d 6E000000 		.4byte	.LVL10
+ 797 0041 0100     		.2byte	0x1
+ 798 0043 53       		.byte	0x53
+ 799 0044 00000000 		.4byte	0
+ 800 0048 00000000 		.4byte	0
+ 801              	.LLST1:
+ 802 004c 0A000000 		.4byte	.LVL11
+ 803 0050 0E000000 		.4byte	.LVL12
+ 804 0054 0800     		.2byte	0x8
+ 805 0056 70       		.byte	0x70
+ 806 0057 00       		.sleb128 0
+ 807 0058 38       		.byte	0x38
+ 808 0059 26       		.byte	0x26
+ 809 005a 73       		.byte	0x73
+ 810 005b 00       		.sleb128 0
+ 811 005c 1C       		.byte	0x1c
+ 812 005d 9F       		.byte	0x9f
+ 813 005e 0E000000 		.4byte	.LVL12
+ 814 0062 18000000 		.4byte	.LFE65
+ 815 0066 0100     		.2byte	0x1
+ 816 0068 50       		.byte	0x50
+ 817 0069 00000000 		.4byte	0
+ 818 006d 00000000 		.4byte	0
+ 819              		.section	.debug_aranges,"",%progbits
+ 820 0000 24000000 		.4byte	0x24
+ 821 0004 0200     		.2byte	0x2
+ 822 0006 00000000 		.4byte	.Ldebug_info0
+ 823 000a 04       		.byte	0x4
+ 824 000b 00       		.byte	0
+ 825 000c 0000     		.2byte	0
+ 826 000e 0000     		.2byte	0
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 18
+
+
+ 827 0010 00000000 		.4byte	.LFB64
+ 828 0014 90000000 		.4byte	.LFE64-.LFB64
+ 829 0018 00000000 		.4byte	.LFB65
+ 830 001c 18000000 		.4byte	.LFE65-.LFB65
+ 831 0020 00000000 		.4byte	0
+ 832 0024 00000000 		.4byte	0
+ 833              		.section	.debug_ranges,"",%progbits
+ 834              	.Ldebug_ranges0:
+ 835 0000 00000000 		.4byte	.LFB64
+ 836 0004 90000000 		.4byte	.LFE64
+ 837 0008 00000000 		.4byte	.LFB65
+ 838 000c 18000000 		.4byte	.LFE65
+ 839 0010 00000000 		.4byte	0
+ 840 0014 00000000 		.4byte	0
+ 841              		.section	.debug_line,"",%progbits
+ 842              	.Ldebug_line0:
+ 843 0000 C3010000 		.section	.debug_str,"MS",%progbits,1
+ 843      02007901 
+ 843      00000201 
+ 843      FB0E0D00 
+ 843      01010101 
+ 844              	.LASF0:
+ 845 0000 7369676E 		.ascii	"signed char\000"
+ 845      65642063 
+ 845      68617200 
+ 846              	.LASF31:
+ 847 000c 64617461 		.ascii	"dataReady\000"
+ 847      52656164 
+ 847      7900
+ 848              	.LASF36:
+ 849 0016 70726F6D 		.ascii	"promedio2\000"
+ 849      6564696F 
+ 849      3200
+ 850              	.LASF9:
+ 851 0020 5F5F696E 		.ascii	"__int32_t\000"
+ 851      7433325F 
+ 851      7400
+ 852              	.LASF21:
+ 853 002a 6C656674 		.ascii	"left\000"
+ 853      00
+ 854              	.LASF25:
+ 855 002f 49435265 		.ascii	"ICResult\000"
+ 855      73756C74 
+ 855      00
+ 856              	.LASF3:
+ 857 0038 73686F72 		.ascii	"short unsigned int\000"
+ 857      7420756E 
+ 857      7369676E 
+ 857      65642069 
+ 857      6E7400
+ 858              	.LASF15:
+ 859 004b 646F7562 		.ascii	"double\000"
+ 859      6C6500
+ 860              	.LASF33:
+ 861 0052 4D656E75 		.ascii	"Menus\000"
+ 861      7300
+ 862              	.LASF14:
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 19
+
+
+ 863 0058 666C6F61 		.ascii	"float\000"
+ 863      7400
+ 864              	.LASF1:
+ 865 005e 756E7369 		.ascii	"unsigned char\000"
+ 865      676E6564 
+ 865      20636861 
+ 865      7200
+ 866              	.LASF37:
+ 867 006c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 867      43313120 
+ 867      352E342E 
+ 867      31203230 
+ 867      31363036 
+ 868 009f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 868      20726576 
+ 868      6973696F 
+ 868      6E203233 
+ 868      37373135 
+ 869 00d2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 869      66756E63 
+ 869      74696F6E 
+ 869      2D736563 
+ 869      74696F6E 
+ 870              	.LASF22:
+ 871 00fa 72696768 		.ascii	"right\000"
+ 871      7400
+ 872              	.LASF13:
+ 873 0100 696E7433 		.ascii	"int32\000"
+ 873      3200
+ 874              	.LASF30:
+ 875 0106 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 875      52784275 
+ 875      66666572 
+ 875      00
+ 876              	.LASF5:
+ 877 0113 6C6F6E67 		.ascii	"long unsigned int\000"
+ 877      20756E73 
+ 877      69676E65 
+ 877      6420696E 
+ 877      7400
+ 878              	.LASF27:
+ 879 0125 6C6D3335 		.ascii	"lm35\000"
+ 879      00
+ 880              	.LASF12:
+ 881 012a 75696E74 		.ascii	"uint16\000"
+ 881      313600
+ 882              	.LASF38:
+ 883 0131 636F6C64 		.ascii	"coldJnTemp.c\000"
+ 883      4A6E5465 
+ 883      6D702E63 
+ 883      00
+ 884              	.LASF23:
+ 885 013e 4D656173 		.ascii	"MeasureColdJnSensorTemp\000"
+ 885      75726543 
+ 885      6F6C644A 
+ 885      6E53656E 
+ 885      736F7254 
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 20
+
+
+ 886              	.LASF8:
+ 887 0156 756E7369 		.ascii	"unsigned int\000"
+ 887      676E6564 
+ 887      20696E74 
+ 887      00
+ 888              	.LASF40:
+ 889 0163 4144435F 		.ascii	"ADC_SAR_CountsTo_mVolts\000"
+ 889      5341525F 
+ 889      436F756E 
+ 889      7473546F 
+ 889      5F6D566F 
+ 890              	.LASF7:
+ 891 017b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 891      206C6F6E 
+ 891      6720756E 
+ 891      7369676E 
+ 891      65642069 
+ 892              	.LASF32:
+ 893 0192 72657375 		.ascii	"result\000"
+ 893      6C7400
+ 894              	.LASF26:
+ 895 0199 49435556 		.ascii	"ICUVolts\000"
+ 895      6F6C7473 
+ 895      00
+ 896              	.LASF10:
+ 897 01a2 696E7433 		.ascii	"int32_t\000"
+ 897      325F7400 
+ 898              	.LASF18:
+ 899 01aa 73697A65 		.ascii	"sizetype\000"
+ 899      74797065 
+ 899      00
+ 900              	.LASF6:
+ 901 01b3 6C6F6E67 		.ascii	"long long int\000"
+ 901      206C6F6E 
+ 901      6720696E 
+ 901      7400
+ 902              	.LASF16:
+ 903 01c1 63686172 		.ascii	"char\000"
+ 903      00
+ 904              	.LASF29:
+ 905 01c6 6F666673 		.ascii	"offset\000"
+ 905      657400
+ 906              	.LASF28:
+ 907 01cd 49435465 		.ascii	"ICTemp\000"
+ 907      6D7000
+ 908              	.LASF2:
+ 909 01d4 73686F72 		.ascii	"short int\000"
+ 909      7420696E 
+ 909      7400
+ 910              	.LASF11:
+ 911 01de 75696E74 		.ascii	"uint8\000"
+ 911      3800
+ 912              	.LASF39:
+ 913 01e4 443A5C4C 		.ascii	"D:\\Laboratorio\\Mufla\\2020\\Mufla 2.2L Psoc Avant"
+ 913      61626F72 
+ 913      61746F72 
+ 913      696F5C4D 
+ARM GAS  C:\Users\USUARIO\AppData\Local\Temp\ccUzvfGd.s 			page 21
+
+
+ 913      75666C61 
+ 914 0213 696B6120 		.ascii	"ika #0045884XX OP2020346\\Firmware Psoc\\LCD2\\Mufl"
+ 914      23303034 
+ 914      35383834 
+ 914      5858204F 
+ 914      50323032 
+ 915 0243 61474C43 		.ascii	"aGLCD.cydsn\000"
+ 915      442E6379 
+ 915      64736E00 
+ 916              	.LASF19:
+ 917 024f 4D454E55 		.ascii	"MENUU\000"
+ 917      5500
+ 918              	.LASF4:
+ 919 0255 6C6F6E67 		.ascii	"long int\000"
+ 919      20696E74 
+ 919      00
+ 920              	.LASF17:
+ 921 025e 6C6F6E67 		.ascii	"long double\000"
+ 921      20646F75 
+ 921      626C6500 
+ 922              	.LASF34:
+ 923 026a 64697370 		.ascii	"displayData\000"
+ 923      6C617944 
+ 923      61746100 
+ 924              	.LASF24:
+ 925 0276 4D656173 		.ascii	"MeasureICTemp\000"
+ 925      75726549 
+ 925      4354656D 
+ 925      7000
+ 926              	.LASF35:
+ 927 0284 50726F6D 		.ascii	"Prom1\000"
+ 927      3100
+ 928              	.LASF20:
+ 929 028a 4C657472 		.ascii	"Letra\000"
+ 929      6100
+ 930              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

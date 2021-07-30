@@ -1,0 +1,194 @@
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/CortexM3/ARM_GCC_541/Debug/main.o : D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_Ext_CP_Clk.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_IRQ.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_SAR.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_SAR_IRQ.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_SAR_theACLK.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_theACLK.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/BUZZER.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/BUZZER_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CS_1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CS_1_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CS_2.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CS_2_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CyDmac.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CyFlash.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CyLib.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CySpc.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_0.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_0_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_1_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_2.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_2_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_3.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_3_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_4.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_4_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_5.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_5_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_6.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_6_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_7.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_7_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DOOR.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DOOR_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DOWN.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DOWN_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/D_I.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/D_I_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/EEPROM.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ENABLE.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ENABLE_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD1_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD2.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD2_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD3.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD3_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LEFT.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LEFT_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LM35.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LM35_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RESET.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RESET_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RIGHT.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RIGHT_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RX1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/R_W.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/R_W_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Reloj.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/SSR.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/SSR_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Thermocouple_1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Timer.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Tneg.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Tneg_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Tpos.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Tpos_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/UART_1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/UART_1_IntClock.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/UP.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/UP_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/VENT1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/VENT1_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/VENT2.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/VENT2_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cmsis_armcc.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cmsis_compiler.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cmsis_gcc.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/core_cm3.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cyPm.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cydevice.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cydevice_trm.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cydisabledsheets.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cyfitter.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cypins.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cytypes.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/project.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Funciones.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/device.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/ks0108.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/main.c D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/main.h 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_Ext_CP_Clk.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_IRQ.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_SAR.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_SAR_IRQ.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_SAR_theACLK.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ADC_theACLK.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/BUZZER.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/BUZZER_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CS_1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CS_1_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CS_2.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CS_2_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_0.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_0_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_1_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_2.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_2_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_3.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_3_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_4.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_4_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_5.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_5_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_6.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_6_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_7.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DB_7_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DOOR.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DOOR_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DOWN.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/DOWN_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/D_I.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/D_I_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/EEPROM.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ENABLE.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/ENABLE_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD1_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD2.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD2_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD3.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LCD3_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LEFT.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LEFT_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LM35.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/LM35_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RESET.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RESET_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RIGHT.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RIGHT_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/RX1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/R_W.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/R_W_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Reloj.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/SSR.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/SSR_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Thermocouple_1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Timer.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Tneg.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Tneg_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Tpos.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/Tpos_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/UART_1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/UART_1_IntClock.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/UP.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/UP_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/VENT1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/VENT1_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/VENT2.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/VENT2_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Generated_Source/PSoC5/project.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/Funciones.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/device.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/ks0108.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/main.c : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Psoc\ Avantika\ #004588425\ OP2020341/Firmware\ Psoc\ V2.1.0-\ AjustePendientes/LCD2/MuflaGLCD.cydsn/main.h : 
+

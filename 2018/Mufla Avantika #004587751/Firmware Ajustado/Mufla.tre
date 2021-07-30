@@ -1,0 +1,1292 @@
+ÀÄMufla
+   ÃÄmain  0/25418  Ram=6
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_init  0/168  Ram=1
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ³  ÀÄglcd_update  0/176  Ram=7
+   ³  ³     ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³     ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³     ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³     ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³     ÃÄglcd_writeByte  0/54  Ram=2
+   ³  ³     ÀÄglcd_writeByte  0/54  Ram=2
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1113  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÃÄ@const654  0/276  Ram=0
+   ³  ³  ³  ÃÄ@const658  0/240  Ram=0
+   ³  ³  ³  ÀÄglcd_pixel  0/188  Ram=9
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÀÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄglcd_line  0/310  Ram=17
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄglcd_update  0/176  Ram=7
+   ³  ³     ÀÄ*
+   ³  ÃÄ@const1114  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1115  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1116  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÃÄ@PRINTF_D_1004  0/190  Ram=6
+   ³  ³  ³  ÃÄ@DIV88  0/44  Ram=3
+   ³  ³  ³  ÃÄ@DIV88  0/44  Ram=3
+   ³  ³  ³  ÃÄ@SPRINTF  0/32  Ram=1
+   ³  ³  ³  ÃÄ@SPRINTF  0/32  Ram=1
+   ³  ³  ³  ÃÄ@SPRINTF  0/32  Ram=1
+   ³  ³  ³  ÀÄ@SPRINTF  0/32  Ram=1
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄglcd_text57  0/414  Ram=20
+   ³  ³     ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄLeer_Sensor  0/552  Ram=5
+   ³  ³  ÃÄsensores  0/88  Ram=5
+   ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ³  ÀÄ@ITOF  0/54  Ram=2
+   ³  ³  ÃÄ@MUL1616  0/34  Ram=5
+   ³  ³  ÃÄ@MUL1616  0/34  Ram=5
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÀÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄglcd_update  0/176  Ram=7
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1117  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1117  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1119  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_update  0/176  Ram=7
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1117  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1121  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_update  0/176  Ram=7
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1122  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1123  0/38  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1123  0/38  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1125  0/36  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1125  0/36  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1127  0/36  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1127  0/36  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1129  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1129  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1131  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1131  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1133  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1134  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1135  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1136  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1137  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1138  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1139  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1140  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÃÄ@PRINTF_U_1004  0/134  Ram=2
+   ³  ³  ³  ÃÄ@DIV88  0/44  Ram=3
+   ³  ³  ³  ÃÄ@SPRINTF  0/32  Ram=1
+   ³  ³  ³  ÃÄ@DIV88  0/44  Ram=3
+   ³  ³  ³  ÃÄ@SPRINTF  0/32  Ram=1
+   ³  ³  ³  ÀÄ@SPRINTF  0/32  Ram=1
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_U_1004  0/134  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PRINTF_U_1004  0/134  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄglcd_update  0/176  Ram=7
+   ³  ³     ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ÃÄ@MULS1616  0/84  Ram=6
+   ³  ÃÄ@MULS1616  0/84  Ram=6
+   ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ÃÄ@DIV88  0/44  Ram=3
+   ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1141  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1142  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1143  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1135  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1135  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1136  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1136  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1137  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1137  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1138  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1138  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1139  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1139  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1154  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1134  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1135  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1136  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1137  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1138  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1139  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1161  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1162  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_update  0/176  Ram=7
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1117  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1117  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1119  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_update  0/176  Ram=7
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1117  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1121  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_update  0/176  Ram=7
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1168  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayContrasena  0/182  Ram=15
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄMuestraSegmento  0/2870  Ram=7
+   ³  ³  ÃÄ@const1081  0/24  Ram=0
+   ³  ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@const1082  0/32  Ram=0
+   ³  ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@const1083  0/24  Ram=0
+   ³  ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ³  ÃÄ@PRINTF_LU_1004  0/200  Ram=9
+   ³  ³  ³  ³  ÀÄ@SPRINTF  0/32  Ram=1
+   ³  ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@PRINTF_LU_1004  0/200  Ram=9
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄglcd_update  0/176  Ram=7
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄ@const1084  0/34  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÃÄ@PRINTF_LU_1004  0/200  Ram=9
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@PRINTF_LU_1004  0/200  Ram=9
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@PRINTF_LU_1004  0/200  Ram=9
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@const1010  0/22  Ram=0
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_circle  0/552  Ram=12
+   ³  ³  ³  ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÃÄglcd_pixel  0/188  Ram=9
+   ³  ³  ³  ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ³  ³  ³  ÀÄ@MUL88  0/78  Ram=2
+   ³  ³  ³  ÃÄ@PRINTF_LU_1004  0/200  Ram=9
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@const1010  0/22  Ram=0
+   ³  ³  ³  ÃÄglcd_text57  0/414  Ram=20
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄglcd_circle  0/552  Ram=12
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄglcd_update  0/176  Ram=7
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄ@const1085  0/28  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@const1086  0/30  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ÃÄ@const1084  0/34  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@const1085  0/28  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@const1086  0/30  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ÃÄ@const1084  0/34  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@const1085  0/28  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@const1086  0/30  Ram=0
+   ³  ³  ÃÄdisplayTemps  0/998  Ram=19
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_imagen  0/168  Ram=6
+   ³  ³  ÃÄ@MUL1616  0/34  Ram=5
+   ³  ³  ÃÄ@const735  0/1042  Ram=0
+   ³  ³  ÀÄglcd_pixel  0/188  Ram=9
+   ³  ÃÄglcd_init  0/168  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1169  0/42  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1170  0/40  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1171  0/36  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄControla  0/2952  Ram=4
+   ³  ³  ÃÄActualizaRecta  0/730  Ram=4
+   ³  ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ³  ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ³  ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ³  ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ³  ÀÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@MULS1616  0/84  Ram=6
+   ³  ³  ÃÄ@MULS1616  0/84  Ram=6
+   ³  ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@DIV88  0/44  Ram=3
+   ³  ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ³  ÃÄ@MULS1616  0/84  Ram=6
+   ³  ³  ÃÄ@MULS1616  0/84  Ram=6
+   ³  ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@SITOF  0/80  Ram=2
+   ³  ³  ÃÄ@DIV88  0/44  Ram=3
+   ³  ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ³  ÃÄ@MUL88  0/78  Ram=2
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ³  ÀÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1172  0/36  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1173  0/38  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄControla  0/2952  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_init  0/168  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1174  0/38  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@const1175  0/36  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_init  0/168  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1176  0/42  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1177  0/36  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1178  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1179  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1180  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1181  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1182  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1183  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1184  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1185  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1186  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1187  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1188  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1189  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1190  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1191  0/24  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄ@DIVS1616  0/120  Ram=6
+   ³  ÃÄglcd_line  0/310  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_update  0/176  Ram=7
+   ³  ³  ÀÄ*
+   ³  ÃÄLeer_Sensor  0/552  Ram=5
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@DIVFF  0/350  Ram=14
+   ³  ÃÄ@MULFF  0/246  Ram=11
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1192  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄLeer_Sensor  0/552  Ram=5
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayT  0/112  Ram=16
+   ³  ³  ÃÄ@PRINTF_LU_1004  0/200  Ram=9
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄglcd_text57  0/414  Ram=20
+   ³  ³     ÀÄ*
+   ³  ÃÄglcd_circle  0/552  Ram=12
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1010  0/22  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_circle  0/552  Ram=12
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1010  0/22  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1195  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1196  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1197  0/22  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1198  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1199  0/22  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1200  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1199  0/22  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTiempo  0/456  Ram=16
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1202  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_rect  0/194  Ram=11
+   ³  ³  ÀÄ*
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_init  0/168  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1203  0/40  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1204  0/38  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1205  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1205  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1207  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1207  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1209  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1209  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1211  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1211  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1213  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1213  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1215  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1215  0/30  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1217  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1217  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1219  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1219  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1221  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1221  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1223  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1223  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@const1223  0/34  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1226  0/22  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1227  0/22  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1228  0/22  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1211  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1230  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1231  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1232  0/26  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ITOF  0/54  Ram=2
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1219  0/32  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@const1234  0/28  Ram=0
+   ³  ÃÄdisplayMenu  0/296  Ram=8
+   ³  ³  ÀÄ*
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄdisplayTemperatura  0/442  Ram=17
+   ³  ³  ÀÄ*
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@FLT  0/122  Ram=10
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@ADDFF  0/632  Ram=16
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄglcd_fillscreen  0/90  Ram=10
+   ³  ÃÄ@SFTOI  0/60  Ram=4
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄLeer_Sensor  0/552  Ram=5
+   ³  ³  ÀÄ*
+   ³  ÀÄglcd_init  0/168  Ram=1
+   ³     ÀÄ*
+   ÀÄtemp1s  0/178  Ram=1

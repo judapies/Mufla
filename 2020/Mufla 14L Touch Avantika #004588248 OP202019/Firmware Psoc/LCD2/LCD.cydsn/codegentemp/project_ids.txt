@@ -1,0 +1,6 @@
+F:\Firmware Psoc\LCD2\LCD.cydsn\LCD.cyprj|b0c0d970-0a3f-4b68-a499-d8711a054140
+C:\Program Files\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4c0dafc1-f71b-4f01-bcef-2437844d6a45
+C:\Users\JP Electronica\Documents\PSoC Creator\4.3\Downloads ( 4.3).cylib\Downloads ( 4.3).cyprj|d3b4f088-41ef-44ac-9bef-a2f4e77d25ab
+C:\Program Files\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ab829b32-71bc-4de6-96f6-40289b07c5f7
+C:\Program Files\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|176c9a14-2bc2-47ec-880c-df66e01d5c57
+C:\Program Files\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|d1be75d6-bfab-434b-a9ab-153efcbfd547

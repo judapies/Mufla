@@ -1,0 +1,176 @@
+
+ROM used: 55506 (56%)
+          55506 (56%) including unused fragments
+
+          8 Average locations per line
+          18 Average locations per statement
+
+RAM used: 2154 (65%) at main() level
+          2212 (66%) worst case
+
+Stack used: 6 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+ 2127  1893  61  Mufla.c
+  461     0   0  ..\..\..\..\..\Program Files (x86)\PICC\devices\18F4685.h
+  354    78   3  HDM64GS12.c
+  556   167   5  GRAPHICS.c
+   68     0   0  imagen.h
+ 2172   260   8  ..\..\..\..\..\Program Files (x86)\PICC\drivers\MATH.h
+  841   695  22  Funciones.h
+----- -----
+ 6579  3093 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     40   0   1             @delay_ms1
+0    168   0   1   580  3.2  glcd_init
+0    184   0   7   609  5.4  glcd_update
+0    188   0   9   466  7.8  glcd_pixel
+0     90   0  10   317  4.7  glcd_fillScreen
+0     54   0   2   257  2.8  glcd_writeByte
+0    286   0   0             @const95
+0    250   0   0             @const98
+0    318   0  17  1475  8.8  glcd_line
+0    194   0   6  1036  5.8  glcd_rect
+0     84   0   6             @MULS1616
+0    554   0  12  1822  8.6  glcd_circle
+0     78   0   2             @MUL88
+0    440   0  20  1550 11.2  glcd_text57
+0   1052   1   0             @const174
+0    122   0  10             @FLT
+0     60   0   4             @SFTOI
+0     54   0   2             @ITOF
+0    350   0  14             @DIVFF
+0    632   1  16             @ADDFF
+0    246   0  11             @MULFF
+0     80   0   2             @SITOF
+0    730   1   4   577  5.7  ActualizaRecta
+0     88   0   5   100  2.1  sensores
+0    562   1   5   483  7.1  Leer_Sensor
+0     34   0   5             @MUL1616
+0   4086   4   6  5000  9.0  Controla
+0     44   0   3             @DIV88
+0    120   0   6             @DIVS1616
+0    294   0   8  1050  5.1  displayMenu
+0   1016   1  19  3268  5.5  displayTemps
+0     32   0   1             @SPRINTF
+0    190   0   9             @PRINTF_LU_454
+0     32   0   0             @const460
+0    454   0  16  1613  5.0  displayTiempo
+0    134   0   2             @PRINTF_U_454
+0    440   0  17  1550  5.0  displayTemperatura
+0    178   0   6   483  7.8  glcd_imagen
+0    112   0  16   330  3.4  displayT
+0    120   0  18   330  3.4  displayFloat
+0     68   0   5             @FTOSD
+0    128   0  13             @DIV3232
+0    438   0  13             @PRINTF_L32D_454FPFPF
+0    182   0  15   603  4.5  displayContrasena
+0    224   0   6             @PRINTF_D_454
+0   3258   3   7 11201 10.0  MuestraSegmento
+0     34   0   0             @const540
+0     40   0   0             @const541
+0     34   0   0             @const542
+0     44   0   0             @const543
+0     38   0   0             @const544
+0     40   0   0             @const545
+0    200   0  16   156  3.5  extraeDecimal
+0     34   0   0    98  1.7  ConfigInicial
+0   4216   4   6  8978  8.0  LeeEEPROM
+0   1518   1   9  6799 10.6  PidePassword
+0     36   0   0             @const569
+0     40   0   0             @const571
+0     42   0   0             @const573
+0    180   0   1   858  6.3  temp1s
+0  27646  25   4129621 14.5  MAIN
+0     42   0   0             @const578
+0     48   0   0             @const579
+0     46   0   0             @const580
+0     40   0   0             @const581
+0     36   0   0             @const587
+0     48   0   0             @const588
+0     46   0   0             @const590
+0     46   0   0             @const592
+0     38   0   0             @const594
+0     44   0   0             @const596
+0     42   0   0             @const598
+0     40   0   0             @const599
+0     42   0   0             @const600
+0     42   0   0             @const601
+0     42   0   0             @const602
+0     42   0   0             @const603
+0     42   0   0             @const604
+0     42   0   0             @const605
+0     42   0   0             @const606
+0     42   0   0             @const607
+0     38   0   0             @const608
+0     40   0   0             @const619
+0     40   0   0             @const626
+0     40   0   0             @const627
+0     42   0   0             @const633
+0     52   0   0             @const634
+0     50   0   0             @const635
+0     46   0   0             @const636
+0     46   0   0             @const637
+0     48   0   0             @const638
+0     46   0   0             @const639
+0     52   0   0             @const640
+0     48   0   0             @const641
+0     36   0   0             @const642
+0     36   0   0             @const645
+0     38   0   0             @const646
+0     32   0   0             @const647
+0     36   0   0             @const648
+0     32   0   0             @const649
+0     36   0   0             @const650
+0     36   0   0             @const652
+0     50   0   0             @const653
+0     50   0   0             @const654
+0     48   0   0             @const655
+0     52   0   0             @const656
+0     44   0   0             @const658
+0     40   0   0             @const660
+0     42   0   0             @const662
+0     38   0   0             @const664
+0     40   0   0             @const666
+0     40   0   0             @const668
+0     42   0   0             @const670
+0     42   0   0             @const672
+0     44   0   0             @const674
+0     42   0   0             @const676
+0     38   0   0             @const678
+0     32   0   0             @const680
+0     32   0   0             @const681
+0     32   0   0             @const683
+0     32   0   0             @const684
+0     32   0   0             @const685
+0     38   0   0             @const687
+0     38   0   0             @const688
+0     36   0   0             @const689
+0     38   0   0             @const691
+0     38   0   0             @const692
+
+Program metrics:
+    Functions               28
+    Statements              3093
+    Comments                976
+    Volume (V)              224584
+    Difficilty (D)          175.8
+    Effort to implement (E) 39482420
+    Time to implement (T)   609 hours, 18 minutes
+    Est Delivered Bugs (B)  39
+    Cyclomatic Complexity   456
+    Maintainability (MI)    58
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-0009C   150  0  
+0009E-0FFFE  55352  10026  
+10000-17FFE     0  32768  
+
+
+

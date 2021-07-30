@@ -1,0 +1,33 @@
+[PROJECT]
+Target=Mufla.hex
+Processor_Text=PIC18F4685
+CCSVersion=5.059
+Compiler=PCH
+[Target Data]
+FileList=Mufla.c
+[Mufla.c]
+Type=4
+[mru-list]
+1=Mufla.c
+[Units]
+Count=1
+1=Mufla (main)
+
+[defines]
+buildcount=1
+
+[Opened Files]
+1=Mufla.c
+t1=1570
+Count=1
+
+[ProjectLog]
+Days=1
+D1=02-06-2018
+D1_L=2
+D1_L1=[64304]Stopped Editing.
+TotalEdit=3
+TotalDebug=0
+D1_E=3
+D1_D=0
+D1_L2=[64304]Project Closed.

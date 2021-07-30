@@ -1,0 +1,1 @@
+'F:\Firmware Psoc\LCD2\LCD.cydsn\main.c' -o .o -T SOURCE_C__ARM_GCC_GENERIC -I 'F:\Firmware Psoc\LCD2\LCD.cydsn' -I 'F:\Firmware Psoc\LCD2\LCD.cydsn\Generated_Source\PSoC5' -f 'F:\Firmware Psoc\LCD2\LCD.cydsn\CortexM3\ARM_GCC_541\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.d'

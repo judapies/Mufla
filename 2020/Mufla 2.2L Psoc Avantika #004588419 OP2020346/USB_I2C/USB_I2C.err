@@ -1,0 +1,37 @@
+>>> Warning 203 "D:\Laboratorio\Mufla\2020\Mufla 14L Touch Avantika #0045882XX OP202019\USB_I2C\pic18_usb.c" Line 531(1,1): Condition always TRUE
+>>> Warning 216 "USB_I2C.c" Line 120(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_token_reset)
+>>> Warning 216 "USB_I2C.c" Line 120(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_out)
+>>> Warning 216 "USB_I2C.c" Line 120(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_tbe)
+>>> Warning 216 "USB_I2C.c" Line 120(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_in)
+>>> Warning 202 "USB_I2C.c" Line 28(6,16): Variable never used:   Termostato
+>>> Warning 202 "USB_I2C.c" Line 28(19,25): Variable never used:   Puerta
+>>> Warning 202 "USB_I2C.c" Line 28(28,34): Variable never used:   Parada
+>>> Warning 202 "USB_I2C.c" Line 28(37,46): Variable never used:   NivelBajo
+>>> Warning 202 "USB_I2C.c" Line 28(49,58): Variable never used:   NivelAlto
+>>> Warning 202 "USB_I2C.c" Line 29(7,13): Variable never used:   Tpulso
+>>> Warning 202 "USB_I2C.c" Line 29(18,23): Variable never used:   error
+>>> Warning 202 "USB_I2C.c" Line 30(35,51): Variable never used:   PresionPreCamara
+>>> Warning 202 "USB_I2C.c" Line 31(6,10): Variable never used:   Year
+>>> Warning 202 "USB_I2C.c" Line 31(13,16): Variable never used:   Mes
+>>> Warning 202 "USB_I2C.c" Line 31(19,22): Variable never used:   Dia
+>>> Warning 202 "USB_I2C.c" Line 31(25,29): Variable never used:   Hora
+>>> Warning 202 "USB_I2C.c" Line 31(32,38): Variable never used:   Minuto
+>>> Warning 202 "USB_I2C.c" Line 31(41,46): Variable never used:   Ciclo
+>>> Warning 202 "USB_I2C.c" Line 31(49,56): Variable never used:   SetTime
+>>> Warning 202 "USB_I2C.c" Line 32(6,12): Variable never used:   YearRx
+>>> Warning 202 "USB_I2C.c" Line 32(15,20): Variable never used:   MesRx
+>>> Warning 202 "USB_I2C.c" Line 32(23,28): Variable never used:   DiaRx
+>>> Warning 202 "USB_I2C.c" Line 32(31,37): Variable never used:   HoraRx
+>>> Warning 202 "USB_I2C.c" Line 32(40,48): Variable never used:   MinutoRx
+>>> Warning 202 "USB_I2C.c" Line 32(51,60): Variable never used:   SegundoRx
+>>> Warning 202 "USB_I2C.c" Line 32(63,70): Variable never used:   Imprime
+>>> Warning 202 "USB_I2C.c" Line 32(73,80): Variable never used:   CiclosL
+>>> Warning 202 "USB_I2C.c" Line 32(83,90): Variable never used:   CiclosH
+>>> Warning 202 "USB_I2C.c" Line 32(93,100): Variable never used:   AireInt
+>>> Warning 202 "USB_I2C.c" Line 33(7,18): Variable never used:   flagImprime
+>>> Warning 202 "USB_I2C.c" Line 33(21,33): Variable never used:   flagImprime2
+>>> Warning 202 "USB_I2C.c" Line 33(36,44): Variable never used:   Finalizo
+>>> Warning 202 "USB_I2C.c" Line 34(7,20): Variable never used:   PresionCamara
+>>> Warning 202 "USB_I2C.c" Line 34(23,36): Variable never used:   CiclosTotales
+      Memory usage:   ROM=19%      RAM=23% - 24%
+      0 Errors,  35 Warnings.

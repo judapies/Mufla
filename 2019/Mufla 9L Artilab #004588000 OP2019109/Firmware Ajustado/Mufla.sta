@@ -1,0 +1,229 @@
+
+ROM used: 65184 (66%)
+          65184 (66%) including unused fragments
+
+          9 Average locations per line
+          19 Average locations per statement
+
+RAM used: 2017 (61%) at main() level
+          2075 (62%) worst case
+
+Stack used: 6 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+ 2304  2095  62  Mufla.c
+  461     0   0  18F4685.h
+  354    78   2  HDM64GS12.c
+  556   167   5  GRAPHICS.c
+   68     0   0  imagen.h
+ 2172   260   8  MATH.h
+  143    53   2  DS1302.c
+  885   707  21  Funciones.h
+----- -----
+ 6943  3360 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     40   0   1             @delay_ms1
+0      8   0   0             @PUTCHARI_BIU_1
+0    168   0   1   580  3.2  glcd_init
+0    184   0   7   609  5.4  glcd_update
+0    188   0   9   466  7.8  glcd_pixel
+0     90   0  10   317  4.7  glcd_fillScreen
+0     54   0   2   257  2.8  glcd_writeByte
+0    286   0   0             @const98
+0    250   0   0             @const101
+0    318   0  17  1475  8.8  glcd_line
+0    194   0   6  1036  5.8  glcd_rect
+0     84   0   6             @MULS1616
+0    582   0  12  1822  8.6  glcd_circle
+0     78   0   2             @MUL88
+0    458   0  20  1550 11.2  glcd_text57
+0   1052   1   0             @const177
+0    122   0  10             @FLT
+0     60   0   4             @SFTOI
+0     54   0   2             @ITOF
+0    350   0  14             @DIVFF
+0    632   0  16             @ADDFF
+0    286   0  11             @MULFF
+0     80   0   2             @SITOF
+0     40   0   2   199  4.3  write_ds1302_byte
+0     22   0   2    94  1.8  write_ds1302
+0     86   0   3   401  4.9  read_ds1302
+0     82   0   2   247  3.7  rtc_init
+0     50   0   4   160  5.0  get_bcd
+0     44   0   3             @DIV88
+0     50   0   3   160  4.2  rm_bcd
+0    188   0   7   402  2.2  rtc_set_datetime
+ Inline        5   238  3.1  rtc_get_date
+ Inline        4   170  3.0  rtc_get_time
+0    738   1   4   577  5.7  ActualizaRecta
+0     88   0   5   100  2.1  sensores
+0    552   0   5   486  7.6  Leer_Sensor
+0     34   0   5             @MUL1616
+0   4228   3   6  5194  9.0  Controla
+0    120   0   6             @DIVS1616
+0    294   0   8  1050  5.1  displayMenu
+0   1016   1  19  3268  5.5  displayTemps
+0     32   0   1             @SPRINTF
+0    190   0   9             @PRINTF_LU_514
+0     32   0   0             @const520
+0    454   0  16  1613  5.0  displayTiempo
+0    134   0   2             @PRINTF_U_514
+0    440   0  17  1550  5.0  displayTemperatura
+0    182   0   6   483  7.8  glcd_imagen
+0    112   0  16   330  3.4  displayT
+0    122   0  18   330  3.4  displayFloat
+0     66   0   5             @FTOSD
+0    162   0  13             @DIV3232
+0    450   0  13             @PRINTF_L32D_514FPFPF
+0    182   0  15   603  4.5  displayContrasena
+0    224   0   6             @PRINTF_D_514
+0   3172   2   7 10886 10.0  MuestraSegmento
+0     34   0   0             @const590
+0     42   0   0             @const591
+0     34   0   0             @const592
+0     44   0   0             @const593
+0     38   0   0             @const594
+0     40   0   0             @const595
+0     34   0   0    98  1.7  ConfigInicial
+0   3262   3   6  7286  7.5  LeeEEPROM
+0     84   0   3   111  3.8  esBisiesto
+0     72   0   5             @DIV1616
+0    188   0   1   871  4.8  LimitaDia
+0   1604   1  15  5535  6.1  displayFecha
+0     32   0   0             @const620
+0    786   1  14  2528  6.1  displayHora
+0     32   0   0             @const648
+0   1302   1  15  3608  6.1  displayFecha2
+0     32   0   0             @const666
+0    264   0  14   781  4.6  displayHora2
+0    226   0   1  1056  6.8  temp1s
+0  33214  25   4149652 15.0  MAIN
+0     42   0   0             @const693
+0     40   0   0             @const694
+0     38   0   0             @const695
+0     32   0   0             @const696
+0     42   0   3             @PSTRINGC_19200_31766_31767
+0     28   0   0             @const698
+0     50   0   4             @PSTRINGCN_19200_31766_31767
+0    130   0   2             @PRINTF_U_19200_31766_31767
+0     36   0   0             @const704
+0     40   0   0             @const706
+0     42   0   0             @const708
+0     36   0   0             @const709
+0     48   0   0             @const710
+0     46   0   0             @const712
+0     46   0   0             @const714
+0     38   0   0             @const716
+0     44   0   0             @const718
+0     44   0   0             @const720
+0     48   0   0             @const722
+0     42   0   0             @const724
+0     42   0   0             @const727
+0     40   0   0             @const728
+0     42   0   0             @const729
+0     42   0   0             @const730
+0     42   0   0             @const731
+0     42   0   0             @const732
+0     42   0   0             @const733
+0     42   0   0             @const734
+0     28   0   0             @const735
+0     16   0   0             @const736
+0     18   0   0             @const737
+0     30   0   0             @const738
+0     42   0   0             @const739
+0     42   0   0             @const740
+0     38   0   0             @const741
+0     40   0   0             @const752
+0     40   0   0             @const759
+0     40   0   0             @const760
+0     42   0   0             @const766
+0     36   0   0             @const767
+0     36   0   0             @const768
+0     24   0   0             @const770
+0     40   0   0             @const771
+0    428   0  13             @PRINTF_L32D_19200_31766_31767FPFPF
+0     48   0   0             @const775
+0     50   0   0             @const776
+0     34   0   0             @const777
+0     34   0   0             @const778
+0     30   0   0             @const781
+0     52   0   0             @const782
+0     50   0   0             @const783
+0     46   0   0             @const784
+0     46   0   0             @const785
+0     48   0   0             @const786
+0     48   0   0             @const787
+0     46   0   0             @const788
+0     52   0   0             @const789
+0     46   0   0             @const790
+0     34   0   0             @const791
+0     34   0   0             @const792
+0     34   0   0             @const793
+0     36   0   0             @const794
+0     34   0   0             @const795
+0     34   0   0             @const796
+0     34   0   0             @const797
+0     34   0   0             @const798
+0     34   0   0             @const799
+0     34   0   0             @const800
+0     34   0   0             @const801
+0     34   0   0             @const802
+0     34   0   0             @const803
+0     34   0   0             @const804
+0     36   0   0             @const805
+0     36   0   0             @const808
+0     38   0   0             @const809
+0     32   0   0             @const810
+0     36   0   0             @const811
+0     36   0   0             @const813
+0     36   0   0             @const815
+0     50   0   0             @const816
+0     18   0   0             @const817
+0     22   0   0             @const818
+0     48   0   0             @const819
+0     44   0   0             @const820
+0     40   0   0             @const822
+0     42   0   0             @const824
+0     38   0   0             @const826
+0     40   0   0             @const828
+0     40   0   0             @const830
+0     42   0   0             @const832
+0     42   0   0             @const834
+0     44   0   0             @const836
+0     42   0   0             @const838
+0     38   0   0             @const840
+0     44   0   0             @const842
+0     32   0   0             @const843
+0     32   0   0             @const844
+0     32   0   0             @const845
+0     38   0   0             @const847
+0     38   0   0             @const848
+0     36   0   0             @const849
+0     38   0   0             @const851
+0     38   0   0             @const852
+
+Program metrics:
+    Functions               41
+    Statements              3360
+    Comments                972
+    Volume (V)              263566
+    Difficilty (D)          226.6
+    Effort to implement (E) 59723686
+    Time to implement (T)   921 hours, 40 minutes
+    Est Delivered Bugs (B)  51
+    Cyclomatic Complexity   527
+    Maintainability (MI)    99
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-0009C   150  0  
+0009E-0FFFE  65030  348  
+10000-17FFE     0  32768  
+
+
+

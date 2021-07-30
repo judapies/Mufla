@@ -1,0 +1,140 @@
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/CortexM3/ARM_GCC_541/Debug/main.o : D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_Ext_CP_Clk.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_IRQ.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_SAR.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_SAR_IRQ.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_SAR_theACLK.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_theACLK.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/CyDmac.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/CyFlash.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/CyLib.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/CySpc.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/DOOR.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/DOOR_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/EEPROM.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/I2C.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/I2C_IntClock.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/I2C_PVT.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LCD1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LCD1_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LCD2.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LCD2_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LED.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LED_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LM35.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LM35_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/RX1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/RX2.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Reloj.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SCL.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SCL_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SDA.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SDA_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SSR.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SSR_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SW.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SW_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Thermocouple_1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Timer.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Timer2.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Tneg.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Tneg_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Tpos.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Tpos_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_1_IntClock.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_2.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_2_IntClock.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_3.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_3_IntClock.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/VENT1.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/VENT1_aliases.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cmsis_armcc.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cmsis_compiler.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cmsis_gcc.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/core_cm3.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cyPm.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cydevice.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cydevice_trm.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cydisabledsheets.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cyfitter.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cypins.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cytypes.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/leeT.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/project.h D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/main.c D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/main.h 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_Ext_CP_Clk.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_IRQ.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_SAR.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_SAR_IRQ.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_SAR_theACLK.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/ADC_theACLK.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/DOOR.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/DOOR_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/EEPROM.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/I2C.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/I2C_IntClock.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/I2C_PVT.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LCD1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LCD1_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LCD2.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LCD2_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LED.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LED_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LM35.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/LM35_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/RX1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/RX2.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Reloj.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SCL.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SCL_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SDA.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SDA_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SSR.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SSR_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SW.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/SW_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Thermocouple_1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Timer.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Timer2.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Tneg.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Tneg_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Tpos.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/Tpos_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_1_IntClock.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_2.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_2_IntClock.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_3.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/UART_3_IntClock.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/VENT1.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/VENT1_aliases.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/leeT.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/Generated_Source/PSoC5/project.h : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/main.c : 
+
+D:/Laboratorio/Mufla/2020/Mufla\ 14L\ Touch\ Avantika\ #0045882XX\ OP202019/Mufla\ Doble\ Display/Firmware\ Psoc/LCD2/LCD.cydsn/main.h : 
+

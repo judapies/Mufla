@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MuflaGLCD\MuflaGLCD\Source Files\Funciones.c">
+<ExpandedNodeIds>
+<v>MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD\TopDesign</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Pins</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Analog</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Clocks</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Interrupts</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\DMA</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\System</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Directives</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Flash Security</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\EEPROM</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\cyapicallbacks.h</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\device.h</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\Funciones.h</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\ks0108.h</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\main.h</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\coldJnTemp.c</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\Funciones.c</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\ks0108.c</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\main.c</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\removeoffsetnoise.c</v>
+<v>MuflaGLCD\MuflaGLCD\Generated_Source</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD\TopDesign</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Pins</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Analog</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Clocks</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Interrupts</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\DMA</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\System</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Directives</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\Flash Security</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.cydwr\EEPROM</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\cyapicallbacks.h</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\device.h</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\Funciones.h</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\ks0108.h</v>
+<v>MuflaGLCD\MuflaGLCD\Header Files\main.h</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\coldJnTemp.c</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\Funciones.c</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\ks0108.c</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\main.c</v>
+<v>MuflaGLCD\MuflaGLCD\Source Files\removeoffsetnoise.c</v>
+<v>MuflaGLCD\MuflaGLCD\Generated_Source</v>
+<v>MuflaGLCD\MuflaGLCD\Generated_Source\PSoC5</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD\TopDesign</v>
+<v>MuflaGLCD\MuflaGLCD\TopDesign\TopDesign.cysch</v>
+<v>MuflaGLCD\MuflaGLCD\TopDesign\TopDesign_01.cymacro</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD\TopDesign</v>
+<v>MuflaGLCD\MuflaGLCD\TopDesign\TopDesign.cysch</v>
+<v>MuflaGLCD\MuflaGLCD\TopDesign\TopDesign_01.cymacro</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_Ext_CP_Clk.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_IRQ.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_theACLK.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_theACLK.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\BUZZER.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\coldJnTemp.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CS_1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CS_2.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\D_I.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_0.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_2.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_3.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_4.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_5.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_6.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_7.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DOOR.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DOWN.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\EEPROM.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ENABLE.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Funciones.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ks0108.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD2.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD3.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\LEFT.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\LM35.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\R_W.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Reloj.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\removeoffsetnoise.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\RESET.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\RIGHT.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\RX1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\SSR.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Thermocouple_1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Tneg.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Tpos.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\UP.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\VENT1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\VENT2.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\MuflaGLCD.elf</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\MuflaGLCD.hex</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\MuflaGLCD.map</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.gpdsc</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD.rpt</v>
+<v>MuflaGLCD\MuflaGLCD\MuflaGLCD_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_Ext_CP_Clk.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_IRQ.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_theACLK.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_theACLK.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\BUZZER.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\coldJnTemp.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CS_1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CS_2.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\D_I.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_0.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_1.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_2.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_3.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_4.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_5.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_6.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DB_7.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DOOR.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\DOWN.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\EEPROM.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ENABLE.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\Funciones.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\ks0108.lst</v>
+<v>MuflaGLCD\MuflaGLCD\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD1.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD\PSoC 5LP Architecture TRM</v>
+<v>MuflaGLCD\MuflaGLCD\CY8C58LP Family Datasheet</v>
+<v>MuflaGLCD\MuflaGLCD\System Reference Guides</v>
+<v>MuflaGLCD\MuflaGLCD\System Reference Guides\cy_boot_v6_0</v>
+<v>MuflaGLCD\MuflaGLCD\Project Datasheet</v>
+<v>MuflaGLCD\MuflaGLCD\ADC_DelSig_v3_30.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\ADC_SAR_v3_10.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\cy_clock_v2_20.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\cy_isr_v1_70</v>
+<v>MuflaGLCD\MuflaGLCD\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\cy_pins_v2_20</v>
+<v>MuflaGLCD\MuflaGLCD\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\EEPROM_v3_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Gnd_v1_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Power_v1_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Resistor_v1_0</v>
+<v>MuflaGLCD\MuflaGLCD\Resistor_v1_0\Resistor_v1_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Thermocouple_v1_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\ThermocoupleCalc_v1_20.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Timer_v2_80.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\UART_v2_50.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\ZeroTerminal.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD</v>
+<v>MuflaGLCD\MuflaGLCD\PSoC 5LP Architecture TRM</v>
+<v>MuflaGLCD\MuflaGLCD\CY8C58LP Family Datasheet</v>
+<v>MuflaGLCD\MuflaGLCD\System Reference Guides</v>
+<v>MuflaGLCD\MuflaGLCD\System Reference Guides\cy_boot_v6_0</v>
+<v>MuflaGLCD\MuflaGLCD\Project Datasheet</v>
+<v>MuflaGLCD\MuflaGLCD\ADC_DelSig_v3_30.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\ADC_SAR_v3_10.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\cy_clock_v2_20.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\cy_isr_v1_70</v>
+<v>MuflaGLCD\MuflaGLCD\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\cy_pins_v2_20</v>
+<v>MuflaGLCD\MuflaGLCD\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\EEPROM_v3_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Gnd_v1_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Power_v1_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Resistor_v1_0</v>
+<v>MuflaGLCD\MuflaGLCD\Resistor_v1_0\Resistor_v1_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Thermocouple_v1_0.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\ThermocoupleCalc_v1_20.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\Timer_v2_80.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\UART_v2_50.pdf</v>
+<v>MuflaGLCD\MuflaGLCD\ZeroTerminal.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+<dataGuid v="6c335137-fa19-46ce-bc2d-2fbeb6d5f2a2">
+<CyGuid_70084457-cd6a-4593-9ed0-7f6eeb432dc2 type_name="CyDesigner.Common.ProjMgmt.GUI.CyDependenciesCustomData" version="1">
+<dictName v=".\MuflaGLCD.cydsn\MuflaGLCD.cyprj">
+<listName />
+</dictName>
+</CyGuid_70084457-cd6a-4593-9ed0-7f6eeb432dc2>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\MuflaGLCD.cydsn\main.c" />
+<name v=".\MuflaGLCD.cydsn\Funciones.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1392, 716" SelectedTabbedMdiWindow="3b22c171-d24f-44ba-8d41-11a5521ff06b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="a6313802-ca36-4a15-971f-dc623d96c5d7" /><DocumentWindow Key="D:\Laboratorio\Mufla\2021\Mufla 3L Psoc Artilab #0045886XX OP2021128\Firmware Psoc\LCD2\MuflaGLCD.cydsn\main.c" Guid="3b22c171-d24f-44ba-8d41-11a5521ff06b" /><DocumentWindow Key="D:\Laboratorio\Mufla\2021\Mufla 3L Psoc Artilab #0045886XX OP2021128\Firmware Psoc\LCD2\MuflaGLCD.cydsn\Funciones.c" Guid="99bcbf2e-b4b1-4c36-8cd7-00544252c4ae" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
